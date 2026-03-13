@@ -1322,16 +1322,64 @@ address { font-style: normal; }
   gap: 2.5rem;
 }
 
-.location__map {
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
+.location__map-wrap {
+  position: relative;
+  flex: 2;
+  min-width: 0;
 }
 
-.location__map img {
+#map {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+  height: 350px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  background: var(--color-bg-dark);
+}
+
+/* 지도 위 오버레이 버튼 */
+.location__map-overlay {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.location__nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-white);
+  border-radius: 24px;
+  transition: all var(--transition);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  white-space: nowrap;
+}
+
+.location__nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.location__nav-btn--naver {
+  background: #03C75A;
+}
+
+.location__nav-btn--naver:hover {
+  background: #02b350;
+}
+
+.location__nav-btn--kakao {
+  background: #3B82F6;
+}
+
+.location__nav-btn--kakao:hover {
+  background: #2563EB;
 }
 
 .location__details {
@@ -1577,8 +1625,9 @@ address { font-style: normal; }
     align-items: flex-start;
     gap: 3rem;
   }
-  .location__map { flex: 2; }
+  .location__map-wrap { flex: 2; }
   .location__info { flex: 1; }
+  #map { height: 400px; }
 
   /* Footer - 가로 */
   .footer__top {
@@ -1736,6 +1785,7 @@ address { font-style: normal; }
 
   /* Location */
   .location { padding: 7rem 0; }
+  #map { height: 450px; }
 
   /* Floating */
   .floating__btn { width: 56px; height: 56px; }
