@@ -9,10 +9,9 @@
   <meta name="keywords" content="법률사무소, 개인회생, 파산, 민형사, 가사, 이혼, 법인회생, 안산, 무료상담">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="법률사무소 시민">
+  <meta property="og:title" content="법률사무소 시민 - 당신의 답이 되는 법률 파트너">
   <meta property="og:type" content="website">
-  <meta property="og:description" content="신뢰로 보답하는 법률사무소 시민. 개인회생·파산·민형사·가사·이혼 전문">
-  <meta property="og:image" content="">
+  <meta property="og:description" content="개인회생·파산·민형사·가사·이혼 전문. 무료 상담 031-438-2585">
   <meta property="og:locale" content="ko_KR">
 
   <!-- Favicon -->
@@ -20,7 +19,11 @@
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#5C4033">
+  <meta name="theme-color" content="#1A1A1A">
+
+  <!-- 웹폰트: Pretendard -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
@@ -28,15 +31,28 @@
 
 <body>
 
+  <!-- ========== Header 상단 바 ========== -->
+  <div class="header-top">
+    <div class="container header-top__inner">
+      <p class="header-top__info">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <a href="tel:031-438-2585"><strong>031-438-2585</strong></a>
+        <span class="header-top__sep">|</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        평일 09:00 ~ 18:00
+      </p>
+    </div>
+  </div>
+
   <!-- ========== Header ========== -->
   <header class="header" id="header">
     <div class="container header__inner">
       <a href="/" class="header__logo" aria-label="법률사무소 시민 홈">
-        <span class="logo__icon">⚖</span>
+        <span class="logo__symbol">⚖</span>
         <span class="logo__text">법률사무소 <strong>시민</strong></span>
       </a>
 
-      <!-- 모바일 햄버거 메뉴 버튼 -->
+      <!-- 모바일 햄버거 -->
       <button class="header__toggle" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false">
         <span class="toggle__bar"></span>
         <span class="toggle__bar"></span>
@@ -46,14 +62,30 @@
       <!-- 내비게이션 -->
       <nav class="header__nav" id="mainNav" aria-label="주 메뉴">
         <ul class="nav__list">
-          <li class="nav__item"><a href="#about" class="nav__link">법률사무소 시민 소개</a></li>
+          <li class="nav__item"><a href="#about" class="nav__link">시민 소개</a></li>
           <li class="nav__item"><a href="#recovery" class="nav__link">개인회생 / 파산</a></li>
           <li class="nav__item"><a href="#civil" class="nav__link">민형사 / 가사 / 이혼</a></li>
-          <li class="nav__item"><a href="#consult" class="nav__link">빠른 상담신청</a></li>
-          <li class="nav__item"><a href="#location" class="nav__link">오시는 길</a></li>
           <li class="nav__item"><a href="#corporate" class="nav__link">법인 회생</a></li>
+          <li class="nav__item"><a href="#location" class="nav__link">오시는 길</a></li>
         </ul>
+        <!-- 모바일 메뉴 하단 버튼 -->
+        <div class="nav__bottom">
+          <a href="tel:031-438-2585" class="nav__phone-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            031-438-2585
+          </a>
+          <a href="#consult" class="nav__consult-btn">무료 상담 신청</a>
+        </div>
       </nav>
+
+      <!-- 데스크탑 우측 버튼 -->
+      <div class="header__right">
+        <a href="tel:031-438-2585" class="header__phone">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          031-438-2585
+        </a>
+        <a href="#consult" class="header__cta-btn">상담신청</a>
+      </div>
     </div>
   </header>
 
@@ -61,92 +93,144 @@
 
     <!-- ========== Hero Section ========== -->
     <section class="hero" id="hero">
+      <div class="hero__bg">
+        <!-- 장식 요소: 기하학적 라인 -->
+        <div class="hero__deco hero__deco--1"></div>
+        <div class="hero__deco hero__deco--2"></div>
+        <div class="hero__deco hero__deco--3"></div>
+        <div class="hero__deco hero__deco--circle"></div>
+        <!-- 정의의 저울 SVG 장식 -->
+        <svg class="hero__symbol" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="100" y1="20" x2="100" y2="170" stroke="currentColor" stroke-width="2"/>
+          <line x1="40" y1="60" x2="160" y2="60" stroke="currentColor" stroke-width="2"/>
+          <circle cx="100" cy="20" r="8" stroke="currentColor" stroke-width="2"/>
+          <path d="M40 60 L25 110 L55 110 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <path d="M160 60 L145 110 L175 110 Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <rect x="80" y="165" width="40" height="8" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <ellipse cx="100" cy="180" rx="50" ry="6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
       <div class="hero__overlay"></div>
+
       <div class="container hero__content">
-        <h1 class="hero__title">신뢰로 보답하는<br>법률사무소 시민</h1>
+        <div class="hero__badge">
+          <span class="hero__badge-dot"></span>
+          무료 상담 가능
+        </div>
+        <p class="hero__label">Trust · Expertise · Solution</p>
+        <h1 class="hero__title">
+          <span class="hero__title-light">당신의 답이 되는</span>
+          <span class="hero__title-bold">법률사무소 시민</span>
+        </h1>
+        <div class="hero__divider"></div>
         <p class="hero__subtitle">개인회생 · 파산 · 민형사 · 가사 · 이혼</p>
-        <a href="#consult" class="btn btn--primary btn--lg">무료 상담 신청</a>
+
+        <!-- 핵심 수치 (히어로 내부) -->
+        <div class="hero__stats">
+          <div class="hero__stat">
+            <span class="hero__stat-num" data-target="15">0</span><span class="hero__stat-unit">년+</span>
+            <p>법률 실무 경력</p>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-num" data-target="3000">0</span><span class="hero__stat-unit">건+</span>
+            <p>누적 상담 건수</p>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-num" data-target="95">0</span><span class="hero__stat-unit">%</span>
+            <p>의뢰인 만족도</p>
+          </div>
+        </div>
+
+        <div class="hero__actions">
+          <a href="#consult" class="btn btn--gold btn--lg">
+            무료 상담 신청
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="tel:031-438-2585" class="btn btn--ghost btn--lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            031-438-2585
+          </a>
+        </div>
+      </div>
+
+      <!-- 스크롤 인디케이터 -->
+      <div class="hero__scroll">
+        <span>Scroll</span>
+        <div class="hero__scroll-line"></div>
       </div>
     </section>
 
     <!-- ========== 서비스 메뉴 섹션 ========== -->
     <section class="services" id="services">
       <div class="container">
-        <h2 class="section__title">주요 서비스</h2>
+        <p class="section__label">Our Services</p>
+        <h2 class="section__title">업무 분야</h2>
+
         <div class="services__grid">
-          <!-- 카드 1: 소개 -->
           <a href="#about" class="service-card">
             <div class="service-card__icon">
-              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="24" cy="14" r="8"/>
-                <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16"/>
+              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="24" cy="14" r="8"/><path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16"/>
               </svg>
             </div>
-            <h3 class="service-card__title">소개</h3>
-            <p class="service-card__desc">법률사무소 시민을 소개합니다</p>
+            <h3 class="service-card__title">법률사무소 시민 소개</h3>
+            <p class="service-card__desc">신뢰와 전문성으로<br>의뢰인의 권리를 지킵니다</p>
+            <span class="service-card__arrow">&rarr;</span>
           </a>
 
-          <!-- 카드 2: 개인회생 / 파산 -->
           <a href="#recovery" class="service-card">
             <div class="service-card__icon">
-              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M6 38h36M10 38V20l14-12 14 12v18"/>
-                <rect x="18" y="26" width="12" height="12"/>
+              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="24" cy="24" r="20"/><path d="M24 14v10l7 7"/>
               </svg>
             </div>
             <h3 class="service-card__title">개인회생 / 파산</h3>
-            <p class="service-card__desc">채무 면책 및 회생 절차 안내</p>
+            <p class="service-card__desc">최대 90% 채무 감면<br>새로운 시작을 도와드립니다</p>
+            <span class="service-card__arrow">&rarr;</span>
           </a>
 
-          <!-- 카드 3: 민형사 / 가사 / 이혼 -->
           <a href="#civil" class="service-card">
             <div class="service-card__icon">
-              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M24 4L4 16h40L24 4zM8 16v20h32V16"/>
-                <line x1="16" y1="16" x2="16" y2="36"/>
-                <line x1="24" y1="16" x2="24" y2="36"/>
-                <line x1="32" y1="16" x2="32" y2="36"/>
-                <rect x="4" y="36" width="40" height="4"/>
+              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M24 4L4 16h40L24 4zM8 16v20h32V16"/><line x1="16" y1="16" x2="16" y2="36"/><line x1="24" y1="16" x2="24" y2="36"/><line x1="32" y1="16" x2="32" y2="36"/><rect x="4" y="36" width="40" height="4"/>
               </svg>
             </div>
             <h3 class="service-card__title">민형사 / 가사 / 이혼</h3>
-            <p class="service-card__desc">민사·형사·가사·이혼 소송 전문</p>
+            <p class="service-card__desc">풍부한 소송 경험으로<br>최선의 결과를 이끌어냅니다</p>
+            <span class="service-card__arrow">&rarr;</span>
           </a>
 
-          <!-- 카드 4: 빠른 상담신청 -->
           <a href="#consult" class="service-card">
             <div class="service-card__icon">
-              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="6" y="8" width="36" height="28" rx="4"/>
-                <path d="M6 16l18 10 18-10"/>
+              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="6" y="8" width="36" height="28" rx="4"/><path d="M6 16l18 10 18-10"/>
               </svg>
             </div>
             <h3 class="service-card__title">빠른 상담신청</h3>
-            <p class="service-card__desc">온라인으로 빠르게 상담 신청</p>
+            <p class="service-card__desc">온라인으로 간편하게<br>무료 상담을 신청하세요</p>
+            <span class="service-card__arrow">&rarr;</span>
           </a>
 
-          <!-- 카드 5: 오시는 길 -->
           <a href="#location" class="service-card">
             <div class="service-card__icon">
-              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M24 4C16.268 4 10 10.268 10 18c0 10 14 26 14 26s14-16 14-26c0-7.732-6.268-14-14-14z"/>
-                <circle cx="24" cy="18" r="5"/>
+              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M24 4C16.268 4 10 10.268 10 18c0 10 14 26 14 26s14-16 14-26c0-7.732-6.268-14-14-14z"/><circle cx="24" cy="18" r="5"/>
               </svg>
             </div>
             <h3 class="service-card__title">오시는 길</h3>
-            <p class="service-card__desc">법률사무소 시민 위치 안내</p>
+            <p class="service-card__desc">법률사무소 시민<br>찾아오시는 방법 안내</p>
+            <span class="service-card__arrow">&rarr;</span>
           </a>
 
-          <!-- 카드 6: 전화 상담 -->
-          <a href="tel:031-438-2585" class="service-card service-card--phone">
+          <a href="tel:031-438-2585" class="service-card service-card--accent">
             <div class="service-card__icon">
-              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M14 4h20a2 2 0 012 2v36a2 2 0 01-2 2H14a2 2 0 01-2-2V6a2 2 0 012-2z"/>
-                <line x1="20" y1="38" x2="28" y2="38"/>
+              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M34 3H14a3 3 0 00-3 3v36a3 3 0 003 3h20a3 3 0 003-3V6a3 3 0 00-3-3z"/><line x1="20" y1="39" x2="28" y2="39"/>
               </svg>
             </div>
             <h3 class="service-card__title">전화 상담</h3>
             <p class="service-card__phone">031-438-2585</p>
+            <span class="service-card__arrow">&rarr;</span>
           </a>
         </div>
       </div>
@@ -155,19 +239,31 @@
     <!-- ========== 법률사무소 시민 소개 ========== -->
     <section class="about" id="about">
       <div class="container">
-        <h2 class="section__title">법률사무소 시민 소개</h2>
         <div class="about__content">
           <div class="about__image">
-            <img src="https://placehold.co/600x400/5C4033/FFFFFF?text=법률사무소+시민" alt="법률사무소 시민 사무실" width="600" height="400" loading="lazy">
+            <img src="https://placehold.co/640x480/2C2C2C/FFFFFF?text=법률사무소+시민" alt="법률사무소 시민" width="640" height="480" loading="lazy">
           </div>
           <div class="about__text">
-            <h3>의뢰인의 권리를 최우선으로 생각합니다</h3>
-            <p>법률사무소 시민은 풍부한 경험과 전문 지식을 바탕으로 의뢰인에게 최선의 법률 서비스를 제공합니다. 개인회생, 파산, 민형사, 가사, 이혼 등 다양한 분야에서 신뢰할 수 있는 법률 조력자가 되겠습니다.</p>
+            <p class="section__label">About Us</p>
+            <h2 class="section__title section__title--left">의뢰인의 권리를<br>최우선으로 생각합니다</h2>
+            <p class="about__desc">법률사무소 시민은 풍부한 경험과 전문 지식을 바탕으로 의뢰인에게 최선의 법률 서비스를 제공합니다. 개인회생, 파산, 민형사, 가사, 이혼 등 다양한 분야에서 신뢰할 수 있는 법률 조력자가 되겠습니다.</p>
             <ul class="about__list">
-              <li>풍부한 실무 경험</li>
-              <li>의뢰인 중심의 맞춤 상담</li>
-              <li>합리적인 수임료</li>
-              <li>신속하고 정확한 업무 처리</li>
+              <li>
+                <strong>풍부한 실무 경험</strong>
+                <span>다년간의 법률 실무를 통해 축적된 노하우</span>
+              </li>
+              <li>
+                <strong>의뢰인 중심 상담</strong>
+                <span>개인 상황에 맞춘 1:1 맞춤 법률 서비스</span>
+              </li>
+              <li>
+                <strong>합리적인 수임료</strong>
+                <span>투명하고 합리적인 비용 안내</span>
+              </li>
+              <li>
+                <strong>신속한 업무 처리</strong>
+                <span>빠르고 정확한 사건 진행</span>
+              </li>
             </ul>
           </div>
         </div>
@@ -177,57 +273,79 @@
     <!-- ========== 개인회생 / 파산 소개 ========== -->
     <section class="recovery" id="recovery">
       <div class="container">
+        <p class="section__label">Debt Solution</p>
         <h2 class="section__title">개인회생 / 파산</h2>
 
         <div class="recovery__grid">
           <!-- 개인파산 -->
           <article class="recovery__card">
-            <h3 class="recovery__card-title">개인파산 (면책)</h3>
-            <p class="recovery__card-desc">개인파산(면책)은 과도한 채무로 인해 채무를 변제할 수 없는 상태에서 법원의 절차를 통해 채무를 면제받는 제도입니다.</p>
-            <h4 class="recovery__card-subtitle">개인파산의 장점</h4>
+            <div class="recovery__card-header">
+              <span class="recovery__badge">면책 제도</span>
+              <h3 class="recovery__card-title">개인파산</h3>
+            </div>
+            <p class="recovery__card-desc">과도한 채무로 인해 채무를 변제할 수 없는 상태에서 법원의 절차를 통해 채무를 면제받는 제도입니다.</p>
             <ul class="recovery__benefits">
               <li>
-                <span class="benefit__icon">✓</span>
+                <span class="benefit__check">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
                 <span>강제집행 금지</span>
               </li>
               <li>
-                <span class="benefit__icon">✓</span>
+                <span class="benefit__check">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
                 <span>채무 전액 면책 가능</span>
               </li>
               <li>
-                <span class="benefit__icon">✓</span>
+                <span class="benefit__check">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
                 <span>금융채무 및 사채 포함</span>
               </li>
               <li>
-                <span class="benefit__icon">✓</span>
+                <span class="benefit__check">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
                 <span>면책 후 경제활동 가능</span>
               </li>
             </ul>
           </article>
 
           <!-- 개인회생 -->
-          <article class="recovery__card">
-            <h3 class="recovery__card-title">개인회생</h3>
-            <p class="recovery__card-desc">개인회생은 일정한 소득이 있는 채무자가 채무를 일부 변제하고 나머지를 면책받을 수 있는 제도입니다.</p>
-            <div class="recovery__highlight">
-              <strong>최대 90%까지 채무 조정 가능</strong>
+          <article class="recovery__card recovery__card--featured">
+            <div class="recovery__card-header">
+              <span class="recovery__badge recovery__badge--gold">추천</span>
+              <h3 class="recovery__card-title">개인회생</h3>
             </div>
-            <h4 class="recovery__card-subtitle">개인회생의 장점</h4>
+            <p class="recovery__card-desc">일정한 소득이 있는 채무자가 채무를 일부 변제하고 나머지를 면책받을 수 있는 제도입니다.</p>
+            <div class="recovery__highlight">
+              <span class="recovery__highlight-number">90%</span>
+              <span class="recovery__highlight-text">최대 채무 조정 가능</span>
+            </div>
             <ul class="recovery__benefits">
               <li>
-                <span class="benefit__icon">✓</span>
+                <span class="benefit__check">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
                 <span>채무 최대 90% 감면</span>
               </li>
               <li>
-                <span class="benefit__icon">✓</span>
+                <span class="benefit__check">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
                 <span>재산 보전 가능</span>
               </li>
               <li>
-                <span class="benefit__icon">✓</span>
+                <span class="benefit__check">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
                 <span>급여 압류 해제</span>
               </li>
               <li>
-                <span class="benefit__icon">✓</span>
+                <span class="benefit__check">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
                 <span>3~5년 변제 후 면책</span>
               </li>
             </ul>
@@ -239,19 +357,41 @@
     <!-- ========== 민형사 / 가사 / 이혼 ========== -->
     <section class="civil" id="civil">
       <div class="container">
+        <p class="section__label">Practice Areas</p>
         <h2 class="section__title">민형사 / 가사 / 이혼</h2>
+
         <div class="civil__grid">
           <article class="civil__card">
+            <div class="civil__number">01</div>
             <h3>민사 소송</h3>
             <p>손해배상, 부당이득반환, 계약 분쟁 등 민사 전반에 걸친 법률 서비스를 제공합니다.</p>
+            <ul class="civil__tags">
+              <li>손해배상</li>
+              <li>계약분쟁</li>
+              <li>부동산</li>
+            </ul>
           </article>
+
           <article class="civil__card">
+            <div class="civil__number">02</div>
             <h3>형사 사건</h3>
             <p>형사 고소·고발, 피의자 변호, 피해자 대리 등 형사 사건 전반을 전문적으로 처리합니다.</p>
+            <ul class="civil__tags">
+              <li>고소·고발</li>
+              <li>피의자변호</li>
+              <li>피해자대리</li>
+            </ul>
           </article>
+
           <article class="civil__card">
+            <div class="civil__number">03</div>
             <h3>가사 · 이혼</h3>
             <p>이혼 소송, 위자료, 양육권, 재산 분할 등 가사 사건에 대한 종합적인 법률 지원을 합니다.</p>
+            <ul class="civil__tags">
+              <li>이혼소송</li>
+              <li>양육권</li>
+              <li>재산분할</li>
+            </ul>
           </article>
         </div>
       </div>
@@ -259,79 +399,103 @@
 
     <!-- ========== 법인 회생 ========== -->
     <section class="corporate" id="corporate">
-      <div class="container">
-        <h2 class="section__title">법인 회생</h2>
-        <div class="corporate__content">
-          <p>재정적 어려움에 처한 법인이 회생 절차를 통해 사업을 정상화할 수 있도록 전문적인 법률 서비스를 제공합니다. 법인 회생 계획 수립부터 인가까지 전 과정을 함께합니다.</p>
-          <a href="#consult" class="btn btn--primary">법인 회생 상담 신청</a>
-        </div>
+      <div class="corporate__bg"></div>
+      <div class="container corporate__content">
+        <p class="section__label section__label--light">Corporate Recovery</p>
+        <h2 class="section__title section__title--light">법인 회생</h2>
+        <p class="corporate__desc">재정적 어려움에 처한 법인이 회생 절차를 통해 사업을 정상화할 수 있도록<br>전문적인 법률 서비스를 제공합니다.</p>
+        <p class="corporate__sub">법인 회생 계획 수립부터 인가까지 전 과정을 함께합니다.</p>
+        <a href="#consult" class="btn btn--white btn--lg">법인 회생 상담</a>
       </div>
     </section>
 
     <!-- ========== 상담 CTA 섹션 ========== -->
     <section class="cta" id="consult">
-      <div class="container cta__content">
-        <h2 class="cta__title">채무 문제로 고민하고 계신가요?</h2>
-        <p class="cta__desc">법률사무소 시민이 새로운 시작을 도와드립니다.<br>부담 없이 상담해 주세요.</p>
-        <div class="cta__buttons">
-          <a href="#consult-form" class="btn btn--primary btn--lg">무료 상담 신청</a>
-          <a href="tel:031-438-2585" class="btn btn--outline btn--lg">전화 상담 031-438-2585</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== 상담 신청 폼 ========== -->
-    <section class="consult-form" id="consult-form">
       <div class="container">
-        <h2 class="section__title">빠른 상담 신청</h2>
-        <form class="form" action="#" method="post">
-          <div class="form__group">
-            <label for="name" class="form__label">이름</label>
-            <input type="text" id="name" name="name" class="form__input" placeholder="이름을 입력하세요" required>
+        <div class="cta__inner">
+          <div class="cta__text">
+            <p class="section__label">Free Consultation</p>
+            <h2 class="cta__title">채무 문제로<br>고민하고 계신가요?</h2>
+            <p class="cta__desc">법률사무소 시민이 새로운 시작을 도와드립니다.<br>부담 없이 상담해 주세요.</p>
+            <div class="cta__contact">
+              <a href="tel:031-438-2585" class="cta__phone">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                031-438-2585
+              </a>
+            </div>
           </div>
-          <div class="form__group">
-            <label for="phone" class="form__label">연락처</label>
-            <input type="tel" id="phone" name="phone" class="form__input" placeholder="연락처를 입력하세요" required>
+
+          <!-- 상담 신청 폼 -->
+          <div class="cta__form-wrapper" id="consult-form">
+            <h3 class="cta__form-title">빠른 상담 신청</h3>
+            <form class="form" action="#" method="post">
+              <div class="form__row">
+                <div class="form__group">
+                  <label for="name" class="form__label">이름</label>
+                  <input type="text" id="name" name="name" class="form__input" placeholder="홍길동" required>
+                </div>
+                <div class="form__group">
+                  <label for="phone" class="form__label">연락처</label>
+                  <input type="tel" id="phone" name="phone" class="form__input" placeholder="010-0000-0000" required>
+                </div>
+              </div>
+              <div class="form__group">
+                <label for="category" class="form__label">상담 분야</label>
+                <select id="category" name="category" class="form__input form__select" required>
+                  <option value="">상담 분야를 선택하세요</option>
+                  <option value="개인회생">개인회생</option>
+                  <option value="개인파산">개인파산</option>
+                  <option value="민사">민사 소송</option>
+                  <option value="형사">형사 사건</option>
+                  <option value="가사/이혼">가사 / 이혼</option>
+                  <option value="법인회생">법인 회생</option>
+                  <option value="기타">기타</option>
+                </select>
+              </div>
+              <div class="form__group">
+                <label for="message" class="form__label">상담 내용</label>
+                <textarea id="message" name="message" class="form__input form__textarea" placeholder="상담 내용을 간단히 적어주세요" rows="4"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg btn--full">상담 신청하기</button>
+              <p class="form__notice">* 상담 내용은 철저히 비밀이 보장됩니다.</p>
+            </form>
           </div>
-          <div class="form__group">
-            <label for="category" class="form__label">상담 분야</label>
-            <select id="category" name="category" class="form__input" required>
-              <option value="">상담 분야를 선택하세요</option>
-              <option value="개인회생">개인회생</option>
-              <option value="개인파산">개인파산</option>
-              <option value="민사">민사 소송</option>
-              <option value="형사">형사 사건</option>
-              <option value="가사/이혼">가사 / 이혼</option>
-              <option value="법인회생">법인 회생</option>
-              <option value="기타">기타</option>
-            </select>
-          </div>
-          <div class="form__group">
-            <label for="message" class="form__label">상담 내용</label>
-            <textarea id="message" name="message" class="form__input form__textarea" placeholder="상담 내용을 간단히 적어주세요" rows="5"></textarea>
-          </div>
-          <button type="submit" class="btn btn--primary btn--lg btn--full">상담 신청하기</button>
-        </form>
+        </div>
       </div>
     </section>
 
     <!-- ========== 오시는 길 ========== -->
     <section class="location" id="location">
       <div class="container">
+        <p class="section__label">Location</p>
         <h2 class="section__title">오시는 길</h2>
+
         <div class="location__content">
           <div class="location__map">
-            <img src="https://placehold.co/800x400/E8DDD3/5C4033?text=지도+영역" alt="법률사무소 시민 위치 지도" width="800" height="400" loading="lazy">
+            <img src="https://placehold.co/900x450/E8E4DE/3E2A1E?text=지도+영역+(Google+Maps+삽입+가능)" alt="법률사무소 시민 위치 지도" width="900" height="450" loading="lazy">
           </div>
           <div class="location__info">
             <dl class="location__details">
               <div class="location__detail-item">
-                <dt>주소</dt>
+                <dt>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  주소
+                </dt>
                 <dd>경기도 안산시</dd>
               </div>
               <div class="location__detail-item">
-                <dt>전화</dt>
+                <dt>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                  전화
+                </dt>
                 <dd><a href="tel:031-438-2585">031-438-2585</a></dd>
+              </div>
+              <div class="location__detail-item">
+                <dt>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  상담시간
+                </dt>
+                <dd>평일 09:00 ~ 18:00</dd>
               </div>
             </dl>
           </div>
@@ -344,18 +508,37 @@
   <!-- ========== Footer ========== -->
   <footer class="footer">
     <div class="container footer__inner">
-      <div class="footer__info">
-        <p class="footer__logo">법률사무소 <strong>시민</strong></p>
-        <address class="footer__address">
-          주소 : 경기도 안산시<br>
-          전화 : <a href="tel:031-438-2585">031-438-2585</a>
-        </address>
+      <div class="footer__top">
+        <div class="footer__brand">
+          <p class="footer__logo">
+            <span class="logo__symbol">⚖</span>
+            법률사무소 <strong>시민</strong>
+          </p>
+          <p class="footer__slogan">당신의 답이 되는 법률 파트너</p>
+        </div>
+        <div class="footer__contact">
+          <address class="footer__address">
+            경기도 안산시<br>
+            <a href="tel:031-438-2585">TEL. 031-438-2585</a>
+          </address>
+        </div>
       </div>
-      <p class="footer__copyright">&copy; 2026 법률사무소 시민. All rights reserved.</p>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2026 법률사무소 시민. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
-  <!-- 모바일 메뉴 토글 스크립트 -->
+  <!-- ========== 플로팅 상담 버튼 ========== -->
+  <div class="floating" id="floating">
+    <a href="tel:031-438-2585" class="floating__btn floating__btn--call" aria-label="전화 상담">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    </a>
+<a href="#consult" class="floating__btn floating__btn--consult" aria-label="상담 신청">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    </a>
+  </div>
+
   <script src="js/app.js"></script>
 
 </body>
