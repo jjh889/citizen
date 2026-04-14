@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}공지사항 | 법률사무소 시민{% endblock %}
+
+{% block extra_css %}
+<style>
+.sub-page { padding-top: calc(var(--header-h) + 60px); padding-bottom: 80px; min-height: 60vh; }
+.sub-page__list { list-style: none; padding: 0; border-top: 2px solid var(--color-primary); }
+.sub-page__list li { border-bottom: 1px solid var(--color-border); }
+.sub-page__list li a {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0.5rem; text-decoration: none; color: var(--color-text); transition: color 0.2s;
+}
+.sub-page__list li a:hover { color: var(--color-primary); }
+.sub-page__list-title { font-weight: 500; font-size: 0.95rem; }
+.sub-page__list-date { font-size: 0.8rem; color: var(--color-gray-light); flex-shrink: 0; margin-left: 16px; }
+.sub-page__empty { text-align: center; padding: 60px 20px; color: var(--color-gray); }
+</style>
+<script src="{% static 'js/app.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+  {% include "includes/header.html" %}
+
+  <div class="sub-page">
+    <div class="container">
+      <p class="section__label">Notice</p>
+      <h2 class="section__title">공지사항</h2>
+
+      {% if notices %}
+      <ul class="sub-page__list">
+        {% for notice in notices %}
+        <li>
+          <a href="{% url 'notice_detail' notice.pk %}">
+            <span class="sub-page__list-title">{{ notice.title }}</span>
+            <span class="sub-page__list-date">{{ notice.created_at|date:"Y.m.d" }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <div class="sub-page__empty"><p>등록된 공지사항이 없습니다.</p></div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% include "includes/footer.html" %}
+{% endblock %}

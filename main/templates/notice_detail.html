@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ notice.title }} | 법률사무소 시민{% endblock %}
+{% block meta_description %}{{ notice.content|truncatewords:30 }}{% endblock %}
+{% block og_title %}{{ notice.title }} | 법률사무소 시민{% endblock %}
+
+{% block extra_jsonld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ notice.title }}",
+  "datePublished": "{{ notice.created_at|date:'c' }}",
+  "dateModified": "{{ notice.updated_at|date:'c' }}",
+  "publisher": { "@type": "Organization", "name": "법률사무소 시민" }
+}
+</script>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.sub-page { padding-top: calc(var(--header-h) + 60px); padding-bottom: 80px; min-height: 60vh; }
+.detail__header { border-bottom: 2px solid var(--color-primary); padding-bottom: 20px; margin-bottom: 32px; }
+.detail__title { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+.detail__date { font-size: 0.85rem; color: var(--color-gray-light); }
+.detail__content { line-height: 1.8; font-size: 1rem; white-space: pre-wrap; }
+.detail__back { display: inline-block; margin-top: 40px; color: var(--color-primary); text-decoration: none; font-weight: 500; }
+.detail__back:hover { text-decoration: underline; }
+</style>
+<script src="{% static 'js/app.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+  {% include "includes/header.html" %}
+
+  <div class="sub-page">
+    <div class="container">
+      <div class="detail__header">
+        <h1 class="detail__title">{{ notice.title }}</h1>
+        <p class="detail__date">{{ notice.created_at|date:"Y년 m월 d일" }}</p>
+      </div>
+      <div class="detail__content">{{ notice.content }}</div>
+      <a href="{% url 'notice_list' %}" class="detail__back">&larr; 목록으로</a>
+    </div>
+  </div>
+
+  {% include "includes/footer.html" %}
+{% endblock %}

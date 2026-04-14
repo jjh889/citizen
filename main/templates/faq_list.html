@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}자주하는 질문 | 법률사무소 시민{% endblock %}
+
+{% block extra_css %}
+<style>
+.sub-page { padding-top: calc(var(--header-h) + 60px); padding-bottom: 80px; min-height: 60vh; }
+.faq-filter { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-bottom: 2rem; }
+.faq-filter a {
+  padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.82rem; font-weight: 600;
+  border: 1px solid var(--color-border); color: var(--color-gray); text-decoration: none; transition: all 0.2s;
+}
+.faq-filter a:hover, .faq-filter a.active {
+  background: var(--color-primary); color: #fff; border-color: var(--color-primary);
+}
+.faq-accordion { max-width: 760px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--color-border); }
+.faq-item__q {
+  width: 100%; text-align: left; padding: 1.1rem 0; font-size: 0.95rem; font-weight: 600;
+  color: var(--color-dark); display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem; cursor: pointer; background: none; border: none; font-family: inherit;
+}
+.faq-item__q span { flex: 1; }
+.faq-item__icon { font-size: 1.2rem; color: var(--color-gray-light); transition: transform 0.25s; flex-shrink: 0; }
+.faq-item.is-open .faq-item__icon { transform: rotate(45deg); }
+.faq-item__a {
+  max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease;
+  font-size: 0.9rem; color: var(--color-gray); line-height: 1.8;
+}
+.faq-item.is-open .faq-item__a { max-height: 500px; padding: 0 0 1.25rem 0; }
+.faq-item__cat {
+  display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem;
+  background: var(--color-bg); color: var(--color-primary); border-radius: 4px; margin-right: 0.5rem;
+}
+.sub-page__empty { text-align: center; padding: 60px 20px; color: var(--color-gray); }
+</style>
+<script src="{% static 'js/app.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+  {% include "includes/header.html" %}
+
+  <div class="sub-page">
+    <div class="container">
+      <p class="section__label">FAQ</p>
+      <h2 class="section__title">자주하는 질문</h2>
+
+      <div class="faq-filter">
+        <a href="{% url 'faq_list' %}" class="{% if not selected %}active{% endif %}">전체</a>
+        {% for cat in categories %}
+        <a href="{% url 'faq_list' %}?category={{ cat }}" class="{% if selected == cat %}active{% endif %}">{{ cat }}</a>
+        {% endfor %}
+      </div>
+
+      {% if faqs %}
+      <div class="faq-accordion">
+        {% for faq in faqs %}
+        <div class="faq-item">
+          <button class="faq-item__q" onclick="this.parentElement.classList.toggle('is-open')">
+            <span><span class="faq-item__cat">{{ faq.category }}</span>{{ faq.question }}</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__a">{{ faq.answer }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="sub-page__empty"><p>등록된 질문이 없습니다.</p></div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% include "includes/footer.html" %}
+{% endblock %}

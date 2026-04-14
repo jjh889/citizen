@@ -1,0 +1,46 @@
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root1234
+      MYSQL_DATABASE: citizen
+      MYSQL_USER: citizen
+      MYSQL_PASSWORD: citizen1234
+    ports:
+      - "3706:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  web:
+    build: .
+    restart: always
+    ports:
+      - "3700:8000"
+    volumes:
+      - .:/app
+      - static_data:/app/staticfiles
+      - media_data:/app/media
+    environment:
+      - DEBUG=True
+      - SECRET_KEY=dev-secret-key-change-in-production
+      - DB_HOST=db
+      - DB_NAME=citizen
+      - DB_USER=citizen
+      - DB_PASSWORD=citizen1234
+      - DB_PORT=3306
+    depends_on:
+      db:
+        condition: service_healthy
+    command: sh /app/entrypoint.sh
+
+volumes:
+  mysql_data:
+  static_data:
+  media_data:
