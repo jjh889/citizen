@@ -3,10 +3,10 @@ services:
     image: mysql:8.0
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root1234
-      MYSQL_DATABASE: citizen
-      MYSQL_USER: citizen
-      MYSQL_PASSWORD: citizen1234
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "3706:3306"
     volumes:
@@ -28,13 +28,15 @@ services:
       - static_data:/app/staticfiles
       - media_data:/app/media
     environment:
-      - DEBUG=True
-      - SECRET_KEY=dev-secret-key-change-in-production
-      - DB_HOST=db
-      - DB_NAME=citizen
-      - DB_USER=citizen
-      - DB_PASSWORD=citizen1234
-      - DB_PORT=3306
+      - SECRET_KEY=${SECRET_KEY}
+      - DEBUG=${DEBUG}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - SITE_URL=${SITE_URL}
     depends_on:
       db:
         condition: service_healthy

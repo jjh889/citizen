@@ -1,15 +1,6 @@
 #!/bin/sh
 set -e
 
-echo "Waiting for database..."
-while ! python -c "
-import MySQLdb
-MySQLdb.connect(host='$DB_HOST', port=int('$DB_PORT'), user='$DB_USER', passwd='$DB_PASSWORD', db='$DB_NAME')
-" 2>/dev/null; do
-  sleep 1
-done
-echo "Database ready!"
-
 echo "Running migrations..."
 python manage.py migrate --noinput
 
@@ -23,5 +14,12 @@ else:
     print('Superuser already exists')
 "
 
-echo "Starting dev server..."
-exec python manage.py runserver 0.0.0.0:8000
+echo "Collecting static files..."
+python manage.py collectstatic --noinput
+
+echo "Starting server..."
+if [ "$DEBUG" = "True" ]; then
+    exec python manage.py runserver 0.0.0.0:8000
+else
+    exec gunicorn config.wsgi:application --bind 0.0.0.0:${PORT:-8000} --workers 2 --timeout 120
+fi
