@@ -17,7 +17,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-RUN python manage.py collectstatic --noinput 2>/dev/null || true
+# 빌드 시 static 수집 (DB 불필요)
+ENV DATABASE_URL=sqlite:///tmp/dummy.db
+RUN python manage.py collectstatic --noinput
+ENV DATABASE_URL=
 
 EXPOSE 8000
 

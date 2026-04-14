@@ -40,7 +40,14 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    command: sh /app/entrypoint.sh
+    command: >
+      sh -c "python manage.py migrate --noinput &&
+             python manage.py shell -c \"
+from django.contrib.auth.models import User
+if not User.objects.filter(username='admin').exists():
+    User.objects.create_superuser('admin', 'admin@citizen.co.kr', 'admin1234')
+\" &&
+             python manage.py runserver 0.0.0.0:8000"
 
 volumes:
   mysql_data:
