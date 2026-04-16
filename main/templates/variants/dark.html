@@ -1,0 +1,361 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>법률사무소 시민 | Dark Luxury</title>
+<meta name="description" content="법률사무소 시민 - 20년 경력의 법률 전문가가 당신의 답을 찾아드립니다.">
+<meta name="theme-color" content="#0A0908">
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/variant-dark.css' %}">
+</head>
+<body>
+
+<!-- 스크롤 진행 -->
+<div class="dl-progress"></div>
+
+<!-- 헤더 -->
+<header class="dl-header" id="dlHeader">
+  <div class="dl-container dl-header__inner">
+    <a href="/v/dark/" class="dl-logo">
+      <span class="dl-logo__mark">⚖</span>
+      <span class="dl-logo__text">CITIZEN<small>LAW OFFICE</small></span>
+    </a>
+    <nav class="dl-nav">
+      <a href="#philosophy">철학</a>
+      <a href="#services">업무</a>
+      <a href="#practice">전문분야</a>
+      <a href="#board">소식</a>
+      <a href="#consult">상담</a>
+    </nav>
+    <a href="#consult" class="dl-cta">무료 상담 &rarr;</a>
+    <button class="dl-toggle" id="dlToggle" aria-label="메뉴"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="dl-mobile-nav" id="dlMobileNav">
+  <a href="#philosophy">철학</a>
+  <a href="#services">업무 분야</a>
+  <a href="#practice">전문 분야</a>
+  <a href="#board">소식</a>
+  <a href="#consult">상담 신청</a>
+  <a href="/notice/">공지사항</a>
+  <a href="/faq/">자주하는 질문</a>
+</div>
+
+<!-- HERO -->
+<section class="dl-hero">
+  <video class="dl-hero__video" autoplay muted loop playsinline>
+    <source src="{% static 'img/hero-bg.mp4' %}" type="video/mp4">
+  </video>
+  <div class="dl-hero__overlay"></div>
+  <div class="dl-hero__lines"></div>
+  <div class="dl-hero__content">
+    <div class="dl-hero__label">TRUST · EXPERTISE · SOLUTION</div>
+    <h1 class="dl-hero__title">
+      당신의 답이 되는<br>
+      <em>법률사무소 시민</em>
+    </h1>
+    <div class="dl-hero__divider"></div>
+    <p class="dl-hero__desc">
+      20년의 경험과 7,000건의 상담 사례.<br>
+      개인회생·파산·민형사·가사·법인회생 모든 영역에서<br>
+      의뢰인의 권리를 지켜드립니다.
+    </p>
+    <div class="dl-hero__actions">
+      <a href="#consult" class="dl-btn dl-btn--gold">무료 상담 신청</a>
+      <a href="tel:031-438-2585" class="dl-btn dl-btn--ghost">031-438-2585</a>
+    </div>
+  </div>
+  <div class="dl-hero__scroll">SCROLL</div>
+</section>
+
+<!-- STATS -->
+<section class="dl-stats dl-reveal">
+  <div class="dl-container">
+    <div class="dl-stats__grid">
+      <div class="dl-stats__item">
+        <div class="dl-stats__num"><span data-dl-count="20">0</span><small>YEARS</small></div>
+        <div class="dl-stats__label">법률 실무 경력</div>
+      </div>
+      <div class="dl-stats__item">
+        <div class="dl-stats__num"><span data-dl-count="7000">0</span><small>+</small></div>
+        <div class="dl-stats__label">누적 상담 건수</div>
+      </div>
+      <div class="dl-stats__item">
+        <div class="dl-stats__num"><span data-dl-count="95">0</span><small>%</small></div>
+        <div class="dl-stats__label">의뢰인 만족도</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="dl-philosophy" id="philosophy">
+  <div class="dl-container dl-reveal">
+    <div class="dl-philosophy__quote">
+      법은 무겁습니다.<br>
+      그러나 당신의 어깨가 홀로 그 무게를<br>
+      견뎌야 하는 것은 아닙니다.
+    </div>
+    <div class="dl-philosophy__author">— 법률사무소 시민</div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="dl-section" id="services">
+  <div class="dl-container">
+    <div class="dl-section__head dl-reveal">
+      <div class="dl-section__label">OUR SERVICES</div>
+      <h2 class="dl-section__title">의뢰인을 위한 전문 업무</h2>
+      <p class="dl-section__sub">개인과 법인 모두, 가장 필요한 순간에 가장 확실한 해답을 드립니다.</p>
+    </div>
+
+    <div class="dl-services__grid dl-reveal">
+      <article class="dl-service">
+        <div class="dl-service__num">01 / DEBT</div>
+        <h3 class="dl-service__title">개인회생 / 파산</h3>
+        <p class="dl-service__desc">과중한 채무에서 새로운 출발을 도와드립니다. 최대 90%의 채무 감면이 가능한 법적 절차를 제공합니다.</p>
+        <span class="dl-service__link">자세히 보기 →</span>
+      </article>
+      <article class="dl-service">
+        <div class="dl-service__num">02 / CIVIL</div>
+        <h3 class="dl-service__title">민사 / 형사</h3>
+        <p class="dl-service__desc">손해배상, 계약 분쟁, 고소고발 등 일상과 맞닿은 모든 법률 분쟁을 해결합니다.</p>
+        <span class="dl-service__link">자세히 보기 →</span>
+      </article>
+      <article class="dl-service">
+        <div class="dl-service__num">03 / FAMILY</div>
+        <h3 class="dl-service__title">가사 / 이혼</h3>
+        <p class="dl-service__desc">이혼, 위자료, 양육권, 재산분할. 가족이라는 이름의 가장 예민한 사건을 신중하게 다룹니다.</p>
+        <span class="dl-service__link">자세히 보기 →</span>
+      </article>
+      <article class="dl-service">
+        <div class="dl-service__num">04 / CORPORATE</div>
+        <h3 class="dl-service__title">법인 회생</h3>
+        <p class="dl-service__desc">재정 위기의 법인을 정상화 궤도로. 회생 계획 수립부터 인가까지 전 과정을 함께합니다.</p>
+        <span class="dl-service__link">자세히 보기 →</span>
+      </article>
+      <article class="dl-service">
+        <div class="dl-service__num">05 / CONSULT</div>
+        <h3 class="dl-service__title">무료 초기 상담</h3>
+        <p class="dl-service__desc">모든 사건은 정확한 진단에서 시작됩니다. 부담 없는 첫 상담으로 방향을 정해드립니다.</p>
+        <span class="dl-service__link">상담 신청 →</span>
+      </article>
+      <article class="dl-service">
+        <div class="dl-service__num">06 / CONTACT</div>
+        <h3 class="dl-service__title">031-438-2585</h3>
+        <p class="dl-service__desc">평일 9시부터 18시까지. 전화 한 통이면 전문가가 바로 답변드립니다.</p>
+        <span class="dl-service__link">전화 연결 →</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICE -->
+<section class="dl-section dl-section--alt" id="practice">
+  <div class="dl-container">
+    <div class="dl-section__head dl-reveal">
+      <div class="dl-section__label">SIGNATURE PRACTICE</div>
+      <h2 class="dl-section__title">시민이 가장 잘하는 일</h2>
+    </div>
+
+    <div class="dl-practice__row dl-reveal">
+      <div class="dl-practice__meta">
+        <div class="dl-section__label">I. DEBT SOLUTION</div>
+        <h3 class="dl-practice__title">채무의 굴레에서<br>벗어나는 가장 확실한 방법</h3>
+        <p style="color: var(--dl-text-dim); font-size: 0.9rem; line-height: 1.9;">
+          개인회생과 파산은 단순한 면책이 아닌,<br>
+          새로운 인생을 여는 법적 권리입니다.
+        </p>
+      </div>
+      <div class="dl-practice__items">
+        <div class="dl-practice__item">
+          <h4>개인회생</h4>
+          <p>일정 소득이 있는 채무자의 최대 90% 채무 조정. 재산 보전과 급여 압류 해제 가능.</p>
+        </div>
+        <div class="dl-practice__item">
+          <h4>개인파산</h4>
+          <p>채무 변제 불가 상태의 전액 면책. 강제집행 금지 및 경제활동 재개.</p>
+        </div>
+        <div class="dl-practice__item">
+          <h4>법인회생</h4>
+          <p>재정 위기 법인의 정상화 절차. 회생 계획 수립부터 인가까지 전 과정 대리.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dl-practice__row dl-reveal">
+      <div class="dl-practice__meta">
+        <div class="dl-section__label">II. LITIGATION</div>
+        <h3 class="dl-practice__title">법정의 정확한 언어로<br>권리를 되찾는다</h3>
+        <p style="color: var(--dl-text-dim); font-size: 0.9rem; line-height: 1.9;">
+          민사·형사·가사. 가장 복잡한 분쟁일수록<br>
+          정확한 법리와 경험이 승패를 가릅니다.
+        </p>
+      </div>
+      <div class="dl-practice__items">
+        <div class="dl-practice__item">
+          <h4>민사 소송</h4>
+          <p>손해배상, 부당이득, 계약분쟁, 부동산. 민사 전반에 걸친 법률 서비스.</p>
+        </div>
+        <div class="dl-practice__item">
+          <h4>형사 사건</h4>
+          <p>고소고발, 피의자 변호, 피해자 대리. 형사 전 단계의 전문적 대응.</p>
+        </div>
+        <div class="dl-practice__item">
+          <h4>가사 · 이혼</h4>
+          <p>이혼 소송, 위자료, 양육권, 재산분할. 가족 법률 사건의 신중한 처리.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTICE + FAQ -->
+<section class="dl-section" id="board">
+  <div class="dl-container">
+    <div class="dl-section__head dl-reveal">
+      <div class="dl-section__label">NOTICE &amp; FAQ</div>
+      <h2 class="dl-section__title">최신 소식과 자주 묻는 질문</h2>
+    </div>
+
+    <div class="dl-board dl-reveal">
+      <div class="dl-board__col">
+        <h3>공지사항 <a href="/notice/">전체보기 →</a></h3>
+        {% if notices %}
+          <ul class="dl-notice-list">
+            {% for n in notices %}
+              <li><a href="/notice/{{ n.pk }}/">
+                <span>{{ n.title }}</span>
+                <span class="dl-notice-list__date">{{ n.created_at|date:"Y.m.d" }}</span>
+              </a></li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p style="color: var(--dl-text-dim); padding: 2rem 0; text-align: center;">등록된 공지가 없습니다.</p>
+        {% endif %}
+      </div>
+
+      <div class="dl-board__col">
+        <h3>자주하는 질문 <a href="/faq/">전체보기 →</a></h3>
+        {% if faqs %}
+          {% for f in faqs %}
+            <div class="dl-faq-item">
+              <button class="dl-faq-item__q">
+                <span><strong style="color: var(--dl-gold); font-size: 0.75rem; margin-right: 0.5rem;">[{{ f.category }}]</strong>{{ f.question }}</span>
+                <span class="dl-faq-item__icon">+</span>
+              </button>
+              <div class="dl-faq-item__a">{{ f.answer }}</div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p style="color: var(--dl-text-dim); padding: 2rem 0; text-align: center;">등록된 질문이 없습니다.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULT -->
+<section class="dl-consult" id="consult">
+  <div class="dl-container">
+    <div class="dl-consult__grid">
+      <div class="dl-consult__text dl-reveal">
+        <div class="dl-section__label">FREE CONSULTATION</div>
+        <h2 class="dl-consult__heading">
+          지금 당신의 고민,<br>
+          <em>무료로 들어드립니다.</em>
+        </h2>
+        <p class="dl-consult__desc">
+          모든 상담은 철저히 비밀이 보장됩니다.<br>
+          간단한 정보만 남겨주시면 가장 빠른 시간 안에 전문가가 직접 연락드립니다.
+        </p>
+        <a href="tel:031-438-2585" class="dl-consult__phone">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          031-438-2585
+        </a>
+      </div>
+
+      <form class="dl-form dl-reveal" id="dlForm">
+        <h3 class="dl-form__title">무료 상담 신청</h3>
+        <div class="dl-form__row">
+          <div class="dl-field">
+            <label class="dl-field__label">이름</label>
+            <input class="dl-field__input" type="text" name="name" placeholder="홍길동" required>
+          </div>
+          <div class="dl-field">
+            <label class="dl-field__label">연락처</label>
+            <input class="dl-field__input" type="tel" name="phone" placeholder="010-0000-0000" required>
+          </div>
+        </div>
+        <div class="dl-field">
+          <label class="dl-field__label">상담 분야</label>
+          <select class="dl-field__input" name="category" required>
+            <option value="">선택해 주세요</option>
+            <option value="개인회생">개인회생</option>
+            <option value="개인파산">개인파산</option>
+            <option value="민사">민사</option>
+            <option value="형사">형사</option>
+            <option value="가사/이혼">가사/이혼</option>
+            <option value="법인회생">법인회생</option>
+            <option value="기타">기타</option>
+          </select>
+        </div>
+        <div class="dl-field">
+          <label class="dl-field__label">상담 내용</label>
+          <textarea class="dl-field__input" name="message" placeholder="간단히 적어주세요"></textarea>
+        </div>
+        <button type="submit" class="dl-form__submit">상담 신청</button>
+        <p class="dl-form__notice">* 모든 정보는 철저히 비밀이 보장됩니다.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="dl-footer">
+  <div class="dl-container">
+    <div class="dl-footer__top">
+      <div class="dl-footer__brand">
+        <div class="dl-logo">
+          <span class="dl-logo__mark">⚖</span>
+          <span class="dl-logo__text">CITIZEN<small>LAW OFFICE</small></span>
+        </div>
+        <p class="dl-footer__tag">당신의 답이 되는 법률 파트너.</p>
+      </div>
+      <div class="dl-footer__col">
+        <h4>CONTACT</h4>
+        <p><a href="tel:031-438-2585">031-438-2585</a></p>
+        <p>평일 09:00 - 18:00</p>
+        <p>경기도 안산시 상록구 이동 715</p>
+      </div>
+      <div class="dl-footer__col">
+        <h4>PAGES</h4>
+        <p><a href="/notice/">공지사항</a></p>
+        <p><a href="/faq/">자주하는 질문</a></p>
+        <p><a href="/">기존 메인</a></p>
+        <p><a href="/v/">다른 시안</a></p>
+      </div>
+    </div>
+    <div class="dl-footer__bottom">
+      © 2026 법률사무소 시민. ALL RIGHTS RESERVED.
+    </div>
+  </div>
+</footer>
+
+<a href="tel:031-438-2585" class="dl-float" aria-label="전화">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+</a>
+
+<script src="{% static 'js/variant-dark.js' %}"></script>
+</body>
+</html>

@@ -8,6 +8,12 @@ from .models import Consultation, Notice, Popup, FAQ
 
 
 def index(request):
+    # 시안 선택 인덱스를 메인으로
+    return render(request, 'variants/index.html')
+
+
+def variant_classic(request):
+    # 기존 메인
     notices = Notice.objects.filter(is_active=True)[:5]
     faqs = FAQ.objects.filter(is_active=True)[:5]
     return render(request, 'index.html', {'notices': notices, 'faqs': faqs})
@@ -22,12 +28,20 @@ def consultation_api(request):
         phone = data.get('phone', '').strip()
         category = data.get('category', '').strip()
         message = data.get('message', '').strip()
+        source = data.get('source', '일반')
+        diagnosis = data.get('diagnosis')  # dict or None
 
         if not name or not phone or not category:
             return JsonResponse({'error': '필수 항목을 입력해주세요.'}, status=400)
 
+        valid_sources = {'일반', '자가진단', '랜딩페이지'}
+        if source not in valid_sources:
+            source = '일반'
+
         Consultation.objects.create(
-            name=name, phone=phone, category=category, message=message
+            name=name, phone=phone, category=category,
+            message=message, source=source,
+            diagnosis_data=diagnosis if isinstance(diagnosis, dict) else None,
         )
         return JsonResponse({'success': True}, status=201)
     except (json.JSONDecodeError, Exception):
@@ -76,6 +90,38 @@ def faq_list(request):
         'categories': categories,
         'selected': selected,
     })
+
+
+def _variant_context():
+    return {
+        'notices': Notice.objects.filter(is_active=True)[:5],
+        'faqs': FAQ.objects.filter(is_active=True)[:5],
+    }
+
+
+def variant_dark(request):
+    return render(request, 'variants/dark.html', _variant_context())
+
+
+def variant_editorial(request):
+    return render(request, 'variants/editorial.html', _variant_context())
+
+
+def variant_motion(request):
+    return render(request, 'variants/motion.html', _variant_context())
+
+
+def variant_corporate(request):
+    return render(request, 'variants/corporate.html', _variant_context())
+
+
+def variant_ally(request):
+    return render(request, 'variants/ally.html', _variant_context())
+
+
+def lp_diagnose(request):
+    # 광고 유입용 자가진단 랜딩 페이지
+    return render(request, 'lp/diagnose.html')
 
 
 def robots_txt(request):

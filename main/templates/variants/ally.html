@@ -1,0 +1,797 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>법률사무소 시민 | 당신의 확실한 내편</title>
+<meta name="description" content="하루에도 수십통씩 오는 독촉 연락, 채권자들의 법적 조치를 걱정하고 계신가요? 20년 경력의 법률사무소 시민이 당신의 새출발을 도와드립니다.">
+<meta name="theme-color" content="#144534">
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/variant-ally.css' %}">
+</head>
+<body>
+
+<header class="al-header">
+  <div class="al-container al-header__inner">
+    <a href="/v/ally/" class="al-logo">
+      <span class="al-logo__mark">시</span>
+      <span class="al-logo__text">법률사무소 <em>시민</em></span>
+    </a>
+
+    <nav class="al-nav">
+      <a href="#about">시민 소개</a>
+      <a href="#diagnose" class="al-nav-diag">
+        <span class="al-nav-diag__dot"></span>
+        1분 자가진단
+      </a>
+      <a href="#cases">성공 사례</a>
+      <a href="#promise">약속</a>
+      <a href="#board">공지·FAQ</a>
+      <a href="#consult">상담 신청</a>
+    </nav>
+
+    <div class="al-header__right">
+      <a href="tel:031-438-2585" class="al-phone-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        031-438-2585
+      </a>
+      <a href="#diagnose" class="al-cta al-cta--yellow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        자가진단
+      </a>
+      <a href="#consult" class="al-cta">무료 상담</a>
+      <button class="al-toggle" id="alToggle" aria-label="메뉴"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="al-mobile-nav" id="alMobile">
+  <a href="#about">시민 소개</a>
+  <a href="#diagnose" class="al-mobile-diag">
+    <span class="al-nav-diag__dot"></span>
+    1분 자가진단
+  </a>
+  <a href="#cases">성공 사례</a>
+  <a href="#promise">진정한 내편의 약속</a>
+  <a href="#board">공지사항 · FAQ</a>
+  <a href="#consult">무료 상담 신청</a>
+  <a href="/notice/">공지사항</a>
+  <a href="/faq/">자주하는 질문</a>
+</div>
+
+<!-- HERO -->
+<section class="al-hero">
+  <div class="al-hero__quote-deco">"</div>
+  <div class="al-container">
+    <div class="al-hero__grid">
+      <div>
+        <div class="al-hero__badge">
+          <span class="al-hero__badge-dot"></span>
+          20년 경력 · 7,000건 상담
+        </div>
+        <h1 class="al-hero__title">
+          지속되는 독촉 연락과<br>
+          법적 대응 우려로<br>
+          <em>힘든 시간을 보내고 계신가요?</em>
+        </h1>
+        <p class="al-hero__lede">
+          <strong>20년 경력의 법률사무소 시민</strong>이<br>
+          지금부터 당신의 새출발을 도와드리겠습니다.<br>
+          혼자 감당하지 마세요. 내편이 여기 있습니다.
+        </p>
+        <div class="al-hero__actions">
+          <a href="#consult" class="al-btn al-btn--green">
+            무료 상담 신청하기
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="tel:031-438-2585" class="al-btn al-btn--line">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            031-438-2585
+          </a>
+        </div>
+      </div>
+
+      <aside class="al-hero__card" id="about">
+        <div class="al-hero__card-photo"></div>
+        <div class="al-hero__card-role">대표 변호사</div>
+        <h3 class="al-hero__card-name">법률사무소 시민</h3>
+        <p class="al-hero__card-cred">
+          대한변호사협회 등록 · 20년 실무 경력<br>
+          누적 상담 7,000건 · 의뢰인 만족도 95%
+        </p>
+        <ul class="al-hero__card-tags">
+          <li>개인회생</li><li>개인파산</li><li>민사/형사</li><li>가사/이혼</li><li>법인회생</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ALONE 감성 -->
+<section class="al-alone">
+  <div class="al-container">
+    <h2 class="al-alone__title">
+      지금의 상황,<br>
+      <em>혼자 감당하지 마세요.</em>
+    </h2>
+    <p class="al-alone__sub">
+      채무 문제도, 법적 분쟁도, 가족의 갈등도.<br>
+      당신 옆에 함께 서서 싸워줄 사람이 있다면,<br>
+      이미 절반은 해결된 것입니다.
+    </p>
+  </div>
+</section>
+
+<!-- 3 PILLARS 내편 -->
+<section class="al-section al-section--cream" id="pillars">
+  <div class="al-container">
+    <div class="al-section__head al-reveal">
+      <span class="al-section__tag">WHY CITIZEN</span>
+      <h2 class="al-section__title">법률사무소 시민은<br><em>당신의 내편</em>입니다</h2>
+      <p class="al-section__sub">
+        20년의 경험과 7,000건의 상담 사례가 증명하는 신뢰. 의뢰인 한 사람 한 사람의 사건을 내 일처럼 다룹니다.
+      </p>
+    </div>
+
+    <div class="al-pillars al-reveal">
+      <div class="al-pillar">
+        <span class="al-pillar__num">POINT 01</span>
+        <div class="al-pillar__icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>
+        </div>
+        <h3 class="al-pillar__title"><em>확실한</em> 내편</h3>
+        <p class="al-pillar__desc">
+          20년의 실무 경력과<br>
+          철저한 법률 지식으로 무장한<br>
+          가장 확실한 법률 파트너.
+        </p>
+      </div>
+
+      <div class="al-pillar">
+        <span class="al-pillar__num">POINT 02</span>
+        <div class="al-pillar__icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="al-pillar__title"><em>남다른</em> 내편</h3>
+        <p class="al-pillar__desc">
+          누적 7,000건의 상담 경험.<br>
+          개인회생부터 법인회생까지<br>
+          모든 영역에서 차별화된 실력.
+        </p>
+      </div>
+
+      <div class="al-pillar">
+        <span class="al-pillar__num">POINT 03</span>
+        <div class="al-pillar__icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg>
+        </div>
+        <h3 class="al-pillar__title"><em>든든한</em> 내편</h3>
+        <p class="al-pillar__desc">
+          의뢰인의 마음까지 헤아리는<br>
+          1:1 맞춤 상담과<br>
+          끝까지 함께하는 책임감.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUCCESS CASES 파이차트 -->
+<section class="al-section" id="cases">
+  <div class="al-container">
+    <div class="al-section__head al-reveal">
+      <span class="al-section__tag">SUCCESS CASES</span>
+      <h2 class="al-section__title">시민과 함께한<br><em>채무 감면 성공 사례</em></h2>
+      <p class="al-section__sub">
+        최대 90%까지 감면받은 실제 의뢰인들의 결과입니다. 복잡한 채무 구조일수록 내편의 전략이 필요합니다.
+      </p>
+    </div>
+
+    <div class="al-cases__grid al-reveal">
+      <div class="al-case">
+        <div class="al-case__chart" data-al-percent="90">
+          <svg viewBox="0 0 100 100">
+            <circle class="al-case__chart-bg" cx="50" cy="50" r="44"/>
+            <circle class="al-case__chart-fg" cx="50" cy="50" r="44"/>
+          </svg>
+          <div class="al-case__percent">90<small>%</small></div>
+        </div>
+        <div class="al-case__cat">개인회생</div>
+        <div class="al-case__title">1억 2천만원 → 1천 2백만원</div>
+        <p class="al-case__desc">다수 금융채무 최대 감면 성공</p>
+      </div>
+
+      <div class="al-case">
+        <div class="al-case__chart" data-al-percent="85">
+          <svg viewBox="0 0 100 100">
+            <circle class="al-case__chart-bg" cx="50" cy="50" r="44"/>
+            <circle class="al-case__chart-fg" cx="50" cy="50" r="44"/>
+          </svg>
+          <div class="al-case__percent">85<small>%</small></div>
+        </div>
+        <div class="al-case__cat">개인회생</div>
+        <div class="al-case__title">8천만원 → 1천 2백만원</div>
+        <p class="al-case__desc">사채 포함 채무 조정</p>
+      </div>
+
+      <div class="al-case">
+        <div class="al-case__chart" data-al-percent="100">
+          <svg viewBox="0 0 100 100">
+            <circle class="al-case__chart-bg" cx="50" cy="50" r="44"/>
+            <circle class="al-case__chart-fg" cx="50" cy="50" r="44"/>
+          </svg>
+          <div class="al-case__percent">100<small>%</small></div>
+        </div>
+        <div class="al-case__cat">개인파산</div>
+        <div class="al-case__title">3억 5천만원 전액 면책</div>
+        <p class="al-case__desc">파산 면책 결정 성공</p>
+      </div>
+
+      <div class="al-case">
+        <div class="al-case__chart" data-al-percent="78">
+          <svg viewBox="0 0 100 100">
+            <circle class="al-case__chart-bg" cx="50" cy="50" r="44"/>
+            <circle class="al-case__chart-fg" cx="50" cy="50" r="44"/>
+          </svg>
+          <div class="al-case__percent">78<small>%</small></div>
+        </div>
+        <div class="al-case__cat">개인회생</div>
+        <div class="al-case__title">5천만원 → 1천 1백만원</div>
+        <p class="al-case__desc">급여 압류 해제 병행</p>
+      </div>
+
+      <div class="al-case">
+        <div class="al-case__chart" data-al-percent="92">
+          <svg viewBox="0 0 100 100">
+            <circle class="al-case__chart-bg" cx="50" cy="50" r="44"/>
+            <circle class="al-case__chart-fg" cx="50" cy="50" r="44"/>
+          </svg>
+          <div class="al-case__percent">92<small>%</small></div>
+        </div>
+        <div class="al-case__cat">개인회생</div>
+        <div class="al-case__title">2억 → 1천 6백만원</div>
+        <p class="al-case__desc">고액 채무 최대 감면</p>
+      </div>
+
+      <div class="al-case">
+        <div class="al-case__chart" data-al-percent="75">
+          <svg viewBox="0 0 100 100">
+            <circle class="al-case__chart-bg" cx="50" cy="50" r="44"/>
+            <circle class="al-case__chart-fg" cx="50" cy="50" r="44"/>
+          </svg>
+          <div class="al-case__percent">75<small>%</small></div>
+        </div>
+        <div class="al-case__cat">개인회생</div>
+        <div class="al-case__title">4천만원 → 1천만원</div>
+        <p class="al-case__desc">자영업자 회생 성공</p>
+      </div>
+
+      <div class="al-case">
+        <div class="al-case__chart" data-al-percent="88">
+          <svg viewBox="0 0 100 100">
+            <circle class="al-case__chart-bg" cx="50" cy="50" r="44"/>
+            <circle class="al-case__chart-fg" cx="50" cy="50" r="44"/>
+          </svg>
+          <div class="al-case__percent">88<small>%</small></div>
+        </div>
+        <div class="al-case__cat">법인회생</div>
+        <div class="al-case__title">제조업 법인 정상화</div>
+        <p class="al-case__desc">회생 계획 인가 성공</p>
+      </div>
+
+      <div class="al-case">
+        <div class="al-case__chart" data-al-percent="100">
+          <svg viewBox="0 0 100 100">
+            <circle class="al-case__chart-bg" cx="50" cy="50" r="44"/>
+            <circle class="al-case__chart-fg" cx="50" cy="50" r="44"/>
+          </svg>
+          <div class="al-case__percent">100<small>%</small></div>
+        </div>
+        <div class="al-case__cat">가사·이혼</div>
+        <div class="al-case__title">양육권 확보 · 재산분할</div>
+        <p class="al-case__desc">의뢰인 전면 승소</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSE (인터랙티브 자가진단) -->
+<section class="al-diagnose" id="diagnose">
+  <div class="al-container">
+    <div class="al-diagnose__intro" id="diagIntro">
+      <span class="al-diagnose__tag">1분 자가진단</span>
+      <h2 class="al-diagnose__title">
+        당신에게 맞는 <em>해결책</em>,<br>
+        지금 바로 확인해보세요
+      </h2>
+      <p class="al-diagnose__sub">간단한 5가지 질문으로 현재 상황을 진단해 드립니다.<br>1분이면 충분합니다.</p>
+      <button type="button" class="al-btn al-btn--green" id="diagStart">
+        자가진단 시작하기
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="al-quiz" id="diagQuiz" hidden>
+      <div class="al-quiz__progress">
+        <div class="al-quiz__progress-bar" id="diagProgress"></div>
+      </div>
+      <div class="al-quiz__step-label">
+        <span id="diagStepCur">1</span> / <span id="diagStepTotal">5</span>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="al-quiz__step is-active" data-step="1">
+        <h3 class="al-quiz__q">현재 가장 큰 고민은 <em>무엇인가요?</em></h3>
+        <p class="al-quiz__sub">당신의 상황에 가장 가까운 항목을 선택해 주세요.</p>
+        <div class="al-quiz__options">
+          <button type="button" class="al-opt" data-q="1" data-value="채무 독촉 전화">
+            <span class="al-opt__icon">📞</span>
+            <span class="al-opt__text"><strong>채무 독촉 전화</strong><span>끊임없이 오는 독촉 연락</span></span>
+          </button>
+          <button type="button" class="al-opt" data-q="1" data-value="법적 조치">
+            <span class="al-opt__icon">⚖️</span>
+            <span class="al-opt__text"><strong>채권자의 법적 조치</strong><span>지급명령, 소송 제기 등</span></span>
+          </button>
+          <button type="button" class="al-opt" data-q="1" data-value="강제집행">
+            <span class="al-opt__icon">🔒</span>
+            <span class="al-opt__text"><strong>강제집행</strong><span>급여 압류, 예금 압류 등</span></span>
+          </button>
+          <button type="button" class="al-opt" data-q="1" data-value="기타">
+            <span class="al-opt__icon">💭</span>
+            <span class="al-opt__text"><strong>그 외 법률 문제</strong><span>민사·형사·가사 등</span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="al-quiz__step" data-step="2">
+        <h3 class="al-quiz__q">총 채무 규모는 <em>어느 정도인가요?</em></h3>
+        <p class="al-quiz__sub">대략적인 금액을 선택해 주세요.</p>
+        <div class="al-quiz__options">
+          <button type="button" class="al-opt" data-q="2" data-value="3천만원 미만">
+            <span class="al-opt__text"><strong>3천만원 미만</strong></span>
+          </button>
+          <button type="button" class="al-opt" data-q="2" data-value="3천~1억원">
+            <span class="al-opt__text"><strong>3천만원 ~ 1억원</strong></span>
+          </button>
+          <button type="button" class="al-opt" data-q="2" data-value="1억~3억원">
+            <span class="al-opt__text"><strong>1억원 ~ 3억원</strong></span>
+          </button>
+          <button type="button" class="al-opt" data-q="2" data-value="3억원 초과">
+            <span class="al-opt__text"><strong>3억원 초과</strong></span>
+          </button>
+          <button type="button" class="al-opt" data-q="2" data-value="해당없음">
+            <span class="al-opt__text"><strong>채무 관련이 아닙니다</strong></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="al-quiz__step" data-step="3">
+        <h3 class="al-quiz__q">현재 소득 상태는 <em>어떠신가요?</em></h3>
+        <p class="al-quiz__sub">대안 선택에 중요한 정보입니다.</p>
+        <div class="al-quiz__options">
+          <button type="button" class="al-opt" data-q="3" data-value="정기소득">
+            <span class="al-opt__icon">💼</span>
+            <span class="al-opt__text"><strong>정기 소득이 있음</strong><span>직장인 · 월급</span></span>
+          </button>
+          <button type="button" class="al-opt" data-q="3" data-value="비정기소득">
+            <span class="al-opt__icon">🏪</span>
+            <span class="al-opt__text"><strong>비정기 소득</strong><span>자영업 · 프리랜서</span></span>
+          </button>
+          <button type="button" class="al-opt" data-q="3" data-value="무소득">
+            <span class="al-opt__icon">😔</span>
+            <span class="al-opt__text"><strong>현재 소득이 없음</strong><span>실직 · 구직 중</span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="al-quiz__step" data-step="4">
+        <h3 class="al-quiz__q">현재 법적 절차가 <em>진행 중인가요?</em></h3>
+        <p class="al-quiz__sub">긴급도를 파악하는 데 도움이 됩니다.</p>
+        <div class="al-quiz__options">
+          <button type="button" class="al-opt" data-q="4" data-value="없음">
+            <span class="al-opt__text"><strong>아직 없음</strong></span>
+          </button>
+          <button type="button" class="al-opt" data-q="4" data-value="독촉장/최고장">
+            <span class="al-opt__text"><strong>독촉장 / 최고장 받음</strong></span>
+          </button>
+          <button type="button" class="al-opt" data-q="4" data-value="가압류/압류">
+            <span class="al-opt__text"><strong>가압류 / 압류 진행</strong></span>
+          </button>
+          <button type="button" class="al-opt" data-q="4" data-value="소송진행중">
+            <span class="al-opt__text"><strong>소송 진행 중</strong></span>
+          </button>
+          <button type="button" class="al-opt" data-q="4" data-value="모름">
+            <span class="al-opt__text"><strong>잘 모르겠음</strong></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="al-quiz__step" data-step="5">
+        <h3 class="al-quiz__q">원하시는 해결 방향이 <em>있으신가요?</em></h3>
+        <p class="al-quiz__sub">상담 시 더 정확한 안내가 가능합니다.</p>
+        <div class="al-quiz__options">
+          <button type="button" class="al-opt" data-q="5" data-value="개인회생">
+            <span class="al-opt__icon">📊</span>
+            <span class="al-opt__text"><strong>개인회생</strong><span>채무 일부 변제 · 나머지 면책</span></span>
+          </button>
+          <button type="button" class="al-opt" data-q="5" data-value="개인파산">
+            <span class="al-opt__icon">🆓</span>
+            <span class="al-opt__text"><strong>개인파산</strong><span>채무 전액 면책</span></span>
+          </button>
+          <button type="button" class="al-opt" data-q="5" data-value="법인회생">
+            <span class="al-opt__icon">🏢</span>
+            <span class="al-opt__text"><strong>법인회생</strong><span>법인 재정 정상화</span></span>
+          </button>
+          <button type="button" class="al-opt" data-q="5" data-value="민사/형사">
+            <span class="al-opt__icon">📋</span>
+            <span class="al-opt__text"><strong>민사 · 형사</strong><span>소송 · 분쟁</span></span>
+          </button>
+          <button type="button" class="al-opt" data-q="5" data-value="가사/이혼">
+            <span class="al-opt__icon">👨‍👩‍👧</span>
+            <span class="al-opt__text"><strong>가사 · 이혼</strong><span>이혼 · 양육권 · 재산분할</span></span>
+          </button>
+          <button type="button" class="al-opt" data-q="5" data-value="전문가상담">
+            <span class="al-opt__icon">💬</span>
+            <span class="al-opt__text"><strong>전문가 상담 후 결정</strong><span>우선 상담을 받아보겠습니다</span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Final: Contact form -->
+      <div class="al-quiz__step" data-step="6">
+        <div class="al-quiz__result">
+          <div class="al-quiz__result-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            진단 완료
+          </div>
+          <h3 class="al-quiz__q">연락받으실 정보를 <em>남겨주세요</em></h3>
+          <p class="al-quiz__sub">
+            내편이 <strong>1시간 내</strong>에 직접 연락드립니다.<br>
+            간단한 정보면 충분합니다.
+          </p>
+        </div>
+
+        <div class="al-quiz__form">
+          <div class="al-field">
+            <label class="al-field__label">이름 또는 닉네임</label>
+            <input class="al-field__input" type="text" id="diagName" placeholder="예) 홍길동 또는 A님" required>
+          </div>
+
+          <div class="al-field">
+            <label class="al-field__label">연락 방법</label>
+            <div class="al-radio-group">
+              <label class="al-radio">
+                <input type="radio" name="diagMethod" value="전화" checked>
+                <span class="al-radio__box"></span>
+                <span>전화번호</span>
+              </label>
+              <label class="al-radio">
+                <input type="radio" name="diagMethod" value="카카오톡">
+                <span class="al-radio__box"></span>
+                <span>카카오톡 ID</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="al-field">
+            <label class="al-field__label" id="diagContactLabel">연락처</label>
+            <input class="al-field__input" type="text" id="diagContact" placeholder="010-0000-0000" required>
+          </div>
+
+          <div class="al-field">
+            <label class="al-field__label optional">연락 가능 시간 <small style="color:var(--al-text-dim);font-weight:500;">(선택)</small></label>
+            <select class="al-field__input" id="diagTime">
+              <option value="">가능한 빠르게</option>
+              <option value="09:00-12:00">오전 (09:00-12:00)</option>
+              <option value="12:00-15:00">점심·오후 (12:00-15:00)</option>
+              <option value="15:00-18:00">오후 (15:00-18:00)</option>
+              <option value="저녁">저녁 이후</option>
+            </select>
+          </div>
+
+          <label class="al-consent">
+            <input type="checkbox" id="diagAgree" required>
+            <span>
+              <strong>개인정보 수집 · 이용에 동의합니다.</strong><br>
+              상담 목적으로만 사용되며, 상담 종료 후 안전하게 폐기됩니다.
+            </span>
+          </label>
+
+          <button type="button" class="al-form__submit" id="diagSubmit">
+            무료 상담 신청 완료하기
+          </button>
+          <p class="al-form__notice">* 모든 정보는 철저히 비밀이 보장됩니다.</p>
+        </div>
+      </div>
+
+      <!-- Quiz Nav -->
+      <div class="al-quiz__nav">
+        <button type="button" class="al-quiz__nav-btn al-quiz__nav-btn--back" id="diagBack" hidden>
+          ← 이전
+        </button>
+      </div>
+
+      <!-- Success -->
+      <div class="al-quiz__step al-quiz__success" data-step="7" hidden>
+        <div class="al-quiz__success-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 class="al-quiz__success-title">상담 신청이 접수되었습니다.</h3>
+        <p class="al-quiz__success-desc">
+          내편이 되어 가장 빠른 시간 내에 <strong>직접 연락</strong>드리겠습니다.<br>
+          소중한 문의 감사합니다.
+        </p>
+        <a href="tel:031-438-2585" class="al-btn al-btn--green" style="margin-top:1.5rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          지금 바로 전화하기
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE STRIP -->
+<section class="al-quote al-reveal">
+  <div class="al-container">
+    <p class="al-quote__text">
+      "혼자서는 보이지 않던 길,<br>
+      <em>내편과 함께라면 보입니다.</em>"
+    </p>
+    <div class="al-quote__author">— 법률사무소 시민</div>
+  </div>
+</section>
+
+<!-- 4-STEP PROMISE -->
+<section class="al-section" id="promise">
+  <div class="al-container">
+    <div class="al-section__head al-reveal">
+      <span class="al-section__tag">OUR PROMISE</span>
+      <h2 class="al-section__title">진정한 내편의 <em>4가지 약속</em></h2>
+      <p class="al-section__sub">
+        상담 신청부터 사건 종결까지, 시민은 의뢰인의 옆을 떠나지 않습니다.
+      </p>
+    </div>
+
+    <div class="al-promise__grid al-reveal">
+      <div class="al-step">
+        <div class="al-step__num">01</div>
+        <h3 class="al-step__title">무료 초기 상담</h3>
+        <p class="al-step__desc">부담 없는 첫 상담. 사건 진단부터 무료로 제공해 드립니다.</p>
+      </div>
+      <div class="al-step">
+        <div class="al-step__num">02</div>
+        <h3 class="al-step__title">맞춤 솔루션</h3>
+        <p class="al-step__desc">의뢰인의 상황에 꼭 맞는 법적 전략을 제안해 드립니다.</p>
+      </div>
+      <div class="al-step">
+        <div class="al-step__num">03</div>
+        <h3 class="al-step__title">철저한 진행</h3>
+        <p class="al-step__desc">합리적 수임료, 투명한 절차, 신속한 사건 처리.</p>
+      </div>
+      <div class="al-step">
+        <div class="al-step__num">04</div>
+        <h3 class="al-step__title">끝까지 함께</h3>
+        <p class="al-step__desc">사건 종결 후에도 사후 관리까지 책임지는 진정한 내편.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTICE + FAQ -->
+<section class="al-section al-section--soft" id="board">
+  <div class="al-container">
+    <div class="al-section__head al-reveal">
+      <span class="al-section__tag">NEWS &amp; FAQ</span>
+      <h2 class="al-section__title">최신 소식과 <em>자주하는 질문</em></h2>
+    </div>
+
+    <div class="al-board al-reveal">
+      <div class="al-board__col">
+        <h3>공지사항 <a href="/notice/">전체보기 →</a></h3>
+        {% if notices %}
+          <ul class="al-notice-list">
+            {% for n in notices %}
+              <li><a href="/notice/{{ n.pk }}/">
+                <span>{{ n.title }}</span>
+                <span class="al-notice-list__date">{{ n.created_at|date:"Y.m.d" }}</span>
+              </a></li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p style="padding:2rem;text-align:center;color:var(--al-text-dim);">등록된 공지가 없습니다.</p>
+        {% endif %}
+      </div>
+
+      <div class="al-board__col">
+        <h3>자주하는 질문 <a href="/faq/">전체보기 →</a></h3>
+        {% if faqs %}
+          {% for f in faqs %}
+            <div class="al-faq-item">
+              <button class="al-faq-item__q">
+                <span><span class="al-faq-item__cat">{{ f.category }}</span>{{ f.question }}</span>
+                <span class="al-faq-item__icon">+</span>
+              </button>
+              <div class="al-faq-item__a">{{ f.answer }}</div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p style="padding:2rem;text-align:center;color:var(--al-text-dim);">등록된 질문이 없습니다.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="al-cta-band">
+  <div class="al-container">
+    <div class="al-cta-band__inner">
+      <div>
+        <h3 class="al-cta-band__title">
+          지금 바로, <em>내편에게 연락하세요.</em>
+        </h3>
+        <p class="al-cta-band__sub">평일 09:00–18:00 · 전화 상담은 무료입니다.</p>
+      </div>
+      <div class="al-cta-band__actions">
+        <a href="tel:031-438-2585" class="al-cta-band__phone">
+          <small>CALL NOW</small>
+          <strong>031-438-2585</strong>
+        </a>
+        <a href="#consult" class="al-cta-band__kakao">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.3 4.5 6.8L5 21l4-2.2c1 .1 2 .2 3 .2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg>
+          상담 신청
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULT -->
+<section class="al-consult" id="consult">
+  <div class="al-container">
+    <div class="al-consult__grid">
+      <div class="al-reveal">
+        <span class="al-section__tag">FREE CONSULTATION</span>
+        <h2 class="al-consult__heading">
+          혼자 고민하지 마세요.<br>
+          <em>내편이 들어드립니다.</em>
+        </h2>
+        <p class="al-consult__desc">
+          간단한 정보만 남겨주시면<br>
+          20년 경력의 법률 전문가가 <strong style="color:var(--al-green);font-weight:800;">직접 연락</strong>드립니다.<br>
+          모든 상담은 철저한 비밀이 보장됩니다.
+        </p>
+        <dl class="al-consult__list">
+          <li>
+            <span class="al-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </span>
+            <div>
+              <dt>전화</dt>
+              <dd><a href="tel:031-438-2585">031-438-2585</a></dd>
+            </div>
+          </li>
+          <li>
+            <span class="al-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </span>
+            <div>
+              <dt>상담 시간</dt>
+              <dd>평일 09:00 – 18:00</dd>
+            </div>
+          </li>
+          <li>
+            <span class="al-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <div>
+              <dt>위치</dt>
+              <dd>경기 안산시 상록구 이동 715</dd>
+            </div>
+          </li>
+          <li>
+            <span class="al-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </span>
+            <div>
+              <dt>이메일</dt>
+              <dd><a href="mailto:contact@citizen.co.kr">contact@citizen.co.kr</a></dd>
+            </div>
+          </li>
+        </dl>
+      </div>
+
+      <form class="al-form al-reveal" id="alForm">
+        <h3 class="al-form__title">지금 바로 <span style="color:var(--al-green);">내편</span> 만나기</h3>
+        <div class="al-form__row">
+          <div class="al-field">
+            <label class="al-field__label">이름</label>
+            <input class="al-field__input" type="text" name="name" placeholder="홍길동" required>
+          </div>
+          <div class="al-field">
+            <label class="al-field__label">연락처</label>
+            <input class="al-field__input" type="tel" name="phone" placeholder="010-0000-0000" required>
+          </div>
+        </div>
+        <div class="al-field">
+          <label class="al-field__label">상담 분야</label>
+          <select class="al-field__input" name="category" required>
+            <option value="">선택해 주세요</option>
+            <option value="개인회생">개인회생</option>
+            <option value="개인파산">개인파산</option>
+            <option value="민사">민사 소송</option>
+            <option value="형사">형사 사건</option>
+            <option value="가사/이혼">가사 · 이혼</option>
+            <option value="법인회생">법인 회생</option>
+            <option value="기타">기타</option>
+          </select>
+        </div>
+        <div class="al-field">
+          <label class="al-field__label optional">상담 내용</label>
+          <textarea class="al-field__input" name="message" placeholder="사건 내용을 간단히 적어주세요."></textarea>
+        </div>
+        <button type="submit" class="al-form__submit">무료 상담 신청하기 →</button>
+        <p class="al-form__notice">* 모든 정보는 철저히 비밀이 보장됩니다.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="al-footer">
+  <div class="al-container">
+    <div class="al-footer__top">
+      <div class="al-footer__brand">
+        <h4>
+          <span class="al-logo__mark" style="width:28px;height:28px;font-size:0.85rem;">시</span>
+          법률사무소 <em>시민</em>
+        </h4>
+        <p>
+          당신의 확실한 내편.<br>
+          경기 안산시 상록구 이동 715<br>
+          TEL. 031-438-2585 · 평일 09:00–18:00
+        </p>
+      </div>
+      <div class="al-footer__col">
+        <h5>MENU</h5>
+        <p><a href="#about">시민 소개</a></p>
+        <p><a href="#cases">성공 사례</a></p>
+        <p><a href="#promise">4가지 약속</a></p>
+        <p><a href="#consult">무료 상담</a></p>
+      </div>
+      <div class="al-footer__col">
+        <h5>INFO</h5>
+        <p><a href="/notice/">공지사항</a></p>
+        <p><a href="/faq/">자주하는 질문</a></p>
+        <p><a href="/">다른 시안 보기</a></p>
+        <p><a href="/v/classic/">클래식 버전</a></p>
+      </div>
+    </div>
+    <div class="al-footer__bottom">
+      © 2026 법률사무소 시민. ALL RIGHTS RESERVED.
+    </div>
+  </div>
+</footer>
+
+<div class="al-float">
+  <a href="tel:031-438-2585" class="al-float__phone" aria-label="전화 상담">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  </a>
+  <a href="#consult" class="al-float__chat" aria-label="상담 신청">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  </a>
+</div>
+
+<script src="{% static 'js/variant-ally.js' %}"></script>
+</body>
+</html>

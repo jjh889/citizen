@@ -1,0 +1,330 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>법률사무소 시민 | Motion Dynamic</title>
+<meta name="description" content="법률사무소 시민 - Motion Dynamic 시안">
+<meta name="theme-color" content="#070B14">
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/variant-motion.css' %}">
+</head>
+<body>
+
+<div class="mo-mesh"></div>
+
+<header class="mo-header" id="moHeader">
+  <div class="mo-container mo-header__inner">
+    <a href="/v/motion/" class="mo-logo">
+      <span class="mo-logo__dot"></span>
+      <span class="mo-logo__text">Citizen<em>.</em></span>
+    </a>
+    <nav class="mo-nav">
+      <a href="#services">업무</a>
+      <a href="#practice">전문분야</a>
+      <a href="#board">소식</a>
+      <a href="#consult">상담</a>
+    </nav>
+    <a href="#consult" class="mo-cta">무료 상담 →</a>
+    <button class="mo-toggle" id="moToggle" aria-label="메뉴"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mo-mobile-nav" id="moMobile">
+  <a href="#services">업무 분야</a>
+  <a href="#practice">전문 분야</a>
+  <a href="#board">소식</a>
+  <a href="#consult">상담 신청</a>
+  <a href="/notice/">공지사항</a>
+  <a href="/faq/">자주하는 질문</a>
+</div>
+
+<!-- HERO -->
+<section class="mo-hero">
+  <div class="mo-hero__content">
+    <div class="mo-hero__tag">
+      <span class="mo-hero__tag-dot"></span>
+      무료 상담 진행 중
+    </div>
+    <h1 class="mo-hero__title">
+      <span>Beyond</span>
+      <span>the <em>Law.</em></span>
+      <span>당신의 답.</span>
+    </h1>
+    <p class="mo-hero__desc">
+      20년 법률 실무와 7,000건의 상담 경험이 만든 해답.<br>
+      개인회생·파산·민형사·가사·법인회생 전 영역에서 가장 확실한 결과를.
+    </p>
+    <div class="mo-hero__actions">
+      <a href="#consult" class="mo-btn mo-btn--accent">무료 상담 신청 →</a>
+      <a href="tel:031-438-2585" class="mo-btn mo-btn--ghost">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        031-438-2585
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="mo-marquee">
+  <div class="mo-marquee__track">
+    <span>개인회생</span><span>개인파산</span><span>민사소송</span><span>형사변호</span><span>가사이혼</span><span>법인회생</span><span>무료상담</span>
+    <span>개인회생</span><span>개인파산</span><span>민사소송</span><span>형사변호</span><span>가사이혼</span><span>법인회생</span><span>무료상담</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="mo-section">
+  <div class="mo-container">
+    <div class="mo-stats mo-reveal">
+      <div class="mo-stat">
+        <div class="mo-stat__num"><span data-mo-count="20">0</span><small>년+</small></div>
+        <div class="mo-stat__label">법률 실무 경력</div>
+      </div>
+      <div class="mo-stat">
+        <div class="mo-stat__num"><span data-mo-count="7000">0</span><small>건+</small></div>
+        <div class="mo-stat__label">누적 상담 건수</div>
+      </div>
+      <div class="mo-stat">
+        <div class="mo-stat__num"><span data-mo-count="95">0</span><small>%</small></div>
+        <div class="mo-stat__label">의뢰인 만족도</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="mo-services">
+  <div class="mo-container">
+    <div class="mo-section__head mo-section__head--center mo-reveal">
+      <span class="mo-section__tag">OUR SERVICES</span>
+      <h2 class="mo-section__title">
+        모든 법률 영역에서,<br>
+        <em>가장 확실한 답.</em>
+      </h2>
+    </div>
+  </div>
+  <div class="mo-services__scroll mo-reveal">
+    <div class="mo-service-card">
+      <div class="mo-service-card__num">01 · DEBT</div>
+      <h3 class="mo-service-card__title">개인회생 / 파산</h3>
+      <p class="mo-service-card__desc">과중한 채무에서 새로운 시작으로. 최대 90% 채무 감면, 재산 보전까지.</p>
+      <span class="mo-service-card__tag">채무조정</span>
+    </div>
+    <div class="mo-service-card">
+      <div class="mo-service-card__num">02 · CIVIL</div>
+      <h3 class="mo-service-card__title">민사 소송</h3>
+      <p class="mo-service-card__desc">손해배상, 계약분쟁, 부동산. 일상과 맞닿은 모든 민사 분쟁.</p>
+      <span class="mo-service-card__tag">민사</span>
+    </div>
+    <div class="mo-service-card">
+      <div class="mo-service-card__num">03 · CRIMINAL</div>
+      <h3 class="mo-service-card__title">형사 사건</h3>
+      <p class="mo-service-card__desc">고소고발부터 피의자 변호, 피해자 대리까지. 전 단계의 전문 대응.</p>
+      <span class="mo-service-card__tag">형사</span>
+    </div>
+    <div class="mo-service-card">
+      <div class="mo-service-card__num">04 · FAMILY</div>
+      <h3 class="mo-service-card__title">가사 · 이혼</h3>
+      <p class="mo-service-card__desc">이혼소송, 위자료, 양육권, 재산분할. 가장 예민한 사건을 신중하게.</p>
+      <span class="mo-service-card__tag">가사</span>
+    </div>
+    <div class="mo-service-card">
+      <div class="mo-service-card__num">05 · CORPORATE</div>
+      <h3 class="mo-service-card__title">법인 회생</h3>
+      <p class="mo-service-card__desc">재정 위기의 법인을 정상화로. 회생 계획 수립부터 인가까지.</p>
+      <span class="mo-service-card__tag">법인</span>
+    </div>
+    <div class="mo-service-card">
+      <div class="mo-service-card__num">06 · CONSULT</div>
+      <h3 class="mo-service-card__title">무료 상담</h3>
+      <p class="mo-service-card__desc">부담 없는 첫 상담. 정확한 진단으로 사건의 방향을 함께 정합니다.</p>
+      <span class="mo-service-card__tag">상담</span>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICE - Split -->
+<section class="mo-section" id="practice">
+  <div class="mo-container">
+    <div class="mo-split mo-reveal">
+      <div class="mo-split__visual">
+        <img src="{% static 'img/about.jpg' %}" alt="법률사무소 시민">
+      </div>
+      <div>
+        <span class="mo-section__tag">SIGNATURE · 채무 솔루션</span>
+        <h2 class="mo-split__title">
+          채무의 굴레에서<br>
+          <em>새로운 인생으로.</em>
+        </h2>
+        <p class="mo-split__desc">
+          개인회생과 파산은 단순한 면책이 아닙니다. 인생을 다시 설계할 수 있는 법적 기회입니다. 가장 세심한 방법으로 당신의 기회를 지켜드립니다.
+        </p>
+        <div class="mo-features">
+          <div class="mo-feature">
+            <div class="mo-feature__icon">90</div>
+            <h4>최대 90% 감면</h4>
+            <p>개인회생 채무 조정</p>
+          </div>
+          <div class="mo-feature">
+            <div class="mo-feature__icon">✓</div>
+            <h4>재산 보전</h4>
+            <p>주택·차량 유지</p>
+          </div>
+          <div class="mo-feature">
+            <div class="mo-feature__icon">∞</div>
+            <h4>전액 면책</h4>
+            <p>파산 시 채무 전액</p>
+          </div>
+          <div class="mo-feature">
+            <div class="mo-feature__icon">⚡</div>
+            <h4>신속 절차</h4>
+            <p>3-5년 내 복권</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOARD -->
+<section class="mo-section" id="board">
+  <div class="mo-container">
+    <div class="mo-section__head mo-section__head--center mo-reveal">
+      <span class="mo-section__tag">NEWS &amp; FAQ</span>
+      <h2 class="mo-section__title">최신 소식과 <em>답변.</em></h2>
+    </div>
+
+    <div class="mo-board mo-reveal">
+      <div class="mo-board__col">
+        <h3>공지사항 <a href="/notice/">전체 →</a></h3>
+        {% if notices %}
+          <ul class="mo-notice-list">
+            {% for n in notices %}
+              <li><a href="/notice/{{ n.pk }}/">
+                <span>{{ n.title }}</span>
+                <span class="mo-notice-list__date">{{ n.created_at|date:"m.d" }}</span>
+              </a></li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p style="padding:2rem 0;color:var(--mo-text-dim);text-align:center;">등록된 공지가 없습니다.</p>
+        {% endif %}
+      </div>
+
+      <div class="mo-board__col">
+        <h3>자주하는 질문 <a href="/faq/">전체 →</a></h3>
+        {% if faqs %}
+          {% for f in faqs %}
+            <div class="mo-faq-item">
+              <button class="mo-faq-item__q">
+                <span><span class="mo-faq-item__cat">{{ f.category }}</span>{{ f.question }}</span>
+                <span class="mo-faq-item__icon">+</span>
+              </button>
+              <div class="mo-faq-item__a">{{ f.answer }}</div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p style="padding:2rem 0;color:var(--mo-text-dim);text-align:center;">등록된 질문이 없습니다.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULT -->
+<section class="mo-consult" id="consult">
+  <div class="mo-container">
+    <div class="mo-consult__grid">
+      <div class="mo-reveal">
+        <span class="mo-section__tag">FREE CONSULTATION</span>
+        <h2 class="mo-consult__heading">
+          당신의 고민,<br>
+          <em>들려주세요.</em>
+        </h2>
+        <p class="mo-consult__desc">
+          간단한 정보만 남겨주시면 전문가가 직접 연락드립니다. 모든 상담은 철저히 비밀이 보장됩니다.
+        </p>
+        <a href="tel:031-438-2585" class="mo-consult__phone">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          031-438-2585
+        </a>
+      </div>
+
+      <form class="mo-form mo-reveal" id="moForm">
+        <h3 class="mo-form__title">무료 상담 신청</h3>
+        <div class="mo-form__row">
+          <div class="mo-field">
+            <label class="mo-field__label">이름</label>
+            <input class="mo-field__input" type="text" name="name" placeholder="홍길동" required>
+          </div>
+          <div class="mo-field">
+            <label class="mo-field__label">연락처</label>
+            <input class="mo-field__input" type="tel" name="phone" placeholder="010-0000-0000" required>
+          </div>
+        </div>
+        <div class="mo-field">
+          <label class="mo-field__label">상담 분야</label>
+          <select class="mo-field__input" name="category" required>
+            <option value="">선택해 주세요</option>
+            <option value="개인회생">개인회생</option>
+            <option value="개인파산">개인파산</option>
+            <option value="민사">민사</option>
+            <option value="형사">형사</option>
+            <option value="가사/이혼">가사/이혼</option>
+            <option value="법인회생">법인회생</option>
+            <option value="기타">기타</option>
+          </select>
+        </div>
+        <div class="mo-field">
+          <label class="mo-field__label">상담 내용</label>
+          <textarea class="mo-field__input" name="message" placeholder="간단히 적어주세요"></textarea>
+        </div>
+        <button type="submit" class="mo-form__submit">상담 신청 →</button>
+        <p class="mo-form__notice">모든 정보는 철저히 비밀이 보장됩니다.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="mo-footer">
+  <div class="mo-container">
+    <div class="mo-footer__top">
+      <div class="mo-footer__brand">
+        <div class="mo-logo">
+          <span class="mo-logo__dot"></span>
+          <span class="mo-logo__text">Citizen<em>.</em></span>
+        </div>
+        <p class="mo-footer__tag">Beyond the Law.<br>당신의 답이 되는 법률 파트너.</p>
+      </div>
+      <div class="mo-footer__col">
+        <h4>CONTACT</h4>
+        <p><a href="tel:031-438-2585">031-438-2585</a></p>
+        <p>평일 09:00–18:00</p>
+        <p>경기도 안산시 상록구 이동 715</p>
+      </div>
+      <div class="mo-footer__col">
+        <h4>PAGES</h4>
+        <p><a href="/notice/">공지사항</a></p>
+        <p><a href="/faq/">자주하는 질문</a></p>
+        <p><a href="/">기존 메인</a></p>
+        <p><a href="/v/">다른 시안</a></p>
+      </div>
+    </div>
+    <div class="mo-footer__bottom">© 2026 법률사무소 시민. All rights reserved.</div>
+  </div>
+</footer>
+
+<a href="tel:031-438-2585" class="mo-float" aria-label="전화">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+</a>
+
+<script src="{% static 'js/variant-motion.js' %}"></script>
+</body>
+</html>

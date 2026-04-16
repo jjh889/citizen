@@ -1,0 +1,331 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>법률사무소 시민 | 디자인 시안 선택</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0F1114;
+    --panel: #16191E;
+    --border: rgba(255,255,255,0.08);
+    --text: #E9EBEE;
+    --text-dim: #9CA3AF;
+    --accent: #D4A017;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Pretendard Variable', 'Pretendard', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 4rem 1.25rem;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1280px; margin: 0 auto; }
+  .head { text-align: center; margin-bottom: 3.5rem; }
+  .head__label {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.3em; color: var(--accent); margin-bottom: 1rem;
+    padding: 0.35rem 1rem;
+    border: 1px solid rgba(212,160,23,0.3);
+    border-radius: 999px;
+  }
+  .head h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.025em; margin-bottom: 0.75rem; }
+  .head p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.7; max-width: 600px; margin: 0 auto; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 640px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .card {
+    display: block;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+  .card__preview {
+    aspect-ratio: 16 / 10;
+    position: relative;
+    overflow: hidden;
+  }
+  .card__body { padding: 1.25rem 1.5rem 1.5rem; }
+  .card__tag {
+    display: inline-block; font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.4rem;
+  }
+  .card__title { font-size: 1.15rem; font-weight: 800; margin-bottom: 0.35rem; letter-spacing: -0.02em; }
+  .card__desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; }
+  .card__cta {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    margin-top: 0.9rem; font-size: 0.82rem; font-weight: 700; color: var(--accent);
+  }
+
+  /* Preview: Classic */
+  .prev-classic {
+    background: linear-gradient(135deg, #1E3A5F 0%, #2D5F8A 100%);
+    color: #fff;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 1.5rem;
+  }
+  .prev-classic__mark { font-size: 2rem; opacity: 0.85; margin-bottom: 0.5rem; color: #B8860B; }
+  .prev-classic__title { font-size: 1.4rem; font-weight: 800; text-align: center; letter-spacing: -0.02em; }
+  .prev-classic__sub { font-size: 0.7rem; letter-spacing: 0.2em; color: #D4A017; margin-top: 0.35rem; }
+
+  /* Preview: Dark */
+  .prev-dark {
+    background:
+      radial-gradient(ellipse at 30% 40%, rgba(212,160,23,0.15), transparent 60%),
+      linear-gradient(135deg, #0A0908, #1A1613);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    color: #F5E6C8;
+  }
+  .prev-dark__symbol { font-size: 2.5rem; margin-bottom: 0.5rem; opacity: 0.9; }
+  .prev-dark__title { font-family: 'Noto Serif KR', serif; font-size: 1.3rem; letter-spacing: 0.05em; font-weight: 700; }
+  .prev-dark__sub { font-size: 0.68rem; letter-spacing: 0.25em; color: #D4A017; margin-top: 0.3rem; }
+
+  /* Preview: Editorial */
+  .prev-editorial {
+    background: #F5F0E6;
+    color: #1A1A1A;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding: 1.5rem;
+  }
+  .prev-editorial__num { font-size: 2.8rem; font-weight: 900; color: #8B1538; line-height: 1; font-family: 'Georgia', serif; }
+  .prev-editorial__title { font-family: 'Georgia', serif; font-size: 1rem; font-weight: 700; line-height: 1.2; margin-top: 0.4rem; }
+  .prev-editorial__line { width: 30px; height: 2px; background: #1A1A1A; margin: 0.5rem 0; }
+  .prev-editorial__body { font-size: 0.65rem; color: #555; line-height: 1.5; }
+  .prev-editorial__img {
+    background: linear-gradient(135deg, #2C2C2C, #5A5A5A);
+    border-radius: 4px;
+  }
+
+  /* Preview: Motion */
+  .prev-motion {
+    background: linear-gradient(120deg, #0A1628 0%, #1E3A5F 50%, #0A1628 100%);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .prev-motion::before {
+    content: ''; position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(163,230,53,0.15) 0%, transparent 40%);
+    animation: motion-rotate 8s linear infinite;
+  }
+  @keyframes motion-rotate { to { transform: rotate(360deg); } }
+  .prev-motion__text {
+    position: relative; z-index: 1;
+    font-size: 1.8rem; font-weight: 900; color: #fff;
+    letter-spacing: -0.03em; text-align: center;
+  }
+  .prev-motion__accent { color: #A3E635; }
+
+  /* Preview: Corporate */
+  .prev-corporate {
+    background: #FFFFFF;
+    color: #212529;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    border: 1px solid #E9ECEF;
+    padding: 1.5rem;
+  }
+  .prev-corporate__tag { font-size: 0.62rem; letter-spacing: 0.25em; color: #A08252; margin-bottom: 0.5rem; font-weight: 700; }
+  .prev-corporate__title { font-size: 1.4rem; font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; text-align: center; }
+  .prev-corporate__line { width: 28px; height: 2px; background: #212529; margin: 0.6rem 0; }
+  .prev-corporate__sub { font-size: 0.7rem; color: #6D757E; letter-spacing: 0.15em; }
+
+  /* Preview: Ally (NEW) */
+  .prev-ally {
+    background: linear-gradient(180deg, #FFFFFF 0%, #ECF3E9 100%);
+    color: #1A2820;
+    position: relative;
+    overflow: hidden;
+    padding: 1.5rem;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .prev-ally::before {
+    content: '"';
+    position: absolute; top: -1rem; left: 0.5rem;
+    font-size: 6rem; font-family: Georgia, serif;
+    color: #144534; opacity: 0.08; line-height: 1;
+  }
+  .prev-ally__badge {
+    display: inline-flex; width: fit-content;
+    font-size: 0.62rem; font-weight: 700;
+    padding: 0.25rem 0.7rem;
+    background: #E8F0E5; color: #144534;
+    border-radius: 999px; margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+  .prev-ally__title {
+    font-size: 1.15rem; font-weight: 900;
+    letter-spacing: -0.025em; line-height: 1.4;
+    position: relative; z-index: 1;
+  }
+  .prev-ally__title em {
+    font-style: normal; color: #144534;
+    background: linear-gradient(180deg, transparent 60%, #F9E04B 60%);
+    padding: 0 0.1em;
+  }
+
+  /* Footer */
+  .foot { text-align: center; margin-top: 3rem; font-size: 0.82rem; color: var(--text-dim); }
+  .foot a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(212,160,23,0.3); padding-bottom: 1px; }
+  .foot a:hover { color: #F5D76E; }
+
+  /* Admin link */
+  .admin-link {
+    position: fixed; top: 1.25rem; right: 1.25rem;
+    font-size: 0.78rem; color: var(--text-dim);
+    padding: 0.5rem 0.85rem; background: var(--panel);
+    border: 1px solid var(--border); border-radius: 999px;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .admin-link:hover { color: var(--accent); border-color: var(--accent); }
+</style>
+</head>
+<body>
+
+<a href="/admin/" class="admin-link">ADMIN →</a>
+
+<div class="wrap">
+  <header class="head">
+    <span class="head__label">DESIGN VARIANTS</span>
+    <h1>법률사무소 시민 · 메인 페이지 시안</h1>
+    <p>
+      6가지 컨셉의 메인 디자인을 준비했습니다.<br>
+      모든 시안은 동일한 데이터(공지·FAQ·팝업·상담 API)를 사용합니다.
+    </p>
+  </header>
+
+  <div class="grid">
+
+    <a href="/v/ally/" class="card">
+      <div class="card__preview prev-ally">
+        <span class="prev-ally__badge">· 당신의 내편 ·</span>
+        <div class="prev-ally__title">혼자 감당하지 마세요.<br><em>내편이 여기 있습니다.</em></div>
+      </div>
+      <div class="card__body">
+        <span class="card__tag">01 · Ally (NEW)</span>
+        <h2 class="card__title">내편 — Warm &amp; Trust</h2>
+        <p class="card__desc">포레스트 그린 + 옐로우 하이라이트.<br>감성적 카피와 성공 사례 파이차트.</p>
+        <span class="card__cta">보기 →</span>
+      </div>
+    </a>
+
+    <a href="/v/corporate/" class="card">
+      <div class="card__preview prev-corporate">
+        <div class="prev-corporate__tag">PEOPLE · PROMISE · PERFORMANCE</div>
+        <div class="prev-corporate__title">고객중심<br>법률파트너</div>
+        <div class="prev-corporate__line"></div>
+        <div class="prev-corporate__sub">법률사무소 시민</div>
+      </div>
+      <div class="card__body">
+        <span class="card__tag">02 · Corporate</span>
+        <h2 class="card__title">Corporate Authority</h2>
+        <p class="card__desc">대형 로펌 스타일.<br>신뢰와 권위, 미니멀 화이트.</p>
+        <span class="card__cta">보기 →</span>
+      </div>
+    </a>
+
+    <a href="/v/dark/" class="card">
+      <div class="card__preview prev-dark">
+        <div class="prev-dark__symbol">⚖</div>
+        <div class="prev-dark__title">법률사무소 시민</div>
+        <div class="prev-dark__sub">TRUST · LUXURY</div>
+      </div>
+      <div class="card__body">
+        <span class="card__tag">03 · Dark</span>
+        <h2 class="card__title">Dark Luxury</h2>
+        <p class="card__desc">검정과 골드, 세리프 타이포그래피.<br>로펌의 무게감과 프리미엄.</p>
+        <span class="card__cta">보기 →</span>
+      </div>
+    </a>
+
+    <a href="/v/editorial/" class="card">
+      <div class="card__preview prev-editorial">
+        <div>
+          <div class="prev-editorial__num">01</div>
+          <div class="prev-editorial__title">The<br>Answer.</div>
+          <div class="prev-editorial__line"></div>
+          <div class="prev-editorial__body">법률사무소 시민은<br>의뢰인의 권리를 지킵니다</div>
+        </div>
+        <div class="prev-editorial__img"></div>
+      </div>
+      <div class="card__body">
+        <span class="card__tag">04 · Editorial</span>
+        <h2 class="card__title">Magazine Editorial</h2>
+        <p class="card__desc">잡지형 비대칭 레이아웃.<br>여백과 타이포의 품격.</p>
+        <span class="card__cta">보기 →</span>
+      </div>
+    </a>
+
+    <a href="/v/motion/" class="card">
+      <div class="card__preview prev-motion">
+        <div class="prev-motion__text">
+          Beyond<br>the <span class="prev-motion__accent">Law.</span>
+        </div>
+      </div>
+      <div class="card__body">
+        <span class="card__tag">05 · Motion</span>
+        <h2 class="card__title">Motion Dynamic</h2>
+        <p class="card__desc">스크롤 인터랙션과 그라디언트.<br>젊고 다이나믹한 감각.</p>
+        <span class="card__cta">보기 →</span>
+      </div>
+    </a>
+
+    <a href="/v/classic/" class="card">
+      <div class="card__preview prev-classic">
+        <div class="prev-classic__mark">⚖</div>
+        <div class="prev-classic__title">당신의 답이 되는<br>법률사무소 시민</div>
+        <div class="prev-classic__sub">EXPERTISE · SOLUTION</div>
+      </div>
+      <div class="card__body">
+        <span class="card__tag">06 · Classic</span>
+        <h2 class="card__title">Original Main</h2>
+        <p class="card__desc">기존 네이비 톤 메인 페이지.<br>처음 제작한 오리지널 버전.</p>
+        <span class="card__cta">보기 →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <div style="margin-top:3rem;padding:2rem;background:var(--panel);border:1px solid var(--border);border-radius:16px;">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;">
+      <div>
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.2em;color:var(--accent);margin-bottom:0.4rem;">LANDING PAGE</div>
+        <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:0.35rem;">광고 유입용 자가진단 LP</h3>
+        <p style="color:var(--text-dim);font-size:0.88rem;line-height:1.65;">
+          인스타·외부 매체 광고 유입자를 위한 단독 페이지.<br>
+          단일 목적: 자가진단 → 즉시 상담 신청으로 전환.
+        </p>
+      </div>
+      <a href="/lp/diagnose/" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.75rem 1.4rem;background:var(--accent);color:#0F1114;border-radius:999px;font-weight:800;font-size:0.9rem;text-decoration:none;white-space:nowrap;">
+        LP 보기 →
+      </a>
+    </div>
+  </div>
+
+  <div class="foot" style="margin-top:2rem;">
+    <p>관리자 페이지는 <a href="/admin/">/admin/</a> 에서 접근하실 수 있습니다.</p>
+  </div>
+</div>
+
+</body>
+</html>
