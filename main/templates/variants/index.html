@@ -150,6 +150,24 @@
   .prev-corporate__line { width: 28px; height: 2px; background: #212529; margin: 0.6rem 0; }
   .prev-corporate__sub { font-size: 0.7rem; color: #6D757E; letter-spacing: 0.15em; }
 
+  /* Preview: Prestige (NEW - BKL) */
+  .prev-prestige {
+    background: linear-gradient(135deg, #0F1B2D 0%, #1E3A5F 100%);
+    color: #fff;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 1.5rem;
+  }
+  .prev-prestige::before {
+    content: ''; position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(184,136,74,0.2) 0%, transparent 35%);
+  }
+  .prev-prestige__eye { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.3em; color: #C9A064; margin-bottom: 0.6rem; padding-bottom: 0.3rem; border-bottom: 1px solid rgba(201,160,100,0.4); width: fit-content; position: relative; z-index: 1; }
+  .prev-prestige__title { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; position: relative; z-index: 1; }
+  .prev-prestige__title em { font-style: normal; color: #C9A064; border-bottom: 2px solid #C9A064; padding-bottom: 1px; }
+
   /* Preview: Ally (NEW) */
   .prev-ally {
     background: linear-gradient(180deg, #FFFFFF 0%, #ECF3E9 100%);
@@ -216,13 +234,26 @@
 
   <div class="grid">
 
+    <a href="/v/prestige/" class="card">
+      <div class="card__preview prev-prestige">
+        <div class="prev-prestige__eye">CASE VICTORY · 2026</div>
+        <div class="prev-prestige__title">개인회생 채무<br><em>1억 2천만원</em><br>최대 90% 면책</div>
+      </div>
+      <div class="card__body">
+        <span class="card__tag">01 · Prestige (NEW)</span>
+        <h2 class="card__title">대형 로펌 격조</h2>
+        <p class="card__desc">BKL 스타일 슬라이더 히어로.<br>네이비 + 골드, 인사이트 그리드.</p>
+        <span class="card__cta">보기 →</span>
+      </div>
+    </a>
+
     <a href="/v/ally/" class="card">
       <div class="card__preview prev-ally">
         <span class="prev-ally__badge">· 당신의 내편 ·</span>
         <div class="prev-ally__title">혼자 감당하지 마세요.<br><em>내편이 여기 있습니다.</em></div>
       </div>
       <div class="card__body">
-        <span class="card__tag">01 · Ally (NEW)</span>
+        <span class="card__tag">02 · Ally</span>
         <h2 class="card__title">내편 — Warm &amp; Trust</h2>
         <p class="card__desc">포레스트 그린 + 옐로우 하이라이트.<br>감성적 카피와 성공 사례 파이차트.</p>
         <span class="card__cta">보기 →</span>
@@ -237,7 +268,7 @@
         <div class="prev-corporate__sub">법률사무소 시민</div>
       </div>
       <div class="card__body">
-        <span class="card__tag">02 · Corporate</span>
+        <span class="card__tag">03 · Corporate</span>
         <h2 class="card__title">Corporate Authority</h2>
         <p class="card__desc">대형 로펌 스타일.<br>신뢰와 권위, 미니멀 화이트.</p>
         <span class="card__cta">보기 →</span>
@@ -251,7 +282,7 @@
         <div class="prev-dark__sub">TRUST · LUXURY</div>
       </div>
       <div class="card__body">
-        <span class="card__tag">03 · Dark</span>
+        <span class="card__tag">04 · Dark</span>
         <h2 class="card__title">Dark Luxury</h2>
         <p class="card__desc">검정과 골드, 세리프 타이포그래피.<br>로펌의 무게감과 프리미엄.</p>
         <span class="card__cta">보기 →</span>
@@ -269,7 +300,7 @@
         <div class="prev-editorial__img"></div>
       </div>
       <div class="card__body">
-        <span class="card__tag">04 · Editorial</span>
+        <span class="card__tag">05 · Editorial</span>
         <h2 class="card__title">Magazine Editorial</h2>
         <p class="card__desc">잡지형 비대칭 레이아웃.<br>여백과 타이포의 품격.</p>
         <span class="card__cta">보기 →</span>
@@ -283,7 +314,7 @@
         </div>
       </div>
       <div class="card__body">
-        <span class="card__tag">05 · Motion</span>
+        <span class="card__tag">06 · Motion</span>
         <h2 class="card__title">Motion Dynamic</h2>
         <p class="card__desc">스크롤 인터랙션과 그라디언트.<br>젊고 다이나믹한 감각.</p>
         <span class="card__cta">보기 →</span>
@@ -297,7 +328,7 @@
         <div class="prev-classic__sub">EXPERTISE · SOLUTION</div>
       </div>
       <div class="card__body">
-        <span class="card__tag">06 · Classic</span>
+        <span class="card__tag">07 · Classic</span>
         <h2 class="card__title">Original Main</h2>
         <p class="card__desc">기존 네이비 톤 메인 페이지.<br>처음 제작한 오리지널 버전.</p>
         <span class="card__cta">보기 →</span>

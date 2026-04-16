@@ -1,0 +1,583 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>법률사무소 시민 | Beyond Compliance</title>
+<meta name="description" content="법률사무소 시민 - 준법을 넘어 경쟁력으로. 20년 경력의 법률 전문가가 당신의 답이 되겠습니다.">
+<meta name="theme-color" content="#0F1B2D">
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/variant-prestige.css' %}">
+</head>
+<body>
+
+<!-- Top utility -->
+<div class="pr-utility">
+  <div class="pr-container pr-utility__inner">
+    <a href="/notice/">공지사항</a>
+    <span class="pr-utility__sep">|</span>
+    <a href="/faq/">FAQ</a>
+    <span class="pr-utility__sep">|</span>
+    <a href="tel:031-438-2585">031-438-2585</a>
+    <span class="pr-utility__sep">|</span>
+    <div class="pr-utility__lang">
+      <a href="#" class="is-current">KR</a>
+      <span class="pr-utility__sep">|</span>
+      <a href="#">EN</a>
+      <span class="pr-utility__sep">|</span>
+      <a href="#">CN</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="pr-header">
+  <div class="pr-container pr-header__inner">
+    <a href="/v/prestige/" class="pr-logo">
+      <span class="pr-logo__main">
+        <span class="pr-logo__mark">시</span>
+        <span>법률사무소 시민</span>
+      </span>
+      <span class="pr-logo__sub">CITIZEN LAW OFFICE</span>
+    </a>
+
+    <nav class="pr-nav">
+      <div class="pr-nav__item">
+        <a href="#about" class="pr-nav__link">시민 소개</a>
+        <div class="pr-nav__dropdown">
+          <a href="#about">인사말</a>
+          <a href="#about">경영 철학</a>
+          <a href="#about">연혁</a>
+        </div>
+      </div>
+      <div class="pr-nav__item">
+        <a href="#practice" class="pr-nav__link">업무분야</a>
+        <div class="pr-nav__dropdown">
+          <a href="#practice">개인회생 / 파산</a>
+          <a href="#practice">민사 · 형사</a>
+          <a href="#practice">가사 · 이혼</a>
+          <a href="#practice">법인 회생</a>
+        </div>
+      </div>
+      <div class="pr-nav__item">
+        <a href="#insights" class="pr-nav__link">시민 이야기</a>
+        <div class="pr-nav__dropdown">
+          <a href="#insights">최근 사례</a>
+          <a href="/notice/">공지사항</a>
+          <a href="/faq/">자주하는 질문</a>
+        </div>
+      </div>
+      <div class="pr-nav__item">
+        <a href="#contact" class="pr-nav__link">상담 안내</a>
+        <div class="pr-nav__dropdown">
+          <a href="#contact">상담 신청</a>
+          <a href="#location">오시는 길</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="pr-header__right">
+      <button class="pr-search" aria-label="검색">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </button>
+      <a href="#contact" class="pr-cta">무료 상담</a>
+      <button class="pr-toggle" id="prToggle" aria-label="메뉴"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="pr-mobile-nav" id="prMobile">
+  <a href="#about">시민 소개</a>
+  <a href="#practice">업무분야</a>
+  <a href="#insights">시민 이야기</a>
+  <a href="#contact">상담 신청</a>
+  <a href="/notice/">공지사항</a>
+  <a href="/faq/">자주하는 질문</a>
+</div>
+
+<!-- HERO SLIDER -->
+<section class="pr-hero">
+  <div class="pr-hero__slides">
+
+    <!-- Slide 1 -->
+    <div class="pr-hero__slide is-active">
+      <div class="pr-hero__slide-bg"></div>
+      <div class="pr-hero__content">
+        <div class="pr-hero__eyebrow">CASE VICTORY · 2026</div>
+        <h1 class="pr-hero__title">
+          개인회생 채무 <em>1억 2천만원</em><br>
+          <span>최대 90% 면책 결정</span>
+        </h1>
+        <p class="pr-hero__desc">
+          다수 금융채무와 사채를 포함한 복잡한 채무 구조를 분석,<br>
+          의뢰인의 새로운 출발을 이끌어낸 시민의 대표 사례입니다.
+        </p>
+        <a href="#insights" class="pr-hero__cta">
+          사례 자세히 보기
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="pr-hero__slide">
+      <div class="pr-hero__slide-bg"></div>
+      <div class="pr-hero__content">
+        <div class="pr-hero__eyebrow">OUR PHILOSOPHY</div>
+        <h1 class="pr-hero__title">
+          준법을 넘어,<br>
+          <em>의뢰인의 권리를 지키다.</em>
+        </h1>
+        <p class="pr-hero__desc">
+          20년 법률 실무와 7,000건 상담 경험.<br>
+          법률사무소 시민은 의뢰인 한 사람 한 사람의 사건을 내 일처럼 다룹니다.
+        </p>
+        <a href="#about" class="pr-hero__cta">
+          시민 소개
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="pr-hero__slide">
+      <div class="pr-hero__slide-bg"></div>
+      <div class="pr-hero__content">
+        <div class="pr-hero__eyebrow">CORPORATE RECOVERY</div>
+        <h1 class="pr-hero__title">
+          법인 회생,<br>
+          <em>정상화의 첫 걸음</em>
+        </h1>
+        <p class="pr-hero__desc">
+          재정 위기에 처한 법인의 회생 계획 수립부터 법원 인가까지.<br>
+          경영자의 든든한 법률 파트너가 되어 드립니다.
+        </p>
+        <a href="#practice" class="pr-hero__cta">
+          업무 분야 보기
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Slider controls -->
+  <div class="pr-hero__controls">
+    <div class="pr-hero__dots">
+      <button class="pr-hero__dot is-active" aria-label="슬라이드 1"></button>
+      <button class="pr-hero__dot" aria-label="슬라이드 2"></button>
+      <button class="pr-hero__dot" aria-label="슬라이드 3"></button>
+    </div>
+    <div class="pr-hero__counter">
+      <strong id="prCounter">01</strong> / <span id="prTotal">03</span>
+    </div>
+    <div class="pr-hero__nav">
+      <button class="pr-hero__nav-btn" id="prPrev" aria-label="이전">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="pr-hero__nav-btn" id="prNext" aria-label="다음">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section class="pr-section" id="insights">
+  <div class="pr-container">
+    <div class="pr-section__head pr-section__head--row pr-reveal">
+      <div>
+        <div class="pr-section__eyebrow">INSIGHTS</div>
+        <h2 class="pr-section__title">시민의 <em>최근 이야기</em></h2>
+        <p class="pr-section__desc">실제 사건 결과와 법률 정보를 정기적으로 업데이트합니다.</p>
+      </div>
+      <a href="/notice/" class="pr-section__more">전체 보기 →</a>
+    </div>
+
+    <div class="pr-insights__grid pr-reveal">
+      <article class="pr-insight">
+        <div class="pr-insight__cover">
+          <span class="pr-insight__cover-text">Case Study</span>
+        </div>
+        <div class="pr-insight__body">
+          <div class="pr-insight__cat">CASE STUDY · 개인회생</div>
+          <h3 class="pr-insight__title">채무 1억 2천만원, 최대 90% 면책 결정 성공</h3>
+          <p class="pr-insight__desc">
+            다수 금융채무와 사채를 포함한 복잡한 채무 구조를 분석, 시민의 대표 회생 사례.
+          </p>
+          <div class="pr-insight__meta">
+            <time>2026.04.10</time>
+            <a href="/notice/">자세히</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pr-insight">
+        <div class="pr-insight__cover">
+          <span class="pr-insight__cover-text">Insight</span>
+        </div>
+        <div class="pr-insight__body">
+          <div class="pr-insight__cat">INSIGHT · 법률 칼럼</div>
+          <h3 class="pr-insight__title">개인회생 vs 개인파산, 어떤 선택이 맞을까?</h3>
+          <p class="pr-insight__desc">
+            소득 유무, 채무 규모에 따라 달라지는 두 제도의 차이와 선택 기준을 변호사가 설명합니다.
+          </p>
+          <div class="pr-insight__meta">
+            <time>2026.04.05</time>
+            <a href="/faq/">자세히</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pr-insight">
+        <div class="pr-insight__cover">
+          <span class="pr-insight__cover-text">Notice</span>
+        </div>
+        <div class="pr-insight__body">
+          <div class="pr-insight__cat">NOTICE · 공지</div>
+          <h3 class="pr-insight__title">4월 무료 상담 이벤트 진행 안내</h3>
+          <p class="pr-insight__desc">
+            4월 한 달간 개인회생·파산 관련 무료 법률 상담을 진행합니다. 부담 없이 문의해 주세요.
+          </p>
+          <div class="pr-insight__meta">
+            <time>2026.04.01</time>
+            <a href="/notice/">자세히</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS strip -->
+<section class="pr-awards">
+  <div class="pr-container pr-awards__inner">
+    <div class="pr-award"><strong>20+</strong> 법률 실무 경력</div>
+    <div class="pr-award"><strong>7,000+</strong> 누적 상담</div>
+    <div class="pr-award"><strong>95%</strong> 의뢰인 만족도</div>
+    <div class="pr-award"><strong>100%</strong> 비밀 보장</div>
+    <div class="pr-award"><strong>★★★★★</strong> 대한변호사협회 등록</div>
+  </div>
+</section>
+
+<!-- PRACTICE AREAS -->
+<section class="pr-section pr-section--cream" id="practice">
+  <div class="pr-container">
+    <div class="pr-section__head pr-section__head--row pr-reveal">
+      <div>
+        <div class="pr-section__eyebrow">PRACTICE AREAS</div>
+        <h2 class="pr-section__title">시민의 <em>전문 업무</em></h2>
+        <p class="pr-section__desc">개인과 법인, 민사와 형사, 가사와 회생. 모든 법률 영역에서 전문성을 제공합니다.</p>
+      </div>
+    </div>
+
+    <div class="pr-practice__grid pr-reveal">
+
+      <article class="pr-practice">
+        <div class="pr-practice__cover">
+          <div class="pr-practice__cover-num">01</div>
+          <div class="pr-practice__cover-symbol">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v20M2 12h20"/></svg>
+          </div>
+        </div>
+        <div class="pr-practice__body">
+          <h3 class="pr-practice__title">개인회생 / 파산 <span class="pr-practice__title-en">Debt</span></h3>
+          <p class="pr-practice__desc">일정 소득 채무자의 최대 90% 채무 조정과 재산 보전. 변제 불가 상태의 전액 면책 절차까지 전담 수행합니다.</p>
+          <span class="pr-practice__more">자세히 보기 →</span>
+        </div>
+      </article>
+
+      <article class="pr-practice">
+        <div class="pr-practice__cover">
+          <div class="pr-practice__cover-num">02</div>
+          <div class="pr-practice__cover-symbol">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+          </div>
+        </div>
+        <div class="pr-practice__body">
+          <h3 class="pr-practice__title">민사 소송 <span class="pr-practice__title-en">Civil</span></h3>
+          <p class="pr-practice__desc">손해배상, 부당이득, 계약 분쟁, 부동산 등 민사 전 영역에 걸친 법률 서비스를 제공합니다.</p>
+          <span class="pr-practice__more">자세히 보기 →</span>
+        </div>
+      </article>
+
+      <article class="pr-practice">
+        <div class="pr-practice__cover">
+          <div class="pr-practice__cover-num">03</div>
+          <div class="pr-practice__cover-symbol">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+        </div>
+        <div class="pr-practice__body">
+          <h3 class="pr-practice__title">형사 사건 <span class="pr-practice__title-en">Criminal</span></h3>
+          <p class="pr-practice__desc">고소·고발 대리, 피의자 변호, 피해자 대리. 수사 단계부터 재판까지 전 과정에서 전문적으로 대응합니다.</p>
+          <span class="pr-practice__more">자세히 보기 →</span>
+        </div>
+      </article>
+
+      <article class="pr-practice">
+        <div class="pr-practice__cover">
+          <div class="pr-practice__cover-num">04</div>
+          <div class="pr-practice__cover-symbol">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="5"/><path d="M20 21v-2a4 4 0 00-3-3.87M4 21v-2a4 4 0 013-3.87"/></svg>
+          </div>
+        </div>
+        <div class="pr-practice__body">
+          <h3 class="pr-practice__title">가사 · 이혼 <span class="pr-practice__title-en">Family</span></h3>
+          <p class="pr-practice__desc">이혼 소송, 위자료, 양육권, 재산분할. 가장 예민한 가족 법률 사건을 신중하고 전문적으로 다룹니다.</p>
+          <span class="pr-practice__more">자세히 보기 →</span>
+        </div>
+      </article>
+
+      <article class="pr-practice">
+        <div class="pr-practice__cover">
+          <div class="pr-practice__cover-num">05</div>
+          <div class="pr-practice__cover-symbol">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+        </div>
+        <div class="pr-practice__body">
+          <h3 class="pr-practice__title">법인 회생 <span class="pr-practice__title-en">Corporate</span></h3>
+          <p class="pr-practice__desc">재정 위기 법인의 정상화 절차. 회생 계획 수립부터 채권자 협상, 법원 인가까지 전 과정을 대리합니다.</p>
+          <span class="pr-practice__more">자세히 보기 →</span>
+        </div>
+      </article>
+
+      <article class="pr-practice">
+        <div class="pr-practice__cover">
+          <div class="pr-practice__cover-num">06</div>
+          <div class="pr-practice__cover-symbol">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+        </div>
+        <div class="pr-practice__body">
+          <h3 class="pr-practice__title">무료 상담 <span class="pr-practice__title-en">Consult</span></h3>
+          <p class="pr-practice__desc">모든 사건은 정확한 진단에서 시작됩니다. 초기 상담은 무료이며, 철저한 비밀 보장을 약속드립니다.</p>
+          <span class="pr-practice__more">상담 신청 →</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT QUOTE + STATS -->
+<section class="pr-about" id="about">
+  <div class="pr-container pr-about__inner pr-reveal">
+    <div class="pr-about__quote-mark">"</div>
+    <p class="pr-about__quote">
+      준법을 넘어,<br>
+      의뢰인의 권리를 <em>지키다.</em>
+    </p>
+    <p class="pr-about__author">— 법률사무소 시민의 약속</p>
+
+    <div class="pr-about__stats">
+      <div class="pr-about__stat">
+        <div class="pr-about__stat-num"><span data-pr-count="20">0</span><small>YEARS</small></div>
+        <div class="pr-about__stat-label">법률 실무 경력</div>
+      </div>
+      <div class="pr-about__stat">
+        <div class="pr-about__stat-num"><span data-pr-count="7000">0</span><small>+</small></div>
+        <div class="pr-about__stat-label">누적 상담 건수</div>
+      </div>
+      <div class="pr-about__stat">
+        <div class="pr-about__stat-num"><span data-pr-count="95">0</span><small>%</small></div>
+        <div class="pr-about__stat-label">의뢰인 만족도</div>
+      </div>
+      <div class="pr-about__stat">
+        <div class="pr-about__stat-num"><span data-pr-count="6">0</span><small>FIELDS</small></div>
+        <div class="pr-about__stat-label">전문 업무 분야</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOARD: NOTICE + FAQ -->
+<section class="pr-section" id="board">
+  <div class="pr-container">
+    <div class="pr-section__head pr-reveal">
+      <div class="pr-section__eyebrow">NEWS &amp; FAQ</div>
+      <h2 class="pr-section__title">공지사항과 <em>자주 묻는 질문</em></h2>
+    </div>
+
+    <div class="pr-board pr-reveal">
+      <div class="pr-board__col">
+        <h3>공지사항 <a href="/notice/">VIEW ALL →</a></h3>
+        {% if notices %}
+          <ul class="pr-notice-list">
+            {% for n in notices %}
+              <li><a href="/notice/{{ n.pk }}/">
+                <span>{{ n.title }}</span>
+                <span class="pr-notice-list__date">{{ n.created_at|date:"Y.m.d" }}</span>
+              </a></li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p style="padding:2rem 0;color:var(--pr-text-dim);text-align:center;">등록된 공지가 없습니다.</p>
+        {% endif %}
+      </div>
+
+      <div class="pr-board__col">
+        <h3>자주하는 질문 <a href="/faq/">VIEW ALL →</a></h3>
+        {% if faqs %}
+          {% for f in faqs %}
+            <div class="pr-faq-item">
+              <button class="pr-faq-item__q">
+                <span><span class="pr-faq-item__cat">[{{ f.category }}]</span>{{ f.question }}</span>
+                <svg class="pr-faq-item__icon" viewBox="0 0 16 16" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+              <div class="pr-faq-item__a">{{ f.answer }}</div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p style="padding:2rem 0;color:var(--pr-text-dim);text-align:center;">등록된 질문이 없습니다.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT BAND -->
+<section class="pr-contact-band">
+  <div class="pr-container">
+    <div class="pr-contact-band__inner">
+      <div>
+        <h2 class="pr-contact-band__heading">
+          지금 시민에게 <em>연락하세요.</em>
+        </h2>
+        <p class="pr-contact-band__sub">
+          전문 변호사가 직접 상담합니다.<br>
+          평일 09:00 – 18:00 · 무료 상담 가능
+        </p>
+      </div>
+      <div class="pr-contact-band__actions">
+        <a href="tel:031-438-2585" class="pr-contact-band__phone">
+          <small>CALL US NOW</small>
+          <strong>031-438-2585</strong>
+        </a>
+        <a href="#contact" class="pr-contact-band__btn">
+          무료 상담 신청
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULT FORM -->
+<section class="pr-consult" id="contact">
+  <div class="pr-container">
+    <div class="pr-consult__grid">
+      <div class="pr-consult__info pr-reveal">
+        <div class="pr-section__eyebrow">CONSULTATION</div>
+        <h3>상담 <em>신청하기</em></h3>
+        <p class="pr-consult__desc">
+          간단한 정보만 남겨주시면 전문 변호사가 직접 연락드립니다.<br>
+          모든 상담은 철저한 비밀이 보장됩니다.
+        </p>
+        <dl class="pr-consult__list">
+          <li><dt>전화</dt><dd><a href="tel:031-438-2585">031-438-2585</a></dd></li>
+          <li><dt>상담 시간</dt><dd>평일 09:00 – 18:00</dd></li>
+          <li><dt>이메일</dt><dd><a href="mailto:contact@citizen.co.kr">contact@citizen.co.kr</a></dd></li>
+          <li><dt>주소</dt><dd>경기 안산시 상록구 이동 715</dd></li>
+        </dl>
+      </div>
+
+      <form class="pr-form pr-reveal" id="prForm">
+        <h3 class="pr-form__title">CONSULTATION FORM</h3>
+        <div class="pr-form__row">
+          <div class="pr-field">
+            <label class="pr-field__label">이름</label>
+            <input class="pr-field__input" type="text" name="name" placeholder="홍길동" required>
+          </div>
+          <div class="pr-field">
+            <label class="pr-field__label">연락처</label>
+            <input class="pr-field__input" type="tel" name="phone" placeholder="010-0000-0000" required>
+          </div>
+        </div>
+        <div class="pr-field">
+          <label class="pr-field__label">상담 분야</label>
+          <select class="pr-field__input" name="category" required>
+            <option value="">선택해 주세요</option>
+            <option value="개인회생">개인회생</option>
+            <option value="개인파산">개인파산</option>
+            <option value="민사">민사 소송</option>
+            <option value="형사">형사 사건</option>
+            <option value="가사/이혼">가사 · 이혼</option>
+            <option value="법인회생">법인 회생</option>
+            <option value="기타">기타</option>
+          </select>
+        </div>
+        <div class="pr-field">
+          <label class="pr-field__label optional">상담 내용</label>
+          <textarea class="pr-field__input" name="message" placeholder="사건 내용을 간단히 적어주세요."></textarea>
+        </div>
+        <button type="submit" class="pr-form__submit">상담 신청</button>
+        <p class="pr-form__notice">* 모든 정보는 철저히 비밀이 보장됩니다.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="pr-footer">
+  <div class="pr-container">
+    <div class="pr-footer__top">
+      <div class="pr-footer__brand">
+        <h4>
+          <span class="pr-logo__mark">시</span>
+          법률사무소 시민
+        </h4>
+        <span class="pr-logo__sub">CITIZEN LAW OFFICE</span>
+        <p>
+          경기도 안산시 상록구 이동 715<br>
+          TEL. 031-438-2585 / FAX. 031-438-2586<br>
+          E-MAIL. contact@citizen.co.kr
+        </p>
+      </div>
+      <div class="pr-footer__col">
+        <h5>BUSINESS</h5>
+        <p><a href="#practice">개인회생 / 파산</a></p>
+        <p><a href="#practice">민사 · 형사</a></p>
+        <p><a href="#practice">가사 · 이혼</a></p>
+        <p><a href="#practice">법인 회생</a></p>
+      </div>
+      <div class="pr-footer__col">
+        <h5>RESOURCES</h5>
+        <p><a href="/notice/">공지사항</a></p>
+        <p><a href="/faq/">자주하는 질문</a></p>
+        <p><a href="#insights">최근 사례</a></p>
+        <p><a href="#about">시민 소개</a></p>
+      </div>
+      <div class="pr-footer__col">
+        <h5>CONTACT</h5>
+        <p><a href="tel:031-438-2585">031-438-2585</a></p>
+        <p>평일 09:00 – 18:00</p>
+        <p><a href="#contact">상담 신청</a></p>
+        <p><a href="/">다른 시안 보기</a></p>
+      </div>
+    </div>
+    <div class="pr-footer__bottom">
+      <p class="pr-footer__copyright">© 2026 LAW OFFICE CITIZEN. ALL RIGHTS RESERVED.</p>
+      <div class="pr-footer__lang">
+        <a href="#" class="is-current">한국어</a>
+        <span>|</span>
+        <a href="#">English</a>
+        <span>|</span>
+        <a href="#">中文</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="{% static 'js/variant-prestige.js' %}"></script>
+</body>
+</html>

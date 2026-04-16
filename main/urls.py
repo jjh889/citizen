@@ -17,6 +17,7 @@ urlpatterns = [
     path('v/motion/', views.variant_motion, name='variant_motion'),
     path('v/corporate/', views.variant_corporate, name='variant_corporate'),
     path('v/ally/', views.variant_ally, name='variant_ally'),
+    path('v/prestige/', views.variant_prestige, name='variant_prestige'),
     # 광고 유입용 랜딩 페이지
     path('lp/diagnose/', views.lp_diagnose, name='lp_diagnose'),
 ]

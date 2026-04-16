@@ -119,6 +119,10 @@ def variant_ally(request):
     return render(request, 'variants/ally.html', _variant_context())
 
 
+def variant_prestige(request):
+    return render(request, 'variants/prestige.html', _variant_context())
+
+
 def lp_diagnose(request):
     # 광고 유입용 자가진단 랜딩 페이지
     return render(request, 'lp/diagnose.html')
