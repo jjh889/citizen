@@ -1495,3 +1495,21 @@ textarea.al-field__input { resize: vertical; min-height: 80px; }
 .al-section + .al-section {
   border-top: 1px solid rgba(20,69,52,0.06);
 }
+
+/* ===== 모바일 GNB 버튼 정렬 수정 ===== */
+@media (max-width: 767px) {
+  .al-header__inner { height: 64px; gap: 0.5rem; }
+  .al-logo__img { height: 60px; }
+  .al-header__right { gap: 0.35rem; }
+  .al-cta {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+  .al-cta--yellow {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.75rem !important;
+  }
+  .al-cta--yellow svg { width: 12px; height: 12px; }
+  .al-phone-btn { display: none !important; }
+}
