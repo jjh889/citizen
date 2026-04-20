@@ -13,32 +13,29 @@
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
 
 <link rel="stylesheet" href="{% static 'css/variant-ally.css' %}">
+<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=91800c809617d3b398f84cb84b9372c6&autoload=false&libraries=services"></script>
 </head>
 <body>
 
 <header class="al-header">
   <div class="al-container al-header__inner">
     <a href="/v/ally/" class="al-logo">
-      <span class="al-logo__mark">시</span>
+      <img src="{% static 'img/b.png' %}" alt="법률사무소 시민" class="al-logo__img">
       <span class="al-logo__text">법률사무소 <em>시민</em></span>
     </a>
 
     <nav class="al-nav">
       <a href="#about">시민 소개</a>
-      <a href="#diagnose" class="al-nav-diag">
-        <span class="al-nav-diag__dot"></span>
-        1분 자가진단
-      </a>
+      <a href="#practice">전문 분야</a>
       <a href="#cases">성공 사례</a>
-      <a href="#promise">약속</a>
       <a href="#board">공지·FAQ</a>
-      <a href="#consult">상담 신청</a>
+      <a href="#location">오시는 길</a>
     </nav>
 
     <div class="al-header__right">
-      <a href="tel:031-438-2585" class="al-phone-btn">
+      <a href="tel:031-438-2586" class="al-phone-btn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        031-438-2585
+        031-438-2586
       </a>
       <a href="#diagnose" class="al-cta al-cta--yellow">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
@@ -52,16 +49,15 @@
 
 <div class="al-mobile-nav" id="alMobile">
   <a href="#about">시민 소개</a>
+  <a href="#practice">전문 분야</a>
+  <a href="#cases">성공 사례</a>
   <a href="#diagnose" class="al-mobile-diag">
     <span class="al-nav-diag__dot"></span>
     1분 자가진단
   </a>
-  <a href="#cases">성공 사례</a>
-  <a href="#promise">진정한 내편의 약속</a>
-  <a href="#board">공지사항 · FAQ</a>
+  <a href="#board">공지·FAQ</a>
+  <a href="#location">오시는 길</a>
   <a href="#consult">무료 상담 신청</a>
-  <a href="/notice/">공지사항</a>
-  <a href="/faq/">자주하는 질문</a>
 </div>
 
 <!-- HERO -->
@@ -89,41 +85,104 @@
             무료 상담 신청하기
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="tel:031-438-2585" class="al-btn al-btn--line">
+          <a href="tel:031-438-2586" class="al-btn al-btn--line">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            031-438-2585
+            031-438-2586
           </a>
         </div>
       </div>
 
       <aside class="al-hero__card" id="about">
-        <div class="al-hero__card-photo"></div>
-        <div class="al-hero__card-role">대표 변호사</div>
-        <h3 class="al-hero__card-name">법률사무소 시민</h3>
-        <p class="al-hero__card-cred">
-          대한변호사협회 등록 · 20년 실무 경력<br>
-          누적 상담 7,000건 · 의뢰인 만족도 95%
-        </p>
-        <ul class="al-hero__card-tags">
-          <li>개인회생</li><li>개인파산</li><li>민사/형사</li><li>가사/이혼</li><li>법인회생</li>
-        </ul>
+        <img src="{% static 'img/a.png' %}" alt="대표 변호사" class="al-hero__card-img">
+        <div class="al-hero__card-overlay">
+          <span class="al-hero__card-role">대표 변호사</span>
+          <h3 class="al-hero__card-name">법률사무소 시민</h3>
+          <p class="al-hero__card-cred">
+            대한변호사협회 등록 · 20년 실무 경력<br>
+            누적 상담 7,000건 · 의뢰인 만족도 95%
+          </p>
+          <ul class="al-hero__card-tags">
+            <li>개인회생</li><li>개인파산</li><li>민사/형사</li><li>가사/이혼</li><li>법인회생</li>
+          </ul>
+        </div>
       </aside>
     </div>
   </div>
 </section>
 
-<!-- ALONE 감성 -->
-<section class="al-alone">
+<!-- ALONE 스트립 -->
+<section class="al-alone-strip">
+  <div class="al-container al-alone-strip__row">
+    <h2 class="al-alone-strip__left">지금의 상황,<br><em>혼자 감당하지 마세요.</em></h2>
+    <div class="al-alone-strip__divider"></div>
+    <p class="al-alone-strip__right">채무 문제도, 법적 분쟁도, 가족의 갈등도.<br>당신 옆에 함께 서서 싸워줄 사람이 있다면,<br>이미 절반은 해결된 것입니다.</p>
+  </div>
+</section>
+
+<!-- CONSULT (메인 바로 아래) -->
+<section class="al-consult" id="consult">
   <div class="al-container">
-    <h2 class="al-alone__title">
-      지금의 상황,<br>
-      <em>혼자 감당하지 마세요.</em>
-    </h2>
-    <p class="al-alone__sub">
-      채무 문제도, 법적 분쟁도, 가족의 갈등도.<br>
-      당신 옆에 함께 서서 싸워줄 사람이 있다면,<br>
-      이미 절반은 해결된 것입니다.
-    </p>
+    <div class="al-consult__grid">
+      <div class="al-reveal">
+        <span class="al-section__tag">FREE CONSULTATION</span>
+        <h2 class="al-consult__heading">
+          혼자 고민하지 마세요.<br>
+          <span class="al-consult__highlight">내편이 들어드립니다.</span>
+        </h2>
+        <p class="al-consult__desc">
+          간단한 정보만 남겨주시면<br>
+          20년 경력의 법률 전문가가 <strong style="color:var(--al-green);font-weight:800;">직접 연락</strong>드립니다.<br>
+          모든 상담은 철저한 비밀이 보장됩니다.
+        </p>
+        <dl class="al-consult__list">
+          <li>
+            <span class="al-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></span>
+            <div><dt>전화</dt><dd><a href="tel:031-438-2586">031-438-2586</a></dd></div>
+          </li>
+          <li>
+            <span class="al-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+            <div><dt>상담 시간</dt><dd>평일 09:00 – 18:00</dd></div>
+          </li>
+          <li>
+            <span class="al-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><dt>위치</dt><dd>안산시 상록구 광덕1로385. 202호</dd></div>
+          </li>
+        </dl>
+      </div>
+
+      <form class="al-form al-reveal" id="alForm">
+        <h3 class="al-form__title">지금 바로 <span style="color:var(--al-green);">내편</span> 만나기</h3>
+        <div class="al-form__row">
+          <div class="al-field">
+            <label class="al-field__label">이름</label>
+            <input class="al-field__input" type="text" name="name" placeholder="홍길동" required>
+          </div>
+          <div class="al-field">
+            <label class="al-field__label">연락처</label>
+            <input class="al-field__input" type="tel" name="phone" placeholder="010-0000-0000" required>
+          </div>
+        </div>
+        <div class="al-field">
+          <label class="al-field__label">상담 분야</label>
+          <select class="al-field__input" name="category" required>
+            <option value="">선택해 주세요</option>
+            <option value="개인회생">개인회생</option>
+            <option value="개인파산">개인파산</option>
+            <option value="민사">민사 소송</option>
+            <option value="형사">형사 사건</option>
+            <option value="가사/이혼">가사 · 이혼</option>
+            <option value="법인회생">법인 회생</option>
+            <option value="기타">기타</option>
+          </select>
+        </div>
+        <div class="al-field">
+          <label class="al-field__label optional">상담 내용</label>
+          <textarea class="al-field__input" name="message" placeholder="사건 내용을 간단히 적어주세요."></textarea>
+        </div>
+        <button type="submit" class="al-form__submit">무료 상담 신청하기 →</button>
+        <p class="al-form__notice">* 모든 정보는 철저히 비밀이 보장됩니다.</p>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -181,6 +240,81 @@
   </div>
 </section>
 
+<!-- 전문 업무 분야 -->
+<section class="al-section" id="practice">
+  <div class="al-container">
+    <div class="al-section__head al-reveal">
+      <span class="al-section__tag">PRACTICE</span>
+      <h2 class="al-section__title">시민이 다루는 <em>전문 업무</em></h2>
+      <p class="al-section__sub">개인에서 법인까지, 민사에서 형사까지. 법률사무소 시민은 전 영역의 법률 사건을 전문적으로 처리합니다.</p>
+    </div>
+
+    <div class="al-practice__grid al-reveal">
+
+      <div class="al-practice" onclick="openPractice(this)" data-p-title="개인회생 / 파산" data-p-en="Debt Solution" data-p-desc="일정 소득이 있는 채무자가 법원을 통해 채무를 최대 90%까지 감면받고, 남은 금액을 3~5년간 분할 변제하는 제도입니다. 개인파산은 소득이 없거나 변제 능력이 없는 경우 채무 전액을 면책받는 절차입니다." data-p-detail="개인회생은 급여소득자뿐 아니라 자영업자(영업소득자)도 신청 가능하며, 무담보 채무 10억원·담보 채무 15억원 이하인 경우 대상이 됩니다. 신청 즉시 채권 추심이 중단되고, 급여 압류도 해제됩니다. 재산(주택, 차량 등)을 보전하면서 채무를 조정할 수 있다는 것이 파산 대비 가장 큰 장점입니다.\n\n개인파산은 변제 능력이 전혀 없을 때 법원의 면책 결정으로 모든 채무에서 해방되는 제도입니다. 면책 후에는 신용이 회복되며, 일정 기간 후 금융 거래도 정상적으로 가능해집니다." data-p-tags="채무감면,면책,급여압류해제,재산보전,사채정리">
+        <div class="al-practice__num">01</div>
+        <h3 class="al-practice__title">개인회생 / 파산</h3>
+        <p class="al-practice__desc">최대 90% 채무 감면, 재산 보전, 전액 면책</p>
+        <span class="al-practice__more">자세히 보기 →</span>
+      </div>
+
+      <div class="al-practice" onclick="openPractice(this)" data-p-title="법인 회생 / 파산" data-p-en="Corporate Recovery" data-p-desc="재정 위기에 처한 법인이 회생 절차를 통해 채무를 조정하고 사업을 정상화할 수 있도록 지원합니다. 법인파산의 경우 청산 절차를 통해 채권자들에게 공평한 배당을 실시합니다." data-p-detail="법인회생은 회사의 핵심 사업을 유지하면서 채무를 감면받는 절차입니다. 법원의 회생 개시 결정 후 채권자의 추심과 강제집행이 모두 중지되며, 회생 계획 수립 → 채권자 집회 → 법원 인가의 과정을 거칩니다.\n\n시민은 외부 회계사·세무사와 협력하여 실현 가능한 회생 계획을 수립하고, 채권단 협상부터 투자자 유치까지 사업 정상화에 필요한 전 과정을 지원합니다. 임직원 고용 유지와 거래처 관계 보전에도 최선을 다합니다." data-p-tags="회생계획,채권자협상,사업정상화,투자유치,청산절차">
+        <div class="al-practice__num">02</div>
+        <h3 class="al-practice__title">법인 회생 / 파산</h3>
+        <p class="al-practice__desc">사업 정상화, 회생 계획 인가, 채권자 협상</p>
+        <span class="al-practice__more">자세히 보기 →</span>
+      </div>
+
+      <div class="al-practice" onclick="openPractice(this)" data-p-title="민사 소송" data-p-en="Civil Litigation" data-p-desc="손해배상, 부당이득반환, 계약 분쟁, 부동산 관련 분쟁 등 민사 전 영역에 걸친 법률 서비스를 제공합니다." data-p-detail="민사 소송은 개인 간 또는 개인과 기업 간의 법적 분쟁을 법원을 통해 해결하는 절차입니다. 시민은 소장 작성부터 증거 수집, 법정 변론, 판결 집행까지 전 과정을 대리합니다.\n\n주요 업무: 손해배상 청구(교통사고, 의료사고, 명예훼손), 부동산 분쟁(임대차, 매매, 건축), 금전 대여 분쟁, 계약 해제·해지, 부당이득 반환 등. 조정·화해를 통한 원만한 해결도 적극 모색합니다." data-p-tags="손해배상,계약분쟁,부동산,부당이득,조정">
+        <div class="al-practice__num">03</div>
+        <h3 class="al-practice__title">민사 소송</h3>
+        <p class="al-practice__desc">손해배상, 계약분쟁, 부동산, 금전 분쟁</p>
+        <span class="al-practice__more">자세히 보기 →</span>
+      </div>
+
+      <div class="al-practice" onclick="openPractice(this)" data-p-title="형사 사건" data-p-en="Criminal Defense" data-p-desc="고소·고발 대리, 피의자 변호, 피해자 대리. 수사 단계부터 재판까지 전 과정에서 전문적으로 대응합니다." data-p-detail="형사 사건은 수사 단계의 초기 대응이 결과를 좌우합니다. 시민은 경찰 조사 단계부터 함께하여 부당한 수사를 방지하고, 유리한 증거를 확보합니다.\n\n고소 대리: 범죄 피해 시 고소장 작성, 증거 확보, 경찰·검찰 대응을 대리합니다.\n피의자 변호: 부당한 혐의에 대한 적극적 방어, 불기소 처분·무죄 판결을 위한 변론 전략을 수립합니다.\n피해자 대리: 성범죄, 사기, 폭행 등 피해자의 권리를 보호하고 정당한 배상을 받을 수 있도록 합니다." data-p-tags="고소고발,피의자변호,피해자대리,무죄변론,합의">
+        <div class="al-practice__num">04</div>
+        <h3 class="al-practice__title">형사 사건</h3>
+        <p class="al-practice__desc">고소·고발, 피의자 변호, 피해자 대리</p>
+        <span class="al-practice__more">자세히 보기 →</span>
+      </div>
+
+      <div class="al-practice" onclick="openPractice(this)" data-p-title="가사 · 이혼" data-p-en="Family Law" data-p-desc="이혼 소송, 위자료, 양육권, 재산분할 등 가사 사건에 대한 종합적인 법률 지원을 합니다." data-p-detail="이혼에는 협의이혼과 재판이혼이 있습니다. 협의이혼은 부부가 합의하여 진행하며, 재판이혼은 상대방이 동의하지 않을 때 법원에 소송을 제기하는 것입니다.\n\n시민은 이혼 과정에서 발생하는 모든 법적 쟁점을 다룹니다:\n· 위자료: 혼인 파탄의 책임에 따른 정신적 손해배상\n· 양육권: 자녀의 복리를 최우선으로 한 양육자 결정\n· 양육비: 양육비산정기준표에 따른 적정 금액 산정\n· 재산분할: 혼인 기간 중 형성된 공동 재산의 공정한 분배\n· 재산 은닉 추적: 상대방의 재산 은닉 시 금융거래 추적" data-p-tags="이혼소송,양육권,재산분할,위자료,가사조정">
+        <div class="al-practice__num">05</div>
+        <h3 class="al-practice__title">가사 · 이혼</h3>
+        <p class="al-practice__desc">이혼소송, 양육권, 재산분할, 위자료</p>
+        <span class="al-practice__more">자세히 보기 →</span>
+      </div>
+
+      <div class="al-practice" onclick="openPractice(this)" data-p-title="무료 상담" data-p-en="Free Consultation" data-p-desc="모든 사건은 정확한 진단에서 시작됩니다. 초기 상담은 무료이며, 철저한 비밀 보장을 약속드립니다." data-p-detail="법률사무소 시민은 모든 분야의 초기 상담을 무료로 제공합니다. 전화, 방문, 온라인 모두 가능합니다.\n\n상담 절차:\n1. 전화 또는 온라인 신청으로 상담 예약\n2. 변호사와 1:1 면담 (약 30~60분)\n3. 사건 진단 및 해결 방향 제안\n4. 수임 결정 시 투명한 수임료 안내\n\n수임 여부와 관계없이 상담 내용은 변호사-의뢰인 비밀유지 원칙에 따라 철저히 보호됩니다." data-p-tags="무료상담,비밀보장,1:1면담,전화상담,온라인상담">
+        <div class="al-practice__num">06</div>
+        <h3 class="al-practice__title">무료 상담</h3>
+        <p class="al-practice__desc">전화·방문·온라인 무료 초기 상담</p>
+        <span class="al-practice__more">자세히 보기 →</span>
+      </div>
+
+    </div>
+
+    <!-- 업무 상세 모달 -->
+    <div class="al-modal" id="alPracticeModal" hidden>
+      <div class="al-modal__backdrop" onclick="closePractice()"></div>
+      <div class="al-modal__card">
+        <div class="al-modal__header">
+          <span class="al-modal__badge" id="alPmEn"></span>
+          <button onclick="closePractice()" aria-label="닫기">&times;</button>
+        </div>
+        <div class="al-modal__body">
+          <h3 class="al-modal__title" id="alPmTitle" style="text-align:left;border-bottom:none;padding-bottom:0;margin-bottom:0.5rem;"></h3>
+          <p id="alPmDesc" style="font-size:1rem;color:var(--al-text);line-height:1.85;margin-bottom:1.75rem;padding-bottom:1.5rem;border-bottom:1px solid var(--al-line);"></p>
+          <div class="al-modal__section"><h4>상세 안내</h4><p id="alPmDetail" style="white-space:pre-wrap;"></p></div>
+          <div id="alPmTags" style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.25rem;"></div>
+          <a href="#consult" class="al-btn al-btn--green al-modal__cta" onclick="closePractice()">무료 상담 신청하기 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SUCCESS CASES 파이차트 -->
 <section class="al-section" id="cases">
   <div class="al-container">
@@ -193,108 +327,67 @@
     </div>
 
     <div class="al-cases__grid al-reveal">
-      <div class="al-case">
-        <div class="al-case__chart" data-al-percent="90">
-          <svg viewBox="0 0 100 100">
-            <circle class="al-case__chart-bg" cx="50" cy="50" r="44"/>
-            <circle class="al-case__chart-fg" cx="50" cy="50" r="44"/>
-          </svg>
-          <div class="al-case__percent">90<small>%</small></div>
-        </div>
-        <div class="al-case__cat">개인회생</div>
-        <div class="al-case__title">1억 2천만원 → 1천 2백만원</div>
-        <p class="al-case__desc">다수 금융채무 최대 감면 성공</p>
+
+      <div class="al-case" onclick="openAlCase(this)" data-cat="개인회생" data-pct="90" data-title="1억 2천만원 → 1천 2백만원" data-period="2025.03 ~ 2025.09 (약 6개월)" data-situation="40대 직장인 A씨는 2019년부터 카드 돌려막기를 시작했습니다. 코로나 시기 급여가 줄면서 저축은행과 캐피탈 대출까지 이용하게 되었고, 2024년 기준 총 채무는 1억 2천만원까지 불어났습니다. 매달 급여 280만원 중 180만원이 이자 상환에 소진되었고, 생활비 부족으로 또다시 대출을 받는 악순환이 5년째 이어지고 있었습니다. 채권자 3곳으로부터 지급명령이 내려진 상태였습니다." data-strategy="시민은 먼저 A씨의 전체 채무 구조(은행 4건, 저축은행 3건, 캐피탈 2건)를 정밀 분석했습니다. 소득 대비 채무 비율이 개인회생 요건에 부합함을 확인하고, 최소 변제액 산정을 위한 필수 생계비 증빙 자료를 철저히 준비했습니다. 지급명령에 대한 이의신청을 즉시 제기하여 강제집행을 방지하고, 개인회생 개시 결정과 동시에 채권추심 중지 명령을 받아냈습니다." data-result="법원이 3년(36개월) 변제 계획을 인가하여 월 33만원 변제 후 나머지 1억 800만원 전액 면책 결정. A씨는 현재 급여를 온전히 받으며 정상적인 경제활동을 이어가고 있습니다." data-comment="5년 동안 잠을 제대로 못 잤습니다. 시민을 만나고 처음으로 편안하게 잠들 수 있었습니다. 새 인생을 시작할 수 있게 해주셔서 평생 감사드립니다.">
+        <div class="al-case__chart" data-al-percent="90"><svg viewBox="0 0 100 100"><circle class="al-case__chart-bg" cx="50" cy="50" r="44"/><circle class="al-case__chart-fg" cx="50" cy="50" r="44"/></svg><div class="al-case__percent">90<small>%</small></div></div>
+        <div class="al-case__cat">개인회생</div><div class="al-case__title">1억 2천만원 → 1천 2백만원</div><p class="al-case__desc">다수 금융채무 최대 감면 성공</p><span class="al-case__more">자세히 보기 →</span>
       </div>
 
-      <div class="al-case">
-        <div class="al-case__chart" data-al-percent="85">
-          <svg viewBox="0 0 100 100">
-            <circle class="al-case__chart-bg" cx="50" cy="50" r="44"/>
-            <circle class="al-case__chart-fg" cx="50" cy="50" r="44"/>
-          </svg>
-          <div class="al-case__percent">85<small>%</small></div>
-        </div>
-        <div class="al-case__cat">개인회생</div>
-        <div class="al-case__title">8천만원 → 1천 2백만원</div>
-        <p class="al-case__desc">사채 포함 채무 조정</p>
+      <div class="al-case" onclick="openAlCase(this)" data-cat="개인회생" data-pct="85" data-title="8천만원 → 1천 2백만원" data-period="2025.01 ~ 2025.08 (약 7개월)" data-situation="30대 자영업자 B씨는 코로나 이후 식당 매출이 80% 급감하면서 운영자금 대출과 사채까지 빌리게 되었습니다. 사채업자로부터 하루 30통 이상의 독촉 전화가 왔고, 가족 연락처까지 확보하여 부모님과 배우자에게까지 추심 연락이 가는 상황이었습니다. B씨는 극도의 스트레스로 수면 장애와 우울증까지 겪고 있었습니다." data-strategy="시민은 우선 사채업자의 불법 추심 행위에 대해 경찰 신고를 접수하고, 채무자 대리인 통지를 발송하여 직접 연락을 차단했습니다. 폐업 후 배달 플랫폼으로 전환한 소득을 영업소득자 기준으로 체계적으로 증빙했고, 사채의 경우 실제 원금과 이자를 구분하여 과다 이자 부분에 대한 부당이득 반환 청구도 병행하여 인정 채무액 자체를 줄이는 전략을 사용했습니다." data-result="사채 포함 8천만원 중 85% 감면 결정. 월 22만원 × 36개월 변제 후 나머지 전액 면책. 사채업자의 불법 추심에 대해서는 별도 손해배상 200만원도 인정받았습니다. 독촉 전화는 법원 개시 결정 당일 완전히 중단되었습니다." data-comment="사채업자 전화에 시달리며 죽고 싶다는 생각까지 했었습니다. 시민의 변호사님이 '이제 전화 안 옵니다'라고 하시던 순간, 태어나서 처음으로 울었습니다.">
+        <div class="al-case__chart" data-al-percent="85"><svg viewBox="0 0 100 100"><circle class="al-case__chart-bg" cx="50" cy="50" r="44"/><circle class="al-case__chart-fg" cx="50" cy="50" r="44"/></svg><div class="al-case__percent">85<small>%</small></div></div>
+        <div class="al-case__cat">개인회생</div><div class="al-case__title">8천만원 → 1천 2백만원</div><p class="al-case__desc">사채 포함 채무 조정</p><span class="al-case__more">자세히 보기 →</span>
       </div>
 
-      <div class="al-case">
-        <div class="al-case__chart" data-al-percent="100">
-          <svg viewBox="0 0 100 100">
-            <circle class="al-case__chart-bg" cx="50" cy="50" r="44"/>
-            <circle class="al-case__chart-fg" cx="50" cy="50" r="44"/>
-          </svg>
-          <div class="al-case__percent">100<small>%</small></div>
-        </div>
-        <div class="al-case__cat">개인파산</div>
-        <div class="al-case__title">3억 5천만원 전액 면책</div>
-        <p class="al-case__desc">파산 면책 결정 성공</p>
+      <div class="al-case" onclick="openAlCase(this)" data-cat="개인파산" data-pct="100" data-title="3억 5천만원 전액 면책" data-period="2024.11 ~ 2025.06 (약 7개월)" data-situation="50대 C씨는 20년 지기 친구의 사업에 연대보증을 서주었는데, 친구의 사업이 부도나면서 3억 5천만원의 채무를 고스란히 떠안게 되었습니다. C씨 본인은 이미 정년퇴직한 상태로 별도 소득이 전혀 없었고, 유일한 재산인 전세보증금마저 압류 위기에 처해 있었습니다. 채권단에서 강제집행 예고 통보를 받은 상태로, 부부가 거리로 내몰릴 수 있는 극한 상황이었습니다." data-strategy="시민은 C씨의 무소득 상태에서 개인회생이 아닌 개인파산이 적합함을 판단했습니다. 파산 면책 결격 사유가 없음을 법리적으로 소명하는 데 집중하였고, 특히 연대보증의 경위가 도의적 의무에 의한 것임을 상세히 진술하여 법원의 이해를 구했습니다. 동시에 전세보증금에 대한 긴급 보전처분을 신청하여 주거를 지켰습니다. 면책 심문 기일에는 C씨의 성실한 생활 태도와 재기 의지를 보여주는 증거자료를 별도 제출했습니다." data-result="법원의 파산 선고 후 면책 결정으로 3억 5천만원 채무 전액 면책. 전세보증금도 보전에 성공하여 주거 안정을 유지했습니다. C씨는 현재 경비 업무로 새로운 직장을 구하여 부부가 안정적인 생활을 하고 있습니다." data-comment="인생이 끝났다고 생각했습니다. 아내와 함께 거리로 나앉게 되는 줄 알았는데, 면책 결정문을 받아들고 아내와 끌어안고 한참을 울었습니다. 시민이 저희 부부의 인생을 살렸습니다.">
+        <div class="al-case__chart" data-al-percent="100"><svg viewBox="0 0 100 100"><circle class="al-case__chart-bg" cx="50" cy="50" r="44"/><circle class="al-case__chart-fg" cx="50" cy="50" r="44"/></svg><div class="al-case__percent">100<small>%</small></div></div>
+        <div class="al-case__cat">개인파산</div><div class="al-case__title">3억 5천만원 전액 면책</div><p class="al-case__desc">파산 면책 결정 성공</p><span class="al-case__more">자세히 보기 →</span>
       </div>
 
-      <div class="al-case">
-        <div class="al-case__chart" data-al-percent="78">
-          <svg viewBox="0 0 100 100">
-            <circle class="al-case__chart-bg" cx="50" cy="50" r="44"/>
-            <circle class="al-case__chart-fg" cx="50" cy="50" r="44"/>
-          </svg>
-          <div class="al-case__percent">78<small>%</small></div>
-        </div>
-        <div class="al-case__cat">개인회생</div>
-        <div class="al-case__title">5천만원 → 1천 1백만원</div>
-        <p class="al-case__desc">급여 압류 해제 병행</p>
+      <div class="al-case" onclick="openAlCase(this)" data-cat="개인회생" data-pct="78" data-title="5천만원 → 1천 1백만원" data-period="2025.05 ~ 2025.10 (약 5개월)" data-situation="20대 직장인 D씨는 대학 시절 학자금 대출 2건과 졸업 후 독립 비용으로 사용한 신용카드 채무가 합쳐져 총 5천만원에 달했습니다. 첫 직장 월급 220만원 중 급여 압류로 실수령액이 88만원까지 줄어 서울에서 월세와 생활비조차 감당이 안 되는 상태가 6개월째 계속되었습니다. 사회 초년생으로서 신용불량 상태에 대한 심리적 압박도 극심했습니다." data-strategy="시민은 급여 압류 해제가 가장 긴급하다고 판단하여 개인회생 신청과 동시에 급여 압류 중지 명령을 신청했습니다. 법원에 D씨의 연령과 향후 소득 성장 가능성, 성실한 변제 의지를 적극 소명하였고, 학자금 대출의 경우 특별 감경 사유를 주장했습니다. 또한 신용회복위원회를 통한 개인 워크아웃 병행 가능성도 검토하여 최적의 방안을 선택했습니다." data-result="급여 압류 개시 결정 2주 만에 해제, 채무 78% 감면 확정. 월 30만원 × 36개월 변제 조건으로 인가. D씨는 월급을 온전히 받을 수 있게 되어 독립적인 생활이 가능해졌고, 현재는 저축까지 시작했습니다." data-comment="월급날이 제일 무서웠습니다. 통장을 열어볼 때마다 심장이 떨렸는데, 이제는 월급날이 기다려집니다. 20대에 이런 일을 겪었지만 시민 덕분에 다시 시작할 수 있었습니다.">
+        <div class="al-case__chart" data-al-percent="78"><svg viewBox="0 0 100 100"><circle class="al-case__chart-bg" cx="50" cy="50" r="44"/><circle class="al-case__chart-fg" cx="50" cy="50" r="44"/></svg><div class="al-case__percent">78<small>%</small></div></div>
+        <div class="al-case__cat">개인회생</div><div class="al-case__title">5천만원 → 1천 1백만원</div><p class="al-case__desc">급여 압류 해제 병행</p><span class="al-case__more">자세히 보기 →</span>
       </div>
 
-      <div class="al-case">
-        <div class="al-case__chart" data-al-percent="92">
-          <svg viewBox="0 0 100 100">
-            <circle class="al-case__chart-bg" cx="50" cy="50" r="44"/>
-            <circle class="al-case__chart-fg" cx="50" cy="50" r="44"/>
-          </svg>
-          <div class="al-case__percent">92<small>%</small></div>
-        </div>
-        <div class="al-case__cat">개인회생</div>
-        <div class="al-case__title">2억 → 1천 6백만원</div>
-        <p class="al-case__desc">고액 채무 최대 감면</p>
+      <div class="al-case" onclick="openAlCase(this)" data-cat="개인회생" data-pct="92" data-title="2억 → 1천 6백만원" data-period="2024.09 ~ 2025.04 (약 7개월)" data-situation="40대 맞벌이 부부 E씨는 2020년 부동산 갭투자 실패와 남편의 사업 부채가 겹치면서 부부 합산 채무가 2억원에 달했습니다. 아파트에 경매 개시 결정이 내려져 두 아이(초등학교 3, 5학년)와 함께 집을 잃을 위기에 처했습니다. 아이들의 학비와 학원비도 3개월째 밀린 상태였습니다." data-strategy="시민은 주거 안정을 최우선으로 하여 경매 절차 중지 신청과 개인회생을 동시에 진행했습니다. 부부 합산 소득(총 420만원) 기준으로 가족 최소 생계비를 고려한 변제 계획을 설계했고, 주택담보대출은 별제권으로 처리하여 매월 주담대 상환은 유지하면서 무담보 채무만 회생 대상으로 분리하는 전략을 사용했습니다. 채권자 집회에서 일부 채권자가 이의를 제기했으나, 법리적 근거를 들어 모두 기각시켰습니다." data-result="채무 92% 감면, 월 44만원 × 36개월 변제 조건으로 인가 결정. 경매 취하에 성공하여 자택 거주를 유지했고, 아이들의 전학 없이 가정의 안정을 지킬 수 있었습니다." data-comment="아이들이 '우리 이사 안 가도 돼?'라고 물었을 때 대답할 수 없어서 너무 괴로웠습니다. 시민 덕분에 당당하게 '여기가 우리 집이야'라고 말해줄 수 있었습니다.">
+        <div class="al-case__chart" data-al-percent="92"><svg viewBox="0 0 100 100"><circle class="al-case__chart-bg" cx="50" cy="50" r="44"/><circle class="al-case__chart-fg" cx="50" cy="50" r="44"/></svg><div class="al-case__percent">92<small>%</small></div></div>
+        <div class="al-case__cat">개인회생</div><div class="al-case__title">2억 → 1천 6백만원</div><p class="al-case__desc">고액 채무 · 주택 보전 성공</p><span class="al-case__more">자세히 보기 →</span>
       </div>
 
-      <div class="al-case">
-        <div class="al-case__chart" data-al-percent="75">
-          <svg viewBox="0 0 100 100">
-            <circle class="al-case__chart-bg" cx="50" cy="50" r="44"/>
-            <circle class="al-case__chart-fg" cx="50" cy="50" r="44"/>
-          </svg>
-          <div class="al-case__percent">75<small>%</small></div>
-        </div>
-        <div class="al-case__cat">개인회생</div>
-        <div class="al-case__title">4천만원 → 1천만원</div>
-        <p class="al-case__desc">자영업자 회생 성공</p>
+      <div class="al-case" onclick="openAlCase(this)" data-cat="개인회생" data-pct="75" data-title="4천만원 → 1천만원" data-period="2025.02 ~ 2025.07 (약 5개월)" data-situation="50대 F씨는 15년간 운영하던 동네 분식집을 코로나 시기에 폐업한 뒤, 카드론과 캐피탈 대출 4천만원이 남았습니다. 폐업 후 배달 플랫폼으로 생계를 이어갔으나 수입이 월 150~250만원으로 불규칙하여 정상적인 채무 상환이 불가능했습니다. 고정 소득이 없어 은행에서도 대출 연장을 거절당한 상태였습니다." data-strategy="시민은 비정기 소득인 배달 수입을 체계적으로 증빙하기 위해 3개월간의 플랫폼 정산 내역, 통장 거래 내역, 종합소득세 신고 자료를 꼼꼼하게 정리했습니다. 영업소득자 기준으로 월 평균 소득을 산정하고, 계절별 매출 변동까지 고려한 보수적인 변제 계획을 수립하여 법원의 인가 확률을 높였습니다." data-result="채무 75% 감면 확정. 배달 수입으로 충분히 감당 가능한 월 28만원 × 36개월 변제로 확정. F씨는 현재 배달과 함께 소규모 도시락 사업을 준비 중이며, 생활의 여유를 되찾았습니다." data-comment="15년 땀 흘린 가게를 접고 배달을 시작할 때 자존심이 많이 상했습니다. 하지만 시민 덕분에 빚에서 벗어나고, 지금은 새로운 꿈을 꾸고 있습니다.">
+        <div class="al-case__chart" data-al-percent="75"><svg viewBox="0 0 100 100"><circle class="al-case__chart-bg" cx="50" cy="50" r="44"/><circle class="al-case__chart-fg" cx="50" cy="50" r="44"/></svg><div class="al-case__percent">75<small>%</small></div></div>
+        <div class="al-case__cat">개인회생</div><div class="al-case__title">4천만원 → 1천만원</div><p class="al-case__desc">자영업자 회생 성공</p><span class="al-case__more">자세히 보기 →</span>
       </div>
 
-      <div class="al-case">
-        <div class="al-case__chart" data-al-percent="88">
-          <svg viewBox="0 0 100 100">
-            <circle class="al-case__chart-bg" cx="50" cy="50" r="44"/>
-            <circle class="al-case__chart-fg" cx="50" cy="50" r="44"/>
-          </svg>
-          <div class="al-case__percent">88<small>%</small></div>
-        </div>
-        <div class="al-case__cat">법인회생</div>
-        <div class="al-case__title">제조업 법인 정상화</div>
-        <p class="al-case__desc">회생 계획 인가 성공</p>
+      <div class="al-case" onclick="openAlCase(this)" data-cat="법인회생" data-pct="88" data-title="중소 제조업체 정상화" data-period="2024.06 ~ 2025.03 (약 9개월)" data-situation="연매출 30억 규모의 자동차 부품 제조업체가 주요 거래처 2곳의 연쇄 부도와 원자재 가격 40% 폭등으로 심각한 자금난에 빠졌습니다. 임직원 50명의 급여가 2개월째 밀리고 있었고, 주거래 은행에서 대출 회수 통보를 받은 상태였습니다. 대표이사는 개인 재산까지 담보로 제공한 상황이라 법인과 개인 모두 파산 위기에 놓여 있었습니다." data-strategy="시민은 긴급 보전 처분 신청으로 은행의 대출 회수와 채권자들의 추심을 즉시 중단시켰습니다. 이후 외부 회계사와 협력하여 회사의 핵심 사업부(자동차 부품 생산)와 비핵심 사업부를 분리한 구조조정 계획을 수립했습니다. 채권단 협의회를 통해 주요 채권자 7곳의 동의를 확보했으며, 동시에 업계 내 신규 투자자를 발굴하여 5억원의 추가 투자 유치에도 성공했습니다." data-result="법원 회생 계획 인가 확정. 채무 88% 조정, 핵심 인력 50명 전원 고용 유지, 사업 정상화에 성공. 현재 신규 거래처 4곳을 확보하고 전년 대비 매출 120% 성장, 흑자 전환을 달성했습니다." data-comment="50명 직원의 가족까지 합치면 150명이 넘는 생계가 달린 문제였습니다. 시민의 전문성과 헌신이 우리 회사를 살렸고, 지금은 오히려 위기 전보다 강한 회사가 되었습니다.">
+        <div class="al-case__chart" data-al-percent="88"><svg viewBox="0 0 100 100"><circle class="al-case__chart-bg" cx="50" cy="50" r="44"/><circle class="al-case__chart-fg" cx="50" cy="50" r="44"/></svg><div class="al-case__percent">88<small>%</small></div></div>
+        <div class="al-case__cat">법인회생</div><div class="al-case__title">제조업 법인 정상화</div><p class="al-case__desc">회생 계획 인가 성공</p><span class="al-case__more">자세히 보기 →</span>
       </div>
 
-      <div class="al-case">
-        <div class="al-case__chart" data-al-percent="100">
-          <svg viewBox="0 0 100 100">
-            <circle class="al-case__chart-bg" cx="50" cy="50" r="44"/>
-            <circle class="al-case__chart-fg" cx="50" cy="50" r="44"/>
-          </svg>
-          <div class="al-case__percent">100<small>%</small></div>
+      <div class="al-case" onclick="openAlCase(this)" data-cat="가사·이혼" data-pct="100" data-title="양육권 확보 · 재산분할" data-period="2025.01 ~ 2025.08 (약 7개월)" data-situation="30대 G씨는 결혼 7년차에 배우자의 외도 사실을 발견하고 이혼을 결심했습니다. 그러나 배우자는 이혼에 동의하면서도 두 아이(5세, 7세)의 양육권을 주장했고, 동시에 혼인 기간 중 형성한 공동 재산(아파트, 예적금 약 4억원)을 은닉하기 위해 부모 명의로 이전하는 등의 행위를 하고 있었습니다. G씨는 경제적으로도 불리한 상황에서 아이들을 지키기 위해 법적 대응이 시급했습니다." data-strategy="시민은 먼저 배우자의 재산 은닉 정황을 포착하여 금융거래 조회 신청과 부동산 등기 추적을 통해 부모 명의 이전 재산을 특정했습니다. 사해행위 취소소송을 제기하여 은닉 재산을 원상 복구시켰고, G씨가 주양육자로서 적합함을 증명하기 위해 아이들의 어린이집·유치원 교사 진술서, 양육 일지, 의료 기록 등 체계적인 증거를 수집했습니다. 상대방의 외도 증거도 확보하여 유책 배우자임을 입증하고, 위자료 청구의 근거를 마련했습니다." data-result="양육권 전면 확보, 위자료 3천만원 인정, 은닉 재산 포함 공정한 재산분할(2억 1천만원) 합의 도출. 양육비 월 200만원 지급 결정. G씨는 현재 두 아이와 안정적으로 생활하며, 경제적으로도 자립 기반을 갖추었습니다." data-comment="아이들 앞에서 눈물을 보이지 않으려고 많이 참았습니다. 시민의 변호사님이 법정에서 저 대신 싸워주시는 모습을 보면서, 혼자가 아니구나 느꼈습니다. 아이들의 엄마로서 당당하게 살 수 있게 해주셔서 정말 감사합니다.">
+        <div class="al-case__chart" data-al-percent="100"><svg viewBox="0 0 100 100"><circle class="al-case__chart-bg" cx="50" cy="50" r="44"/><circle class="al-case__chart-fg" cx="50" cy="50" r="44"/></svg><div class="al-case__percent">100<small>%</small></div></div>
+        <div class="al-case__cat">가사·이혼</div><div class="al-case__title">양육권 확보 · 재산분할</div><p class="al-case__desc">의뢰인 전면 승소</p><span class="al-case__more">자세히 보기 →</span>
+      </div>
+
+    </div>
+
+    <!-- 사례 상세 모달 -->
+    <div class="al-modal" id="alModal" hidden>
+      <div class="al-modal__backdrop" onclick="closeAlCase()"></div>
+      <div class="al-modal__card">
+        <div class="al-modal__header">
+          <span class="al-modal__badge" id="alModalCat"></span>
+          <button onclick="closeAlCase()" aria-label="닫기">&times;</button>
         </div>
-        <div class="al-case__cat">가사·이혼</div>
-        <div class="al-case__title">양육권 확보 · 재산분할</div>
-        <p class="al-case__desc">의뢰인 전면 승소</p>
+        <div class="al-modal__body">
+          <div class="al-modal__pct" id="alModalPct"></div>
+          <h3 class="al-modal__title" id="alModalTitle"></h3>
+          <div class="al-modal__period" id="alModalPeriod"></div>
+          <div class="al-modal__section"><h4>의뢰인 상황</h4><p id="alModalSituation"></p></div>
+          <div class="al-modal__section"><h4>시민의 대응 전략</h4><p id="alModalStrategy"></p></div>
+          <div class="al-modal__section"><h4>최종 결과</h4><p id="alModalResult"></p></div>
+          <div class="al-modal__comment" id="alModalComment"></div>
+          <a href="#consult" class="al-btn al-btn--green al-modal__cta" onclick="closeAlCase()">무료 상담 신청하기 →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -531,7 +624,7 @@
           내편이 되어 가장 빠른 시간 내에 <strong>직접 연락</strong>드리겠습니다.<br>
           소중한 문의 감사합니다.
         </p>
-        <a href="tel:031-438-2585" class="al-btn al-btn--green" style="margin-top:1.5rem;">
+        <a href="tel:031-438-2586" class="al-btn al-btn--green" style="margin-top:1.5rem;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
           지금 바로 전화하기
         </a>
@@ -643,9 +736,9 @@
         <p class="al-cta-band__sub">평일 09:00–18:00 · 전화 상담은 무료입니다.</p>
       </div>
       <div class="al-cta-band__actions">
-        <a href="tel:031-438-2585" class="al-cta-band__phone">
+        <a href="tel:031-438-2586" class="al-cta-band__phone">
           <small>CALL NOW</small>
-          <strong>031-438-2585</strong>
+          <strong>031-438-2586</strong>
         </a>
         <a href="#consult" class="al-cta-band__kakao">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.3 4.5 6.8L5 21l4-2.2c1 .1 2 .2 3 .2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg>
@@ -656,98 +749,64 @@
   </div>
 </section>
 
-<!-- CONSULT -->
-<section class="al-consult" id="consult">
+<!-- FOOTER -->
+<!-- 오시는 길 -->
+<section class="al-section al-section--soft" id="location">
   <div class="al-container">
-    <div class="al-consult__grid">
-      <div class="al-reveal">
-        <span class="al-section__tag">FREE CONSULTATION</span>
-        <h2 class="al-consult__heading">
-          혼자 고민하지 마세요.<br>
-          <em>내편이 들어드립니다.</em>
-        </h2>
-        <p class="al-consult__desc">
-          간단한 정보만 남겨주시면<br>
-          20년 경력의 법률 전문가가 <strong style="color:var(--al-green);font-weight:800;">직접 연락</strong>드립니다.<br>
-          모든 상담은 철저한 비밀이 보장됩니다.
-        </p>
-        <dl class="al-consult__list">
-          <li>
-            <span class="al-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            </span>
-            <div>
-              <dt>전화</dt>
-              <dd><a href="tel:031-438-2585">031-438-2585</a></dd>
-            </div>
-          </li>
-          <li>
-            <span class="al-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </span>
-            <div>
-              <dt>상담 시간</dt>
-              <dd>평일 09:00 – 18:00</dd>
-            </div>
-          </li>
-          <li>
-            <span class="al-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </span>
-            <div>
-              <dt>위치</dt>
-              <dd>경기 안산시 상록구 이동 715</dd>
-            </div>
-          </li>
-          <li>
-            <span class="al-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </span>
-            <div>
-              <dt>이메일</dt>
-              <dd><a href="mailto:contact@citizen.co.kr">contact@citizen.co.kr</a></dd>
-            </div>
-          </li>
-        </dl>
+    <div class="al-section__head al-reveal">
+      <span class="al-section__tag">LOCATION</span>
+      <h2 class="al-section__title">오시는 <em>길</em></h2>
+    </div>
+    <div class="al-location al-reveal">
+      <!-- 정보 (왼쪽) -->
+      <div class="al-location__info">
+        <div class="al-location__item">
+          <div class="al-location__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <strong>주소</strong>
+            <span>안산시 상록구 광덕1로385. 202호</span>
+          </div>
+        </div>
+        <div class="al-location__item">
+          <div class="al-location__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <strong>전화</strong>
+            <a href="tel:031-438-2586">031-438-2586</a>
+          </div>
+        </div>
+        <div class="al-location__item">
+          <div class="al-location__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <strong>상담 시간</strong>
+            <span>평일 09:00 – 18:00</span>
+          </div>
+        </div>
+        <a href="#consult" class="al-btn al-btn--green" style="width:100%;justify-content:center;margin-top:0.75rem;">무료 상담 신청 →</a>
       </div>
-
-      <form class="al-form al-reveal" id="alForm">
-        <h3 class="al-form__title">지금 바로 <span style="color:var(--al-green);">내편</span> 만나기</h3>
-        <div class="al-form__row">
-          <div class="al-field">
-            <label class="al-field__label">이름</label>
-            <input class="al-field__input" type="text" name="name" placeholder="홍길동" required>
-          </div>
-          <div class="al-field">
-            <label class="al-field__label">연락처</label>
-            <input class="al-field__input" type="tel" name="phone" placeholder="010-0000-0000" required>
-          </div>
+      <!-- 지도 (오른쪽) -->
+      <div class="al-location__map-wrap">
+        <div id="alMap" class="al-location__map"></div>
+        <div class="al-location__nav-btns">
+          <a href="https://map.naver.com/v5/search/%EC%95%88%EC%82%B0%EC%8B%9C%20%EC%83%81%EB%A1%9D%EA%B5%AC%20%EA%B4%91%EB%8D%951%EB%A1%9C385" target="_blank" rel="noopener" class="al-location__nav-btn al-location__nav-btn--naver">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+            네이버 길찾기
+          </a>
+          <a href="https://map.kakao.com/link/to/%EB%B2%95%EB%A5%A0%EC%82%AC%EB%AC%B4%EC%86%8C%20%EC%8B%9C%EB%AF%BC,%EC%95%88%EC%82%B0%EC%8B%9C%20%EC%83%81%EB%A1%9D%EA%B5%AC%20%EA%B4%91%EB%8D%951%EB%A1%9C385" target="_blank" rel="noopener" class="al-location__nav-btn al-location__nav-btn--kakao">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+            카카오 길찾기
+          </a>
         </div>
-        <div class="al-field">
-          <label class="al-field__label">상담 분야</label>
-          <select class="al-field__input" name="category" required>
-            <option value="">선택해 주세요</option>
-            <option value="개인회생">개인회생</option>
-            <option value="개인파산">개인파산</option>
-            <option value="민사">민사 소송</option>
-            <option value="형사">형사 사건</option>
-            <option value="가사/이혼">가사 · 이혼</option>
-            <option value="법인회생">법인 회생</option>
-            <option value="기타">기타</option>
-          </select>
-        </div>
-        <div class="al-field">
-          <label class="al-field__label optional">상담 내용</label>
-          <textarea class="al-field__input" name="message" placeholder="사건 내용을 간단히 적어주세요."></textarea>
-        </div>
-        <button type="submit" class="al-form__submit">무료 상담 신청하기 →</button>
-        <p class="al-form__notice">* 모든 정보는 철저히 비밀이 보장됩니다.</p>
-      </form>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="al-footer">
   <div class="al-container">
     <div class="al-footer__top">
@@ -758,8 +817,8 @@
         </h4>
         <p>
           당신의 확실한 내편.<br>
-          경기 안산시 상록구 이동 715<br>
-          TEL. 031-438-2585 · 평일 09:00–18:00
+          안산시 상록구 광덕1로385. 202호<br>
+          TEL. 031-438-2586 · 평일 09:00–18:00
         </p>
       </div>
       <div class="al-footer__col">
@@ -784,7 +843,7 @@
 </footer>
 
 <div class="al-float">
-  <a href="tel:031-438-2585" class="al-float__phone" aria-label="전화 상담">
+  <a href="tel:031-438-2586" class="al-float__phone" aria-label="전화 상담">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
   </a>
   <a href="#consult" class="al-float__chat" aria-label="상담 신청">

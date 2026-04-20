@@ -1,0 +1,753 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>법률사무소 시민 | Story Edition</title>
+<meta name="description" content="하루에도 수십통씩 오는 독촉 연락, 채권자들의 법적 조치를 걱정하고 계신가요? 20년 경력의 법률사무소 시민이 당신의 새출발을 도와드립니다.">
+<meta name="theme-color" content="#144534">
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/variant-story.css' %}">
+</head>
+<body>
+
+<header class="st-header">
+  <div class="st-container st-header__inner">
+    <a href="/v/story/" class="st-logo">
+      <span class="st-logo__mark">시</span>
+      <span class="st-logo__text">법률사무소 <em>시민</em></span>
+    </a>
+
+    <nav class="st-nav">
+      <a href="#about">시민 소개</a>
+      <a href="#diagnose" class="st-nav-diag">
+        <span class="st-nav-diag__dot"></span>
+        1분 자가진단
+      </a>
+      <a href="#cases">성공 사례</a>
+      <a href="#promise">약속</a>
+      <a href="#board">공지·FAQ</a>
+      <a href="#consult">상담 신청</a>
+    </nav>
+
+    <div class="st-header__right">
+      <a href="tel:031-438-2585" class="st-phone-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        031-438-2585
+      </a>
+      <a href="#diagnose" class="st-cta st-cta--yellow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        자가진단
+      </a>
+      <a href="#consult" class="st-cta">무료 상담</a>
+      <button class="st-toggle" id="alToggle" aria-label="메뉴"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="st-mobile-nav" id="alMobile">
+  <a href="#about">시민 소개</a>
+  <a href="#diagnose" class="st-mobile-diag">
+    <span class="st-nav-diag__dot"></span>
+    1분 자가진단
+  </a>
+  <a href="#cases">성공 사례</a>
+  <a href="#promise">진정한 내편의 약속</a>
+  <a href="#board">공지사항 · FAQ</a>
+  <a href="#consult">무료 상담 신청</a>
+  <a href="/notice/">공지사항</a>
+  <a href="/faq/">자주하는 질문</a>
+</div>
+
+<!-- HERO - 풀스크린 롤링 -->
+<section class="st-hero" id="about">
+  <img src="{% static 'img/about.jpg' %}" alt="" class="st-hero__bg-img">
+  <div class="st-hero__overlay"></div>
+
+  <div class="st-hero__content">
+    <div class="st-hero__badge"><span class="st-hero__badge-dot"></span>20년 경력 · 7,000건 상담</div>
+
+    <div class="st-hero__slides" id="stSlides">
+      <div class="st-hero__slide is-active">
+        <h1 class="st-hero__title">지속되는 독촉 연락과<br>법적 대응 우려로<br><em>힘든 시간을 보내고 계신가요?</em></h1>
+        <p class="st-hero__lede"><strong>20년 경력의 법률사무소 시민</strong>이 지금부터 당신의 새출발을 도와드리겠습니다.</p>
+      </div>
+      <div class="st-hero__slide">
+        <h1 class="st-hero__title">지금의 상황,<br><em>혼자 감당하지 마세요.</em></h1>
+        <p class="st-hero__lede">채무 문제도, 법적 분쟁도, 가족의 갈등도.<br>당신 옆에 함께 서서 싸워줄 사람이 있다면,<br>이미 절반은 해결된 것입니다.</p>
+      </div>
+    </div>
+
+    <div class="st-hero__dots">
+      <button class="st-hero__dot is-active" data-slide="0"></button>
+      <button class="st-hero__dot" data-slide="1"></button>
+    </div>
+
+    <div class="st-hero__actions">
+      <a href="#consult" class="st-btn st-btn--green">무료 상담 신청하기 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="tel:031-438-2585" class="st-btn st-btn--ghost">031-438-2585</a>
+    </div>
+
+    <div class="st-hero__info">
+      <span>대한변호사협회 등록</span>
+      <span>·</span>
+      <span>개인회생 · 파산 · 민형사 · 가사 · 법인회생</span>
+    </div>
+  </div>
+</section>
+
+<!-- 3 PILLARS 내편 -->
+<section class="st-section st-section--green" id="pillars">
+  <div class="st-container">
+    <div class="st-section__head st-reveal">
+      <span class="st-section__tag">WHY CITIZEN</span>
+      <h2 class="st-section__title">법률사무소 시민은<br><em>당신의 내편</em>입니다</h2>
+      <p class="st-section__sub">
+        20년의 경험과 7,000건의 상담 사례가 증명하는 신뢰. 의뢰인 한 사람 한 사람의 사건을 내 일처럼 다룹니다.
+      </p>
+    </div>
+
+    <div class="st-pillars st-reveal">
+      <div class="st-pillar">
+        <span class="st-pillar__num">POINT 01</span>
+        <div class="st-pillar__icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>
+        </div>
+        <h3 class="st-pillar__title"><em>확실한</em> 내편</h3>
+        <p class="st-pillar__desc">
+          20년의 실무 경력과<br>
+          철저한 법률 지식으로 무장한<br>
+          가장 확실한 법률 파트너.
+        </p>
+      </div>
+
+      <div class="st-pillar">
+        <span class="st-pillar__num">POINT 02</span>
+        <div class="st-pillar__icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="st-pillar__title"><em>남다른</em> 내편</h3>
+        <p class="st-pillar__desc">
+          누적 7,000건의 상담 경험.<br>
+          개인회생부터 법인회생까지<br>
+          모든 영역에서 차별화된 실력.
+        </p>
+      </div>
+
+      <div class="st-pillar">
+        <span class="st-pillar__num">POINT 03</span>
+        <div class="st-pillar__icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg>
+        </div>
+        <h3 class="st-pillar__title"><em>든든한</em> 내편</h3>
+        <p class="st-pillar__desc">
+          의뢰인의 마음까지 헤아리는<br>
+          1:1 맞춤 상담과<br>
+          끝까지 함께하는 책임감.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUCCESS CASES 파이차트 -->
+<section class="st-section" id="cases">
+  <div class="st-container">
+    <div class="st-section__head st-reveal">
+      <span class="st-section__tag">SUCCESS CASES</span>
+      <h2 class="st-section__title">시민과 함께한<br><em>채무 감면 성공 사례</em></h2>
+      <p class="st-section__sub">
+        최대 90%까지 감면받은 실제 의뢰인들의 결과입니다. 복잡한 채무 구조일수록 내편의 전략이 필요합니다.
+      </p>
+    </div>
+
+    <div class="st-cases__grid st-reveal">
+
+      <div class="st-case" onclick="openStory(this)" data-story-cat="개인회생" data-story-pct="90" data-story-title="1억 2천만원 → 1천 2백만원" data-story-situation="40대 직장인 A씨는 카드 돌려막기와 저축은행 대출이 반복되며 채무가 1억 2천만원까지 불어났습니다. 매달 급여의 절반 이상이 이자 상환에 소진되고 있었고, 생활비 부족으로 또다시 대출을 받는 악순환이 계속되었습니다." data-story-strategy="소득 대비 채무 비율을 정밀 분석하여 개인회생 신청이 가장 효과적임을 판단. 최소 변제액 산정을 위한 생계비 증빙 자료를 철저히 준비하고, 채권자 이의를 대비한 법리 검토까지 완료했습니다." data-story-result="법원이 변제 계획을 인가하여 3년간 월 33만원 변제 후 나머지 1억 800만원 전액 면책 결정. A씨는 현재 정상적인 경제활동을 하고 있습니다." data-story-comment="매일 밤 잠을 못 이루던 날들이 끝났습니다. 시민 덕분에 새 인생을 시작할 수 있었습니다.">
+        <div class="st-case__chart" data-st-percent="90"><svg viewBox="0 0 100 100"><circle class="st-case__chart-bg" cx="50" cy="50" r="44"/><circle class="st-case__chart-fg" cx="50" cy="50" r="44"/></svg><div class="st-case__percent">90<small>%</small></div></div>
+        <div class="st-case__cat">개인회생</div>
+        <div class="st-case__title">1억 2천만원 → 1천 2백만원</div>
+        <p class="st-case__desc">다수 금융채무 최대 감면 성공</p>
+        <span class="st-case__more">자세히 보기 →</span>
+      </div>
+
+      <div class="st-case" onclick="openStory(this)" data-story-cat="개인회생" data-story-pct="85" data-story-title="8천만원 → 1천 2백만원" data-story-situation="30대 자영업자 B씨는 코로나 이후 매출 급감으로 사업자 대출과 사채까지 빌리게 되었습니다. 독촉 전화가 하루 수십통씩 오고, 가족에게까지 연락이 가는 상황이었습니다." data-story-strategy="사채를 포함한 전체 채무를 정리하고, 자영업 소득 증빙이 어려운 상황에서 영업소득자 기준으로 회생 계획을 수립. 사채업자의 채권 인정 여부에 대한 법적 대응도 병행했습니다." data-story-result="사채 포함 8천만원 중 85% 감면 결정. 월 22만원 × 36개월 변제 후 나머지 전액 면책. 독촉 전화도 법원 명령으로 즉시 중단되었습니다." data-story-comment="사채업자 전화에 시달리던 제가 이렇게 편안한 하루를 보낼 수 있게 될 줄 몰랐습니다.">
+        <div class="st-case__chart" data-st-percent="85"><svg viewBox="0 0 100 100"><circle class="st-case__chart-bg" cx="50" cy="50" r="44"/><circle class="st-case__chart-fg" cx="50" cy="50" r="44"/></svg><div class="st-case__percent">85<small>%</small></div></div>
+        <div class="st-case__cat">개인회생</div>
+        <div class="st-case__title">8천만원 → 1천 2백만원</div>
+        <p class="st-case__desc">사채 포함 채무 조정</p>
+        <span class="st-case__more">자세히 보기 →</span>
+      </div>
+
+      <div class="st-case" onclick="openStory(this)" data-story-cat="개인파산" data-story-pct="100" data-story-title="3억 5천만원 전액 면책" data-story-situation="50대 C씨는 보증을 서준 지인의 사업 실패로 연대보증 3억 5천만원의 채무를 떠안게 되었습니다. 본인의 소득은 전혀 없는 상태에서 강제집행까지 예고되어 극심한 스트레스에 시달렸습니다." data-story-strategy="무소득 상태에서 변제 능력이 없음을 객관적으로 입증하는 자료를 준비. 파산 면책 결격 사유가 없음을 법리적으로 소명하고, 연대보증의 경위를 상세히 진술하여 법원의 이해를 구했습니다." data-story-result="법원의 파산 선고 후 면책 결정으로 3억 5천만원 채무 전액 면책. C씨는 현재 새로운 직장을 구하여 재기에 성공하셨습니다." data-story-comment="인생이 끝났다고 생각했는데, 면책 결정을 받고 처음으로 울었습니다. 감사합니다.">
+        <div class="st-case__chart" data-st-percent="100"><svg viewBox="0 0 100 100"><circle class="st-case__chart-bg" cx="50" cy="50" r="44"/><circle class="st-case__chart-fg" cx="50" cy="50" r="44"/></svg><div class="st-case__percent">100<small>%</small></div></div>
+        <div class="st-case__cat">개인파산</div>
+        <div class="st-case__title">3억 5천만원 전액 면책</div>
+        <p class="st-case__desc">파산 면책 결정 성공</p>
+        <span class="st-case__more">자세히 보기 →</span>
+      </div>
+
+      <div class="st-case" onclick="openStory(this)" data-story-cat="개인회생" data-story-pct="78" data-story-title="5천만원 → 1천 1백만원" data-story-situation="20대 직장인 D씨는 대학 학자금 대출과 신용카드 채무가 합쳐져 5천만원에 달했습니다. 급여가 압류되어 월급날마다 통장이 비어 있는 상태가 6개월째 계속되고 있었습니다." data-story-strategy="급여 압류 해제를 위한 긴급 신청과 개인회생을 동시에 진행. 젊은 나이에 향후 변제 능력이 충분함을 강조하는 변제 계획을 수립하여 법원의 인가를 이끌어냈습니다." data-story-result="급여 압류 즉시 해제, 채무 78% 감면 확정. 월급을 온전히 받을 수 있게 되어 독립적인 생활이 가능해졌습니다." data-story-comment="월급을 온전히 받을 수 있다는 게 이렇게 감사한 일인 줄 처음 알았습니다.">
+        <div class="st-case__chart" data-st-percent="78"><svg viewBox="0 0 100 100"><circle class="st-case__chart-bg" cx="50" cy="50" r="44"/><circle class="st-case__chart-fg" cx="50" cy="50" r="44"/></svg><div class="st-case__percent">78<small>%</small></div></div>
+        <div class="st-case__cat">개인회생</div>
+        <div class="st-case__title">5천만원 → 1천 1백만원</div>
+        <p class="st-case__desc">급여 압류 해제 병행</p>
+        <span class="st-case__more">자세히 보기 →</span>
+      </div>
+
+      <div class="st-case" onclick="openStory(this)" data-story-cat="개인회생" data-story-pct="92" data-story-title="2억 → 1천 6백만원" data-story-situation="40대 맞벌이 부부 E씨는 부동산 투자 실패와 사업 부채로 2억원의 채무를 지게 되었습니다. 집이 경매에 넘어갈 위기에 처해 있었고, 아이들의 학비도 마련하기 어려운 상황이었습니다." data-story-strategy="주거 안정을 최우선으로 하여 주택 보전이 가능한 변제 계획을 설계. 부부 합산 소득 기준으로 최소 변제액을 산정하고, 주택담보대출 별제권 처리를 통해 자택 거주를 유지할 수 있도록 했습니다." data-story-result="채무 92% 감면, 월 44만원 변제 조건으로 인가 결정. 자택 거주를 유지하면서 가정의 안정을 지킬 수 있었습니다." data-story-comment="아이들이 집을 잃지 않아도 된다는 사실에 온 가족이 안도의 눈물을 흘렸습니다.">
+        <div class="st-case__chart" data-st-percent="92"><svg viewBox="0 0 100 100"><circle class="st-case__chart-bg" cx="50" cy="50" r="44"/><circle class="st-case__chart-fg" cx="50" cy="50" r="44"/></svg><div class="st-case__percent">92<small>%</small></div></div>
+        <div class="st-case__cat">개인회생</div>
+        <div class="st-case__title">2억 → 1천 6백만원</div>
+        <p class="st-case__desc">고액 채무 · 주택 보전 성공</p>
+        <span class="st-case__more">자세히 보기 →</span>
+      </div>
+
+      <div class="st-case" onclick="openStory(this)" data-story-cat="개인회생" data-story-pct="75" data-story-title="4천만원 → 1천만원" data-story-situation="50대 자영업자 F씨는 식당 운영 실패 후 카드론과 캐피탈 대출 4천만원이 남았습니다. 폐업 후 배달 일을 시작했지만 수입이 불규칙하여 채무 상환이 불가능한 상태였습니다." data-story-strategy="비정기 소득인 배달 수입을 체계적으로 증빙하여 영업소득자 기준 회생 신청. 3개월간의 수입 기록을 바탕으로 안정적인 변제 계획을 수립, 채권자 동의를 이끌어냈습니다." data-story-result="채무 75% 감면 확정. 배달 수입으로 충분히 감당 가능한 월 28만원 변제로 확정되어 생활의 여유를 되찾았습니다." data-story-comment="포기하려던 순간, 시민을 만나 다시 살아갈 용기를 얻었습니다.">
+        <div class="st-case__chart" data-st-percent="75"><svg viewBox="0 0 100 100"><circle class="st-case__chart-bg" cx="50" cy="50" r="44"/><circle class="st-case__chart-fg" cx="50" cy="50" r="44"/></svg><div class="st-case__percent">75<small>%</small></div></div>
+        <div class="st-case__cat">개인회생</div>
+        <div class="st-case__title">4천만원 → 1천만원</div>
+        <p class="st-case__desc">자영업자 회생 성공</p>
+        <span class="st-case__more">자세히 보기 →</span>
+      </div>
+
+      <div class="st-case" onclick="openStory(this)" data-story-cat="법인회생" data-story-pct="88" data-story-title="중소 제조업체 정상화" data-story-situation="매출 30억 규모의 제조업체가 원자재 가격 폭등과 주요 거래처 부도로 자금난에 빠졌습니다. 임직원 50명의 급여도 밀리기 시작하여 폐업 위기에 몰린 상황이었습니다." data-story-strategy="긴급 보전 처분 신청으로 채권 추심을 중단시키고, 핵심 사업부 중심의 회생 계획을 수립. 채권단 협의회를 통해 채권자들의 동의를 확보하고, 신규 투자자 유치까지 성공했습니다." data-story-result="법원 회생 계획 인가 확정. 채무 88% 조정, 핵심 인력 유지와 사업 정상화에 성공. 현재 흑자 전환을 달성했습니다." data-story-comment="50명 직원의 생계가 달린 문제였습니다. 시민의 전문성이 우리 회사를 살렸습니다.">
+        <div class="st-case__chart" data-st-percent="88"><svg viewBox="0 0 100 100"><circle class="st-case__chart-bg" cx="50" cy="50" r="44"/><circle class="st-case__chart-fg" cx="50" cy="50" r="44"/></svg><div class="st-case__percent">88<small>%</small></div></div>
+        <div class="st-case__cat">법인회생</div>
+        <div class="st-case__title">제조업 법인 정상화</div>
+        <p class="st-case__desc">회생 계획 인가 성공</p>
+        <span class="st-case__more">자세히 보기 →</span>
+      </div>
+
+      <div class="st-case" onclick="openStory(this)" data-story-cat="가사·이혼" data-story-pct="100" data-story-title="양육권 확보 · 재산분할" data-story-situation="30대 G씨는 배우자의 외도로 이혼을 결심했으나, 상대방이 양육권을 주장하며 재산 은닉까지 시도하고 있었습니다. 두 아이의 미래가 걸린 상황에서 법적 대응이 시급했습니다." data-story-strategy="배우자의 재산 은닉 정황을 입증하기 위한 금융 거래 추적과 함께, 주양육자로서의 적합성을 보여주는 증거를 체계적으로 수집. 아이들의 복리를 최우선으로 하는 양육 계획서를 작성했습니다." data-story-result="양육권 전면 확보, 위자료 3천만원 인정, 은닉 재산 포함 공정한 재산분할 합의 도출. G씨는 현재 두 아이와 안정적인 생활을 하고 있습니다." data-story-comment="아이들의 엄마로서 당당하게 살 수 있게 해주셔서 정말 감사합니다.">
+        <div class="st-case__chart" data-st-percent="100"><svg viewBox="0 0 100 100"><circle class="st-case__chart-bg" cx="50" cy="50" r="44"/><circle class="st-case__chart-fg" cx="50" cy="50" r="44"/></svg><div class="st-case__percent">100<small>%</small></div></div>
+        <div class="st-case__cat">가사·이혼</div>
+        <div class="st-case__title">양육권 확보 · 재산분할</div>
+        <p class="st-case__desc">의뢰인 전면 승소</p>
+        <span class="st-case__more">자세히 보기 →</span>
+      </div>
+
+    </div>
+
+    <!-- 사례 상세 모달 -->
+    <div class="st-modal" id="stModal" hidden>
+      <div class="st-modal__backdrop" onclick="closeStory()"></div>
+      <div class="st-modal__card">
+        <div class="st-modal__header">
+          <span class="st-modal__badge" id="stModalCat"></span>
+          <button onclick="closeStory()" aria-label="닫기">&times;</button>
+        </div>
+        <div class="st-modal__body">
+          <div class="st-modal__pct" id="stModalPct"></div>
+          <h3 class="st-modal__title" id="stModalTitle"></h3>
+          <div class="st-modal__section"><h4>의뢰인 상황</h4><p id="stModalSituation"></p></div>
+          <div class="st-modal__section"><h4>시민의 전략</h4><p id="stModalStrategy"></p></div>
+          <div class="st-modal__section"><h4>최종 결과</h4><p id="stModalResult"></p></div>
+          <div class="st-modal__comment" id="stModalComment"></div>
+          <a href="#consult" class="st-btn st-btn--green st-modal__cta" onclick="closeStory()">무료 상담 신청하기 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSE (인터랙티브 자가진단) -->
+<section class="st-diagnose" id="diagnose">
+  <div class="st-container">
+    <div class="st-diagnose__intro" id="diagIntro">
+      <span class="st-diagnose__tag">1분 자가진단</span>
+      <h2 class="st-diagnose__title">
+        당신에게 맞는 <em>해결책</em>,<br>
+        지금 바로 확인해보세요
+      </h2>
+      <p class="st-diagnose__sub">간단한 5가지 질문으로 현재 상황을 진단해 드립니다.<br>1분이면 충분합니다.</p>
+      <button type="button" class="st-btn st-btn--green" id="diagStart">
+        자가진단 시작하기
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="st-quiz" id="diagQuiz" hidden>
+      <div class="st-quiz__progress">
+        <div class="st-quiz__progress-bar" id="diagProgress"></div>
+      </div>
+      <div class="st-quiz__step-label">
+        <span id="diagStepCur">1</span> / <span id="diagStepTotal">5</span>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="st-quiz__step is-active" data-step="1">
+        <h3 class="st-quiz__q">현재 가장 큰 고민은 <em>무엇인가요?</em></h3>
+        <p class="st-quiz__sub">당신의 상황에 가장 가까운 항목을 선택해 주세요.</p>
+        <div class="st-quiz__options">
+          <button type="button" class="st-opt" data-q="1" data-value="채무 독촉 전화">
+            <span class="st-opt__icon">📞</span>
+            <span class="st-opt__text"><strong>채무 독촉 전화</strong><span>끊임없이 오는 독촉 연락</span></span>
+          </button>
+          <button type="button" class="st-opt" data-q="1" data-value="법적 조치">
+            <span class="st-opt__icon">⚖️</span>
+            <span class="st-opt__text"><strong>채권자의 법적 조치</strong><span>지급명령, 소송 제기 등</span></span>
+          </button>
+          <button type="button" class="st-opt" data-q="1" data-value="강제집행">
+            <span class="st-opt__icon">🔒</span>
+            <span class="st-opt__text"><strong>강제집행</strong><span>급여 압류, 예금 압류 등</span></span>
+          </button>
+          <button type="button" class="st-opt" data-q="1" data-value="기타">
+            <span class="st-opt__icon">💭</span>
+            <span class="st-opt__text"><strong>그 외 법률 문제</strong><span>민사·형사·가사 등</span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="st-quiz__step" data-step="2">
+        <h3 class="st-quiz__q">총 채무 규모는 <em>어느 정도인가요?</em></h3>
+        <p class="st-quiz__sub">대략적인 금액을 선택해 주세요.</p>
+        <div class="st-quiz__options">
+          <button type="button" class="st-opt" data-q="2" data-value="3천만원 미만">
+            <span class="st-opt__text"><strong>3천만원 미만</strong></span>
+          </button>
+          <button type="button" class="st-opt" data-q="2" data-value="3천~1억원">
+            <span class="st-opt__text"><strong>3천만원 ~ 1억원</strong></span>
+          </button>
+          <button type="button" class="st-opt" data-q="2" data-value="1억~3억원">
+            <span class="st-opt__text"><strong>1억원 ~ 3억원</strong></span>
+          </button>
+          <button type="button" class="st-opt" data-q="2" data-value="3억원 초과">
+            <span class="st-opt__text"><strong>3억원 초과</strong></span>
+          </button>
+          <button type="button" class="st-opt" data-q="2" data-value="해당없음">
+            <span class="st-opt__text"><strong>채무 관련이 아닙니다</strong></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="st-quiz__step" data-step="3">
+        <h3 class="st-quiz__q">현재 소득 상태는 <em>어떠신가요?</em></h3>
+        <p class="st-quiz__sub">대안 선택에 중요한 정보입니다.</p>
+        <div class="st-quiz__options">
+          <button type="button" class="st-opt" data-q="3" data-value="정기소득">
+            <span class="st-opt__icon">💼</span>
+            <span class="st-opt__text"><strong>정기 소득이 있음</strong><span>직장인 · 월급</span></span>
+          </button>
+          <button type="button" class="st-opt" data-q="3" data-value="비정기소득">
+            <span class="st-opt__icon">🏪</span>
+            <span class="st-opt__text"><strong>비정기 소득</strong><span>자영업 · 프리랜서</span></span>
+          </button>
+          <button type="button" class="st-opt" data-q="3" data-value="무소득">
+            <span class="st-opt__icon">😔</span>
+            <span class="st-opt__text"><strong>현재 소득이 없음</strong><span>실직 · 구직 중</span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="st-quiz__step" data-step="4">
+        <h3 class="st-quiz__q">현재 법적 절차가 <em>진행 중인가요?</em></h3>
+        <p class="st-quiz__sub">긴급도를 파악하는 데 도움이 됩니다.</p>
+        <div class="st-quiz__options">
+          <button type="button" class="st-opt" data-q="4" data-value="없음">
+            <span class="st-opt__text"><strong>아직 없음</strong></span>
+          </button>
+          <button type="button" class="st-opt" data-q="4" data-value="독촉장/최고장">
+            <span class="st-opt__text"><strong>독촉장 / 최고장 받음</strong></span>
+          </button>
+          <button type="button" class="st-opt" data-q="4" data-value="가압류/압류">
+            <span class="st-opt__text"><strong>가압류 / 압류 진행</strong></span>
+          </button>
+          <button type="button" class="st-opt" data-q="4" data-value="소송진행중">
+            <span class="st-opt__text"><strong>소송 진행 중</strong></span>
+          </button>
+          <button type="button" class="st-opt" data-q="4" data-value="모름">
+            <span class="st-opt__text"><strong>잘 모르겠음</strong></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="st-quiz__step" data-step="5">
+        <h3 class="st-quiz__q">원하시는 해결 방향이 <em>있으신가요?</em></h3>
+        <p class="st-quiz__sub">상담 시 더 정확한 안내가 가능합니다.</p>
+        <div class="st-quiz__options">
+          <button type="button" class="st-opt" data-q="5" data-value="개인회생">
+            <span class="st-opt__icon">📊</span>
+            <span class="st-opt__text"><strong>개인회생</strong><span>채무 일부 변제 · 나머지 면책</span></span>
+          </button>
+          <button type="button" class="st-opt" data-q="5" data-value="개인파산">
+            <span class="st-opt__icon">🆓</span>
+            <span class="st-opt__text"><strong>개인파산</strong><span>채무 전액 면책</span></span>
+          </button>
+          <button type="button" class="st-opt" data-q="5" data-value="법인회생">
+            <span class="st-opt__icon">🏢</span>
+            <span class="st-opt__text"><strong>법인회생</strong><span>법인 재정 정상화</span></span>
+          </button>
+          <button type="button" class="st-opt" data-q="5" data-value="민사/형사">
+            <span class="st-opt__icon">📋</span>
+            <span class="st-opt__text"><strong>민사 · 형사</strong><span>소송 · 분쟁</span></span>
+          </button>
+          <button type="button" class="st-opt" data-q="5" data-value="가사/이혼">
+            <span class="st-opt__icon">👨‍👩‍👧</span>
+            <span class="st-opt__text"><strong>가사 · 이혼</strong><span>이혼 · 양육권 · 재산분할</span></span>
+          </button>
+          <button type="button" class="st-opt" data-q="5" data-value="전문가상담">
+            <span class="st-opt__icon">💬</span>
+            <span class="st-opt__text"><strong>전문가 상담 후 결정</strong><span>우선 상담을 받아보겠습니다</span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Final: Contact form -->
+      <div class="st-quiz__step" data-step="6">
+        <div class="st-quiz__result">
+          <div class="st-quiz__result-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            진단 완료
+          </div>
+          <h3 class="st-quiz__q">연락받으실 정보를 <em>남겨주세요</em></h3>
+          <p class="st-quiz__sub">
+            내편이 <strong>1시간 내</strong>에 직접 연락드립니다.<br>
+            간단한 정보면 충분합니다.
+          </p>
+        </div>
+
+        <div class="st-quiz__form">
+          <div class="st-field">
+            <label class="st-field__label">이름 또는 닉네임</label>
+            <input class="st-field__input" type="text" id="diagName" placeholder="예) 홍길동 또는 A님" required>
+          </div>
+
+          <div class="st-field">
+            <label class="st-field__label">연락 방법</label>
+            <div class="st-radio-group">
+              <label class="st-radio">
+                <input type="radio" name="diagMethod" value="전화" checked>
+                <span class="st-radio__box"></span>
+                <span>전화번호</span>
+              </label>
+              <label class="st-radio">
+                <input type="radio" name="diagMethod" value="카카오톡">
+                <span class="st-radio__box"></span>
+                <span>카카오톡 ID</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="st-field">
+            <label class="st-field__label" id="diagContactLabel">연락처</label>
+            <input class="st-field__input" type="text" id="diagContact" placeholder="010-0000-0000" required>
+          </div>
+
+          <div class="st-field">
+            <label class="st-field__label optional">연락 가능 시간 <small style="color:var(--st-text-dim);font-weight:500;">(선택)</small></label>
+            <select class="st-field__input" id="diagTime">
+              <option value="">가능한 빠르게</option>
+              <option value="09:00-12:00">오전 (09:00-12:00)</option>
+              <option value="12:00-15:00">점심·오후 (12:00-15:00)</option>
+              <option value="15:00-18:00">오후 (15:00-18:00)</option>
+              <option value="저녁">저녁 이후</option>
+            </select>
+          </div>
+
+          <label class="st-consent">
+            <input type="checkbox" id="diagAgree" required>
+            <span>
+              <strong>개인정보 수집 · 이용에 동의합니다.</strong><br>
+              상담 목적으로만 사용되며, 상담 종료 후 안전하게 폐기됩니다.
+            </span>
+          </label>
+
+          <button type="button" class="st-form__submit" id="diagSubmit">
+            무료 상담 신청 완료하기
+          </button>
+          <p class="st-form__notice">* 모든 정보는 철저히 비밀이 보장됩니다.</p>
+        </div>
+      </div>
+
+      <!-- Quiz Nav -->
+      <div class="st-quiz__nav">
+        <button type="button" class="st-quiz__nav-btn st-quiz__nav-btn--back" id="diagBack" hidden>
+          ← 이전
+        </button>
+      </div>
+
+      <!-- Success -->
+      <div class="st-quiz__step st-quiz__success" data-step="7" hidden>
+        <div class="st-quiz__success-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 class="st-quiz__success-title">상담 신청이 접수되었습니다.</h3>
+        <p class="st-quiz__success-desc">
+          내편이 되어 가장 빠른 시간 내에 <strong>직접 연락</strong>드리겠습니다.<br>
+          소중한 문의 감사합니다.
+        </p>
+        <a href="tel:031-438-2585" class="st-btn st-btn--green" style="margin-top:1.5rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          지금 바로 전화하기
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE STRIP -->
+<section class="st-quote st-reveal">
+  <div class="st-container">
+    <p class="st-quote__text">
+      "혼자서는 보이지 않던 길,<br>
+      <em>내편과 함께라면 보입니다.</em>"
+    </p>
+    <div class="st-quote__author">— 법률사무소 시민</div>
+  </div>
+</section>
+
+<!-- 4-STEP PROMISE -->
+<section class="st-section" id="promise">
+  <div class="st-container">
+    <div class="st-section__head st-reveal">
+      <span class="st-section__tag">OUR PROMISE</span>
+      <h2 class="st-section__title">진정한 내편의 <em>4가지 약속</em></h2>
+      <p class="st-section__sub">
+        상담 신청부터 사건 종결까지, 시민은 의뢰인의 옆을 떠나지 않습니다.
+      </p>
+    </div>
+
+    <div class="st-promise__grid st-reveal">
+      <div class="st-step">
+        <div class="st-step__num">01</div>
+        <h3 class="st-step__title">무료 초기 상담</h3>
+        <p class="st-step__desc">부담 없는 첫 상담. 사건 진단부터 무료로 제공해 드립니다.</p>
+      </div>
+      <div class="st-step">
+        <div class="st-step__num">02</div>
+        <h3 class="st-step__title">맞춤 솔루션</h3>
+        <p class="st-step__desc">의뢰인의 상황에 꼭 맞는 법적 전략을 제안해 드립니다.</p>
+      </div>
+      <div class="st-step">
+        <div class="st-step__num">03</div>
+        <h3 class="st-step__title">철저한 진행</h3>
+        <p class="st-step__desc">합리적 수임료, 투명한 절차, 신속한 사건 처리.</p>
+      </div>
+      <div class="st-step">
+        <div class="st-step__num">04</div>
+        <h3 class="st-step__title">끝까지 함께</h3>
+        <p class="st-step__desc">사건 종결 후에도 사후 관리까지 책임지는 진정한 내편.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTICE + FAQ -->
+<section class="st-section st-section--soft" id="board">
+  <div class="st-container">
+    <div class="st-section__head st-reveal">
+      <span class="st-section__tag">NEWS &amp; FAQ</span>
+      <h2 class="st-section__title">최신 소식과 <em>자주하는 질문</em></h2>
+    </div>
+
+    <div class="st-board st-reveal">
+      <div class="st-board__col">
+        <h3>공지사항 <a href="/notice/">전체보기 →</a></h3>
+        {% if notices %}
+          <ul class="st-notice-list">
+            {% for n in notices %}
+              <li><a href="/notice/{{ n.pk }}/">
+                <span>{{ n.title }}</span>
+                <span class="st-notice-list__date">{{ n.created_at|date:"Y.m.d" }}</span>
+              </a></li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p style="padding:2rem;text-align:center;color:var(--st-text-dim);">등록된 공지가 없습니다.</p>
+        {% endif %}
+      </div>
+
+      <div class="st-board__col">
+        <h3>자주하는 질문 <a href="/faq/">전체보기 →</a></h3>
+        {% if faqs %}
+          {% for f in faqs %}
+            <div class="st-faq-item">
+              <button class="st-faq-item__q">
+                <span><span class="st-faq-item__cat">{{ f.category }}</span>{{ f.question }}</span>
+                <span class="st-faq-item__icon">+</span>
+              </button>
+              <div class="st-faq-item__a">{{ f.answer }}</div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p style="padding:2rem;text-align:center;color:var(--st-text-dim);">등록된 질문이 없습니다.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="st-cta-band">
+  <div class="st-container">
+    <div class="st-cta-band__inner">
+      <div>
+        <h3 class="st-cta-band__title">
+          지금 바로, <em>내편에게 연락하세요.</em>
+        </h3>
+        <p class="st-cta-band__sub">평일 09:00–18:00 · 전화 상담은 무료입니다.</p>
+      </div>
+      <div class="st-cta-band__actions">
+        <a href="tel:031-438-2585" class="st-cta-band__phone">
+          <small>CALL NOW</small>
+          <strong>031-438-2585</strong>
+        </a>
+        <a href="#consult" class="st-cta-band__kakao">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.3 4.5 6.8L5 21l4-2.2c1 .1 2 .2 3 .2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg>
+          상담 신청
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULT -->
+<section class="st-consult" id="consult">
+  <div class="st-container">
+    <div class="st-consult__grid">
+      <div class="st-reveal">
+        <span class="st-section__tag">FREE CONSULTATION</span>
+        <h2 class="st-consult__heading">
+          혼자 고민하지 마세요.<br>
+          <em>내편이 들어드립니다.</em>
+        </h2>
+        <p class="st-consult__desc">
+          간단한 정보만 남겨주시면<br>
+          20년 경력의 법률 전문가가 <strong style="color:var(--st-green);font-weight:800;">직접 연락</strong>드립니다.<br>
+          모든 상담은 철저한 비밀이 보장됩니다.
+        </p>
+        <dl class="st-consult__list">
+          <li>
+            <span class="st-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </span>
+            <div>
+              <dt>전화</dt>
+              <dd><a href="tel:031-438-2585">031-438-2585</a></dd>
+            </div>
+          </li>
+          <li>
+            <span class="st-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </span>
+            <div>
+              <dt>상담 시간</dt>
+              <dd>평일 09:00 – 18:00</dd>
+            </div>
+          </li>
+          <li>
+            <span class="st-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <div>
+              <dt>위치</dt>
+              <dd>경기 안산시 상록구 이동 715</dd>
+            </div>
+          </li>
+          <li>
+            <span class="st-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </span>
+            <div>
+              <dt>이메일</dt>
+              <dd><a href="mailto:contact@citizen.co.kr">contact@citizen.co.kr</a></dd>
+            </div>
+          </li>
+        </dl>
+      </div>
+
+      <form class="st-form st-reveal" id="alForm">
+        <h3 class="st-form__title">지금 바로 <span style="color:var(--st-green);">내편</span> 만나기</h3>
+        <div class="st-form__row">
+          <div class="st-field">
+            <label class="st-field__label">이름</label>
+            <input class="st-field__input" type="text" name="name" placeholder="홍길동" required>
+          </div>
+          <div class="st-field">
+            <label class="st-field__label">연락처</label>
+            <input class="st-field__input" type="tel" name="phone" placeholder="010-0000-0000" required>
+          </div>
+        </div>
+        <div class="st-field">
+          <label class="st-field__label">상담 분야</label>
+          <select class="st-field__input" name="category" required>
+            <option value="">선택해 주세요</option>
+            <option value="개인회생">개인회생</option>
+            <option value="개인파산">개인파산</option>
+            <option value="민사">민사 소송</option>
+            <option value="형사">형사 사건</option>
+            <option value="가사/이혼">가사 · 이혼</option>
+            <option value="법인회생">법인 회생</option>
+            <option value="기타">기타</option>
+          </select>
+        </div>
+        <div class="st-field">
+          <label class="st-field__label optional">상담 내용</label>
+          <textarea class="st-field__input" name="message" placeholder="사건 내용을 간단히 적어주세요."></textarea>
+        </div>
+        <button type="submit" class="st-form__submit">무료 상담 신청하기 →</button>
+        <p class="st-form__notice">* 모든 정보는 철저히 비밀이 보장됩니다.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="st-footer">
+  <div class="st-container">
+    <div class="st-footer__top">
+      <div class="st-footer__brand">
+        <h4>
+          <span class="st-logo__mark" style="width:28px;height:28px;font-size:0.85rem;">시</span>
+          법률사무소 <em>시민</em>
+        </h4>
+        <p>
+          Story Edition.<br>
+          경기 안산시 상록구 이동 715<br>
+          TEL. 031-438-2585 · 평일 09:00–18:00
+        </p>
+      </div>
+      <div class="st-footer__col">
+        <h5>MENU</h5>
+        <p><a href="#about">시민 소개</a></p>
+        <p><a href="#cases">성공 사례</a></p>
+        <p><a href="#promise">4가지 약속</a></p>
+        <p><a href="#consult">무료 상담</a></p>
+      </div>
+      <div class="st-footer__col">
+        <h5>INFO</h5>
+        <p><a href="/notice/">공지사항</a></p>
+        <p><a href="/faq/">자주하는 질문</a></p>
+        <p><a href="/">다른 시안 보기</a></p>
+        <p><a href="/v/classic/">클래식 버전</a></p>
+      </div>
+    </div>
+    <div class="st-footer__bottom">
+      © 2026 법률사무소 시민. ALL RIGHTS RESERVED.
+    </div>
+  </div>
+</footer>
+
+<div class="st-float">
+  <a href="tel:031-438-2585" class="st-float__phone" aria-label="전화 상담">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+  </a>
+  <a href="#consult" class="st-float__chat" aria-label="상담 신청">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  </a>
+</div>
+
+<script src="{% static 'js/variant-story.js' %}"></script>
+</body>
+</html>

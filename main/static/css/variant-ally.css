@@ -43,12 +43,22 @@ img { max-width: 100%; display: block; }
 /* ===== Header ===== */
 .al-header {
   position: sticky; top: 0; z-index: 1000;
-  background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--al-line);
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: none;
+  box-shadow: 0 2px 20px rgba(20,69,52,0.06);
 }
-.al-header__inner { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 1rem; }
-.al-logo { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+/* 헤더 상단 그린 악센트 라인 */
+.al-header::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--al-green), var(--al-green-light), var(--al-yellow));
+}
+.al-header__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 80px; gap: 1.5rem;
+}
+.al-logo { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
 .al-logo__mark {
   width: 36px; height: 36px;
   background: var(--al-green);
@@ -58,23 +68,41 @@ img { max-width: 100%; display: block; }
   font-weight: 900; font-size: 1.1rem;
   letter-spacing: -0.05em;
 }
+.al-logo__img {
+  height: 84px; width: auto;
+  object-fit: contain;
+}
 .al-logo__text { font-weight: 900; font-size: 1.05rem; letter-spacing: -0.03em; }
 .al-logo__text em { font-style: normal; color: var(--al-green); }
 
 .al-nav { display: none; }
-@media (min-width: 1024px) { .al-nav { display: flex; gap: 0.25rem; } }
-.al-nav a {
-  padding: 0.65rem 1rem; font-size: 0.92rem; font-weight: 600;
-  color: var(--al-ink); border-radius: 8px;
-  transition: all 0.2s;
+@media (min-width: 1024px) {
+  .al-nav {
+    display: flex; gap: 0.15rem;
+    background: var(--al-bg-2);
+    border-radius: 999px;
+    padding: 0.3rem;
+  }
 }
-.al-nav a:hover { background: var(--al-green-soft); color: var(--al-green); }
+.al-nav a {
+  padding: 0.6rem 1.15rem; font-size: 0.88rem; font-weight: 600;
+  color: var(--al-text); border-radius: 999px;
+  transition: all 0.25s;
+  position: relative;
+}
+.al-nav a:hover {
+  background: #fff; color: var(--al-green);
+  box-shadow: 0 2px 8px rgba(20,69,52,0.08);
+}
+.al-nav a.is-active {
+  background: var(--al-green); color: #fff;
+}
 
 /* 자가진단 네비 강조 */
 .al-nav-diag {
   display: inline-flex !important;
   align-items: center; gap: 0.4rem;
-  background: var(--al-green-soft);
+  background: var(--al-green-soft) !important;
   color: var(--al-green) !important;
   font-weight: 800 !important;
   border: 1px solid rgba(20,69,52,0.15);
@@ -83,6 +111,7 @@ img { max-width: 100%; display: block; }
   background: var(--al-green) !important;
   color: #fff !important;
   border-color: var(--al-green);
+  box-shadow: 0 4px 12px rgba(20,69,52,0.2) !important;
 }
 .al-nav-diag__dot {
   width: 7px; height: 7px; border-radius: 50%;
@@ -106,35 +135,42 @@ img { max-width: 100%; display: block; }
   font-weight: 800;
 }
 
-.al-header__right { display: flex; gap: 0.5rem; align-items: center; }
+.al-header__right { display: flex; gap: 0.6rem; align-items: center; }
 .al-phone-btn {
   display: none;
   align-items: center; gap: 0.4rem;
-  padding: 0.55rem 0.9rem;
-  font-size: 0.9rem; font-weight: 800;
+  padding: 0.5rem 0.85rem;
+  font-size: 0.85rem; font-weight: 800;
   color: var(--al-green); letter-spacing: -0.01em;
+  border-radius: 999px;
+  transition: all 0.2s;
 }
 @media (min-width: 768px) { .al-phone-btn { display: inline-flex; } }
+.al-phone-btn:hover { background: var(--al-green-soft); }
 .al-phone-btn svg { color: var(--al-green); }
 
 .al-cta {
   display: inline-flex; align-items: center; gap: 0.4rem;
   padding: 0.65rem 1.4rem;
   background: var(--al-green); color: #fff;
-  font-size: 0.88rem; font-weight: 700;
+  font-size: 0.85rem; font-weight: 700;
   border-radius: 999px; transition: all 0.25s;
   letter-spacing: -0.01em;
+  box-shadow: 0 4px 12px rgba(20,69,52,0.2);
 }
-.al-cta:hover { background: var(--al-green-dark); transform: translateY(-1px); }
+.al-cta:hover {
+  background: var(--al-green-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(20,69,52,0.3);
+}
 
 .al-cta--yellow {
   background: var(--al-yellow) !important;
   color: var(--al-ink) !important;
-  display: none;
+  display: inline-flex;
   align-items: center; gap: 0.35rem;
   font-weight: 800 !important;
 }
-@media (min-width: 768px) { .al-cta--yellow { display: inline-flex; } }
 .al-cta--yellow:hover {
   background: #F0D82B !important;
   transform: translateY(-1px);
@@ -158,8 +194,7 @@ img { max-width: 100%; display: block; }
 .al-hero {
   position: relative;
   padding: 4rem 0 5rem;
-  background:
-    linear-gradient(180deg, #fff 0%, var(--al-bg-2) 100%);
+  background: linear-gradient(180deg, #fff 0%, var(--al-bg-2) 100%);
   overflow: hidden;
 }
 .al-hero__quote-deco {
@@ -170,6 +205,12 @@ img { max-width: 100%; display: block; }
   font-family: Georgia, serif;
 }
 @media (min-width: 1024px) { .al-hero__quote-deco { left: 3rem; top: 3rem; font-size: 16rem; } }
+.al-hero__grid {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr; gap: 3rem;
+  align-items: center;
+}
+@media (min-width: 1024px) { .al-hero__grid { grid-template-columns: 1.3fr 1fr; gap: 4rem; } }
 
 .al-hero__grid {
   position: relative; z-index: 1;
@@ -181,7 +222,7 @@ img { max-width: 100%; display: block; }
 .al-hero__badge {
   display: inline-flex; align-items: center; gap: 0.4rem;
   padding: 0.5rem 1rem;
-  background: var(--al-green-soft);
+  background: rgba(20,69,52,0.08);
   color: var(--al-green);
   border: 1px solid rgba(20,69,52,0.15);
   border-radius: 999px;
@@ -229,47 +270,61 @@ img { max-width: 100%; display: block; }
 .al-btn--yellow:hover { background: #F0D82B; transform: translateY(-2px); box-shadow: 0 10px 25px rgba(249,224,75,0.4); }
 .al-btn--line { background: #fff; color: var(--al-green); border: 2px solid var(--al-green); }
 .al-btn--line:hover { background: var(--al-green); color: #fff; }
+.al-btn--ghost-light {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 1rem 1.8rem; font-size: 0.95rem; font-weight: 700;
+  border-radius: 999px; transition: all 0.25s; letter-spacing: -0.01em;
+  background: transparent; border: 2px solid var(--al-green); color: var(--al-green);
+}
+.al-btn--ghost-light:hover { background: var(--al-green); color: #fff; }
 
 /* Hero card (변호사 소개) */
+/* 카드 = 사진 전체 + 하단 오버레이 텍스트 */
 .al-hero__card {
-  background: #fff;
-  border: 1px solid var(--al-line);
-  border-radius: 24px;
-  padding: 2rem 1.75rem;
-  text-align: center;
-  box-shadow: 0 20px 40px rgba(20,69,52,0.08);
   position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(20,69,52,0.12);
+  min-height: 420px;
 }
-.al-hero__card::before {
-  content: ''; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-  background: var(--al-green); color: #fff; font-size: 0.7rem; font-weight: 800;
-  padding: 0.3rem 0.9rem; border-radius: 999px; letter-spacing: 0.15em;
-  content: 'CERTIFIED';
+.al-hero__card::before { display: none; }
+.al-hero__card-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 0;
 }
-.al-hero__card-photo {
-  width: 140px; height: 140px; margin: 0.5rem auto 1.25rem;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--al-green-soft), var(--al-green-light));
-  position: relative; overflow: hidden;
+.al-hero__card-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  z-index: 2;
+  padding: 2rem 1.5rem 1.5rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(10,43,31,0.75) 35%, rgba(10,43,31,0.92) 100%);
+  color: #fff;
+  text-align: center;
 }
-.al-hero__card-photo::before {
-  content: ''; position: absolute; top: 18%; left: 50%; transform: translateX(-50%);
-  width: 50px; height: 50px; border-radius: 50%;
-  background: rgba(255,255,255,0.85);
+.al-hero__card-role {
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.2em; color: var(--al-yellow);
+  margin-bottom: 0.3rem;
 }
-.al-hero__card-photo::after {
-  content: ''; position: absolute; top: 50%; left: 50%; transform: translateX(-50%);
-  width: 100px; height: 80px; border-radius: 50px 50px 0 0;
-  background: rgba(255,255,255,0.85);
+.al-hero__card-name {
+  font-size: 1.4rem; font-weight: 900;
+  letter-spacing: -0.02em; margin-bottom: 0.3rem;
 }
-.al-hero__card-role { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; color: var(--al-green); margin-bottom: 0.35rem; }
-.al-hero__card-name { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 0.25rem; }
-.al-hero__card-cred { font-size: 0.82rem; color: var(--al-text-2); margin-bottom: 1.25rem; }
-.al-hero__card-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35rem; padding-top: 1.25rem; border-top: 1px dashed var(--al-line); }
+.al-hero__card-cred {
+  font-size: 0.78rem; color: rgba(255,255,255,0.75);
+  margin-bottom: 1rem; line-height: 1.6;
+}
+.al-hero__card-tags {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35rem;
+  padding-top: 0.85rem; border-top: 1px solid rgba(255,255,255,0.2);
+}
 .al-hero__card-tags li {
-  font-size: 0.72rem; font-weight: 600; padding: 0.25rem 0.7rem;
-  background: var(--al-green-soft); color: var(--al-green);
+  font-size: 0.68rem; font-weight: 600; padding: 0.2rem 0.6rem;
+  background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9);
   border-radius: 999px;
+  backdrop-filter: blur(4px);
 }
 
 /* ===== ALONE SECTION (감성 섹션) ===== */
@@ -301,6 +356,49 @@ img { max-width: 100%; display: block; }
   max-width: 600px; margin: 0 auto;
   line-height: 1.9;
 }
+
+/* ===== ALONE STRIP (한 줄 좌우) ===== */
+.al-alone-strip {
+  background: var(--al-green);
+  padding: 2.25rem 0;
+  color: #fff;
+}
+.al-alone-strip__row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+@media (min-width: 768px) {
+  .al-alone-strip__row { flex-wrap: nowrap; gap: 2.5rem; }
+}
+.al-alone-strip__left {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 900;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+  text-align: center;
+  flex-shrink: 0;
+}
+.al-alone-strip__left em {
+  font-style: normal;
+  color: var(--al-yellow);
+}
+.al-alone-strip__divider {
+  width: 2px; height: 50px;
+  background: rgba(255,255,255,0.2);
+  flex-shrink: 0;
+  display: none;
+}
+@media (min-width: 768px) { .al-alone-strip__divider { display: block; } }
+.al-alone-strip__right {
+  font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+  color: rgba(255,255,255,0.8);
+  line-height: 1.75;
+  text-align: center;
+}
+@media (min-width: 768px) { .al-alone-strip__right { text-align: left; } }
 
 /* ===== SECTION BASE ===== */
 .al-section { padding: 6rem 0; }
@@ -404,13 +502,44 @@ img { max-width: 100%; display: block; }
 .al-case__chart svg { width: 100%; height: 100%; transform: rotate(-90deg); }
 .al-case__chart-bg { fill: none; stroke: var(--al-green-soft); stroke-width: 8; }
 .al-case__chart-fg { fill: none; stroke: var(--al-green); stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
+.al-case[data-cat="개인회생"] .al-case__chart-fg { stroke: #16A34A; }
+.al-case[data-cat="개인파산"] .al-case__chart-fg { stroke: #D97706; }
+.al-case[data-cat="법인회생"] .al-case__chart-fg { stroke: #2563EB; }
+.al-case[data-cat="가사·이혼"] .al-case__chart-fg { stroke: #DB2777; }
+.al-case[data-cat="개인회생"] .al-case__percent { color: #16A34A; }
+.al-case[data-cat="개인파산"] .al-case__percent { color: #D97706; }
+.al-case[data-cat="법인회생"] .al-case__percent { color: #2563EB; }
+.al-case[data-cat="가사·이혼"] .al-case__percent { color: #DB2777; }
 .al-case__percent {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
   font-size: 1.4rem; font-weight: 900; color: var(--al-green);
   letter-spacing: -0.03em;
 }
 .al-case__percent small { font-size: 0.6em; }
-.al-case__cat { font-size: 0.7rem; font-weight: 700; color: var(--al-text-2); letter-spacing: 0.15em; margin-bottom: 0.25rem; }
+.al-case__cat {
+  display: inline-block;
+  font-size: 0.68rem; font-weight: 800; letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem; border-radius: 999px;
+  margin-bottom: 0.5rem;
+  background: var(--al-green-soft); color: var(--al-green);
+}
+/* 카테고리별 색상 */
+.al-case[data-cat="개인회생"] .al-case__cat { background: #DCFCE7; color: #166534; }
+.al-case[data-cat="개인파산"] .al-case__cat { background: #FEF3C7; color: #92400E; }
+.al-case[data-cat="법인회생"] .al-case__cat { background: #DBEAFE; color: #1E40AF; }
+.al-case[data-cat="가사·이혼"] .al-case__cat { background: #FCE7F3; color: #9D174D; }
+
+/* 카드 상단 카테고리 색상 라인 */
+.al-case { position: relative; overflow: hidden; }
+.al-case::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 4px; border-radius: 20px 20px 0 0;
+  background: var(--al-green);
+}
+.al-case[data-cat="개인회생"]::before { background: #16A34A; }
+.al-case[data-cat="개인파산"]::before { background: #D97706; }
+.al-case[data-cat="법인회생"]::before { background: #2563EB; }
+.al-case[data-cat="가사·이혼"]::before { background: #DB2777; }
 .al-case__title { font-size: 0.9rem; font-weight: 700; color: var(--al-ink); letter-spacing: -0.01em; margin-bottom: 0.5rem; line-height: 1.4; }
 .al-case__desc { font-size: 0.78rem; color: var(--al-text-2); line-height: 1.6; }
 
@@ -646,6 +775,128 @@ img { max-width: 100%; display: block; }
 }
 .al-quiz__success-desc strong { color: var(--al-green); font-weight: 800; }
 
+/* ===== PRACTICE GRID ===== */
+.al-practice__grid {
+  display: grid; grid-template-columns: 1fr; gap: 0;
+  border-top: 2px solid var(--al-green);
+  border-left: 1px solid var(--al-line);
+}
+@media (min-width: 768px) { .al-practice__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .al-practice__grid { grid-template-columns: repeat(3, 1fr); } }
+
+.al-practice {
+  padding: 2rem 1.5rem;
+  background: #fff;
+  border-right: 1px solid var(--al-line);
+  border-bottom: 1px solid var(--al-line);
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex; flex-direction: column;
+  min-height: 200px;
+}
+.al-practice:hover {
+  background: var(--al-green-soft);
+  transform: translateY(-2px);
+}
+.al-practice__num {
+  font-size: 2rem; font-weight: 900;
+  color: var(--al-green); opacity: 0.15;
+  line-height: 1; margin-bottom: 0.75rem;
+}
+.al-practice__title {
+  font-size: 1.2rem; font-weight: 800;
+  letter-spacing: -0.025em; color: var(--al-ink);
+  margin-bottom: 0.5rem;
+}
+.al-practice__desc {
+  font-size: 0.88rem; color: var(--al-text);
+  line-height: 1.75; flex: 1;
+}
+.al-practice__more {
+  display: inline-block; margin-top: 1rem;
+  font-size: 0.8rem; font-weight: 700;
+  color: var(--al-green);
+  opacity: 0; transition: opacity 0.2s;
+}
+.al-practice:hover .al-practice__more { opacity: 1; }
+
+/* ===== CASE MODAL ===== */
+.al-case { cursor: pointer; position: relative; }
+.al-case__more {
+  display: block; text-align: center;
+  font-size: 0.78rem; font-weight: 700;
+  color: var(--al-green); margin-top: 0.75rem;
+  opacity: 0; transition: opacity 0.2s;
+}
+.al-case:hover .al-case__more { opacity: 1; }
+
+.al-modal { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+.al-modal[hidden] { display: none; }
+.al-modal__backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.55); backdrop-filter: blur(4px); cursor: pointer; }
+.al-modal__card {
+  position: relative; width: 100%; max-width: 620px;
+  max-height: 88vh; overflow-y: auto;
+  background: #fff; border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+  animation: al-modal-in 0.3s ease;
+}
+@keyframes al-modal-in {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.al-modal__header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.25rem 1.75rem; border-bottom: 1px solid var(--al-line);
+}
+.al-modal__badge {
+  font-size: 0.72rem; font-weight: 800;
+  padding: 0.25rem 0.75rem; border-radius: 4px;
+  background: var(--al-green); color: #fff; letter-spacing: 0.1em;
+}
+.al-modal__header button {
+  width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; color: var(--al-text-dim); border-radius: 50%; transition: all 0.2s;
+}
+.al-modal__header button:hover { background: var(--al-bg-2); color: var(--al-ink); }
+.al-modal__body { padding: 1.75rem; }
+.al-modal__pct {
+  text-align: center; font-size: 3.5rem; font-weight: 900;
+  color: var(--al-green); line-height: 1; margin-bottom: 0.5rem; letter-spacing: -0.04em;
+}
+.al-modal__title {
+  text-align: center; font-size: 1.3rem; font-weight: 800;
+  letter-spacing: -0.02em; margin-bottom: 0.5rem;
+}
+.al-modal__period {
+  text-align: center; font-size: 0.82rem; color: var(--al-text-2);
+  margin-bottom: 2rem; padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--al-line);
+  display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+}
+.al-modal__period::before {
+  content: ''; width: 14px; height: 14px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236B7968' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpolyline points='12 6 12 12 16 14'/%3E%3C/svg%3E") no-repeat center;
+}
+.al-modal__section { margin-bottom: 1.5rem; }
+.al-modal__section h4 {
+  font-size: 0.78rem; font-weight: 800;
+  letter-spacing: 0.12em; color: var(--al-green);
+  text-transform: uppercase; margin-bottom: 0.6rem;
+  padding-bottom: 0.5rem; border-bottom: 2px solid var(--al-green-soft);
+}
+.al-modal__section p { font-size: 0.92rem; color: var(--al-text); line-height: 1.9; }
+.al-modal__comment {
+  background: var(--al-green-soft); padding: 1.25rem 1.5rem; border-radius: 14px;
+  margin: 1.75rem 0; font-size: 0.95rem; font-style: italic;
+  color: var(--al-green); line-height: 1.8; position: relative;
+}
+.al-modal__comment::before {
+  content: '"'; font-family: Georgia, serif;
+  font-size: 3rem; color: var(--al-green); opacity: 0.25;
+  line-height: 1; position: absolute; top: 0.4rem; left: 0.75rem;
+}
+.al-modal__cta { display: block !important; width: 100%; text-align: center; margin-top: 1.5rem; }
+
 /* ===== QUOTE STRIP ===== */
 .al-quote {
   padding: 5rem 0;
@@ -822,6 +1073,14 @@ img { max-width: 100%; display: block; }
   background: linear-gradient(180deg, transparent 60%, var(--al-yellow) 60%);
   padding: 0 0.1em;
 }
+.al-consult__highlight {
+  color: #fff;
+  background: var(--al-green);
+  padding: 0.1em 0.35em;
+  border-radius: 6px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
 .al-consult__desc {
   font-size: 1rem; color: var(--al-text); line-height: 1.85; margin-bottom: 2rem;
 }
@@ -934,6 +1193,57 @@ textarea.al-field__input { resize: vertical; min-height: 80px; }
   font-size: 0.72rem; color: rgba(255,255,255,0.3); letter-spacing: 0.05em;
 }
 
+/* ===== Location (오시는 길) ===== */
+.al-location {
+  display: grid; grid-template-columns: 1fr; gap: 1.5rem;
+}
+@media (min-width: 900px) {
+  .al-location { grid-template-columns: 1fr 1.6fr; gap: 2rem; }
+}
+
+.al-location__map-wrap { position: relative; border-radius: 20px; overflow: hidden; }
+.al-location__map {
+  width: 100%; height: 350px;
+  background: var(--al-line);
+}
+@media (min-width: 768px) { .al-location__map { height: 400px; } }
+
+.al-location__nav-btns {
+  position: absolute; bottom: 0.85rem; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 0.45rem; z-index: 10;
+}
+.al-location__nav-btn {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  padding: 0.55rem 1rem; font-size: 0.78rem; font-weight: 700;
+  color: #fff; border-radius: 999px; white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25); transition: all 0.2s;
+}
+.al-location__nav-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.3); }
+.al-location__nav-btn--naver { background: #03C75A; }
+.al-location__nav-btn--kakao { background: #3B82F6; }
+
+.al-location__info {
+  display: flex; flex-direction: column; gap: 1rem;
+  background: #fff; border: 1px solid var(--al-line);
+  border-radius: 20px; padding: 1.75rem 1.5rem;
+}
+.al-location__item {
+  display: flex; align-items: flex-start; gap: 0.85rem;
+}
+.al-location__icon {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--al-green-soft); color: var(--al-green);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.al-location__item strong {
+  display: block; font-size: 0.85rem; font-weight: 700;
+  color: var(--al-ink); margin-bottom: 0.15rem;
+}
+.al-location__item span { font-size: 0.92rem; color: var(--al-text); }
+.al-location__item a { font-size: 1.05rem; font-weight: 800; color: var(--al-green); }
+.al-location__item a:hover { color: var(--al-green-light); }
+
 /* ===== Float ===== */
 .al-float {
   position: fixed; bottom: 1.5rem; right: 1.5rem;
@@ -954,3 +1264,234 @@ textarea.al-field__input { resize: vertical; min-height: 80px; }
 /* ===== Reveal ===== */
 .al-reveal { opacity: 0; transform: translateY(24px); transition: all 0.7s ease; }
 .al-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ==========================================================================
+   DESIGN IMPROVEMENTS (전체 개선)
+   ========================================================================== */
+
+/* 1. 히어로 — 더 세련된 배지 + 타이틀 간격 */
+.al-hero { padding: 4.5rem 0 5.5rem; }
+.al-hero__badge {
+  background: rgba(20,69,52,0.06);
+  border: 1px solid rgba(20,69,52,0.12);
+  backdrop-filter: blur(4px);
+}
+.al-hero__title { margin-bottom: 1.25rem; }
+.al-hero__lede { margin-bottom: 2.25rem; font-size: 1rem; }
+
+/* 2. 히어로 카드 — 더 큰 min-height + 부드러운 그림자 */
+.al-hero__card {
+  min-height: 450px;
+  box-shadow:
+    0 25px 50px rgba(20,69,52,0.15),
+    0 0 0 1px rgba(20,69,52,0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.al-hero__card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 30px 60px rgba(20,69,52,0.2),
+    0 0 0 1px rgba(20,69,52,0.08);
+}
+
+/* 3. alone 스트립 — 약간의 텍스처 */
+.al-alone-strip {
+  position: relative;
+  overflow: hidden;
+}
+.al-alone-strip::before {
+  content: '"'; position: absolute;
+  right: 5%; top: 50%; transform: translateY(-50%);
+  font-family: Georgia, serif; font-size: 8rem;
+  color: rgba(255,255,255,0.06); line-height: 1;
+  pointer-events: none;
+}
+
+/* 4. 3 Pillars — 아이콘 + 카드 개선 */
+.al-pillar {
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 4px 16px rgba(20,69,52,0.06);
+}
+.al-pillar:hover {
+  box-shadow: 0 20px 40px rgba(20,69,52,0.14);
+}
+.al-pillar__icon {
+  width: 68px; height: 68px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--al-green-soft), #D6ECD0);
+}
+.al-pillar:hover .al-pillar__icon {
+  border-radius: 50%;
+  background: var(--al-green);
+}
+
+/* 5. Practice 카드 — 넘버 강조 + 호버 */
+.al-practice__num {
+  font-size: 2.5rem;
+  background: linear-gradient(180deg, var(--al-green), transparent);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.2;
+}
+.al-practice:hover .al-practice__num { opacity: 0.4; }
+.al-practice__title { font-size: 1.15rem; }
+.al-practice:hover {
+  background: var(--al-green-soft);
+  box-shadow: inset 0 0 0 1px var(--al-green);
+}
+
+/* 6. 성공 사례 카드 — 호버 개선 */
+.al-case {
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(20,69,52,0.04);
+}
+.al-case:hover {
+  box-shadow: 0 16px 32px rgba(20,69,52,0.12);
+  transform: translateY(-4px);
+}
+.al-case__chart { margin-bottom: 0.75rem; }
+.al-case__title { font-size: 0.88rem; font-weight: 800; }
+
+/* 7. 자가진단 영역 — 그라디언트 개선 */
+.al-diagnose {
+  background: linear-gradient(135deg, var(--al-yellow) 0%, #EDD835 50%, #F5DD42 100%);
+  position: relative;
+}
+.al-diagnose::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--al-green), var(--al-green-light));
+}
+
+/* 8. 인용구 — 더 세련된 타이포 */
+.al-quote__text {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+
+/* 9. 4-Step Promise — 넘버 개선 */
+.al-step__num {
+  box-shadow: 0 4px 12px rgba(20,69,52,0.25);
+  font-size: 0.9rem;
+}
+.al-step {
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 4px 16px rgba(20,69,52,0.06);
+}
+.al-step:hover {
+  box-shadow: 0 12px 28px rgba(20,69,52,0.1);
+  transform: translateY(-3px);
+}
+.al-step__title { letter-spacing: -0.015em; }
+
+/* 10. 게시판(공지+FAQ) — 헤더 개선 */
+.al-board__col {
+  border: none;
+  box-shadow: 0 4px 16px rgba(20,69,52,0.06);
+  border-radius: 16px;
+}
+.al-board__col h3 {
+  background: linear-gradient(135deg, var(--al-green) 0%, var(--al-green-light) 100%);
+  color: #fff;
+  border-radius: 16px 16px 0 0;
+}
+.al-board__col h3 a { color: var(--al-yellow); }
+
+/* 11. CTA 밴드 — 그라디언트 */
+.al-cta-band {
+  background: linear-gradient(135deg, var(--al-green-dark) 0%, var(--al-green) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.al-cta-band::before {
+  content: ''; position: absolute;
+  right: -5%; top: -50%;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(249,224,75,0.12), transparent 60%);
+  pointer-events: none;
+}
+
+/* 12. 상담 폼 — 더 세련된 카드 */
+.al-form {
+  border: none;
+  box-shadow: 0 8px 32px rgba(20,69,52,0.1);
+}
+.al-form::before {
+  background: var(--al-green);
+  padding: 0.4rem 1.1rem;
+  font-size: 0.78rem;
+  box-shadow: 0 4px 12px rgba(20,69,52,0.2);
+}
+.al-field__input {
+  border-radius: 14px;
+  border: 1.5px solid var(--al-line);
+}
+.al-field__input:focus {
+  border-color: var(--al-green);
+  box-shadow: 0 0 0 4px rgba(20,69,52,0.08);
+}
+.al-form__submit {
+  font-size: 1rem;
+  padding: 1.15rem;
+  box-shadow: 0 6px 16px rgba(20,69,52,0.2);
+}
+.al-form__submit:hover {
+  box-shadow: 0 12px 28px rgba(20,69,52,0.3);
+  transform: translateY(-2px);
+}
+
+/* 13. 오시는 길 — 지도 라운드 + 그림자 */
+.al-location__map-wrap {
+  box-shadow: 0 8px 24px rgba(20,69,52,0.1);
+}
+.al-location__info {
+  border: none;
+  box-shadow: 0 4px 16px rgba(20,69,52,0.06);
+}
+
+/* 14. 푸터 — 상단 그라디언트 라인 */
+.al-footer {
+  position: relative;
+}
+.al-footer::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--al-green), var(--al-yellow), var(--al-green));
+}
+
+/* 15. 플로팅 버튼 — 더 세련된 그림자 */
+.al-float a {
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.15),
+    0 0 0 3px rgba(255,255,255,0.2);
+}
+.al-float a:hover {
+  box-shadow:
+    0 12px 28px rgba(0,0,0,0.2),
+    0 0 0 3px rgba(255,255,255,0.3);
+}
+
+/* 16. Reveal 애니메이션 — 더 부드럽게 */
+.al-reveal {
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 17. 모달 — 더 세련된 그림자 */
+.al-modal__card {
+  box-shadow:
+    0 32px 64px rgba(0,0,0,0.2),
+    0 0 0 1px rgba(20,69,52,0.05);
+}
+.al-modal__comment {
+  border-left: 4px solid var(--al-green);
+  border-radius: 0 14px 14px 0;
+}
+
+/* 18. 섹션 구분 — 미세한 상단 라인 */
+.al-section + .al-section {
+  border-top: 1px solid rgba(20,69,52,0.06);
+}

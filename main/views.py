@@ -123,6 +123,10 @@ def variant_prestige(request):
     return render(request, 'variants/prestige.html', _variant_context())
 
 
+def variant_story(request):
+    return render(request, 'variants/story.html', _variant_context())
+
+
 def lp_diagnose(request):
     # 광고 유입용 자가진단 랜딩 페이지
     return render(request, 'lp/diagnose.html')

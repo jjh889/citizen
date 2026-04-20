@@ -2,8 +2,8 @@
   'use strict';
 
   // Mobile nav
-  var toggle = document.getElementById('alToggle');
-  var mobile = document.getElementById('alMobile');
+  var toggle = document.getElementById('stToggle');
+  var mobile = document.getElementById('stMobile');
   if (toggle && mobile) {
     toggle.addEventListener('click', function() { mobile.classList.toggle('is-open'); });
     mobile.querySelectorAll('a').forEach(function(a) {
@@ -20,14 +20,14 @@
       }
     });
   }, { threshold: 0.12 });
-  document.querySelectorAll('.al-reveal').forEach(function(el) { observer.observe(el); });
+  document.querySelectorAll('.st-reveal').forEach(function(el) { observer.observe(el); });
 
   // Pie chart animation
   var chartObs = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {
       if (e.isIntersecting) {
-        var fg = e.target.querySelector('.al-case__chart-fg');
-        var percent = parseInt(e.target.getAttribute('data-al-percent'), 10);
+        var fg = e.target.querySelector('.st-case__chart-fg');
+        var percent = parseInt(e.target.getAttribute('data-st-percent'), 10);
         if (fg) {
           var r = parseFloat(fg.getAttribute('r'));
           var c = 2 * Math.PI * r;
@@ -42,15 +42,15 @@
       }
     });
   }, { threshold: 0.3 });
-  document.querySelectorAll('[data-al-percent]').forEach(function(el) { chartObs.observe(el); });
+  document.querySelectorAll('[data-st-percent]').forEach(function(el) { chartObs.observe(el); });
 
   // FAQ
-  document.querySelectorAll('.al-faq-item__q').forEach(function(btn) {
+  document.querySelectorAll('.st-faq-item__q').forEach(function(btn) {
     btn.addEventListener('click', function() { btn.parentElement.classList.toggle('is-open'); });
   });
 
   // ============ DIAGNOSE QUIZ ============
-  var diagState = {
+  var stDiag = {
     answers: {},  // {1: 'value', 2: 'value', ...}
     currentStep: 1,
     totalQuestions: 5
@@ -64,20 +64,20 @@
   var stepCur = document.getElementById('diagStepCur');
 
   function showStep(n) {
-    document.querySelectorAll('.al-quiz__step').forEach(function(el) {
+    document.querySelectorAll('.st-quiz__step').forEach(function(el) {
       el.classList.remove('is-active');
     });
-    var target = document.querySelector('.al-quiz__step[data-step="' + n + '"]');
+    var target = document.querySelector('.st-quiz__step[data-step="' + n + '"]');
     if (target) {
       target.classList.remove('[hidden]');
       target.hidden = false;
       target.classList.add('is-active');
     }
-    diagState.currentStep = n;
-    if (stepCur) stepCur.textContent = Math.min(n, diagState.totalQuestions);
+    stDiag.currentStep = n;
+    if (stepCur) stepCur.textContent = Math.min(n, stDiag.totalQuestions);
     // progress
     if (progressBar) {
-      var pct = Math.min(n / diagState.totalQuestions, 1) * 100;
+      var pct = Math.min(n / stDiag.totalQuestions, 1) * 100;
       progressBar.style.width = pct + '%';
     }
     // back button visibility
@@ -98,18 +98,18 @@
 
   if (backBtn) {
     backBtn.addEventListener('click', function() {
-      if (diagState.currentStep > 1) showStep(diagState.currentStep - 1);
+      if (stDiag.currentStep > 1) showStep(stDiag.currentStep - 1);
     });
   }
 
   // Option click → save answer and advance
-  document.querySelectorAll('.al-opt').forEach(function(btn) {
+  document.querySelectorAll('.st-opt').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var q = btn.getAttribute('data-q');
       var v = btn.getAttribute('data-value');
-      diagState.answers[q] = v;
+      stDiag.answers[q] = v;
       // highlight (within same step)
-      btn.parentElement.querySelectorAll('.al-opt').forEach(function(b) { b.classList.remove('is-selected'); });
+      btn.parentElement.querySelectorAll('.st-opt').forEach(function(b) { b.classList.remove('is-selected'); });
       btn.classList.add('is-selected');
       // advance
       var next = parseInt(q, 10) + 1;
@@ -153,7 +153,7 @@
         '법인회생': '법인회생', '민사/형사': '민사',
         '가사/이혼': '가사/이혼', '전문가상담': '기타'
       };
-      var category = catMap[diagState.answers[5]] || '기타';
+      var category = catMap[stDiag.answers[5]] || '기타';
 
       // Build message
       var qLabels = {
@@ -162,7 +162,7 @@
       };
       var lines = ['[1분 자가진단 결과]'];
       for (var i = 1; i <= 5; i++) {
-        lines.push('- ' + qLabels[i] + ': ' + (diagState.answers[i] || '-'));
+        lines.push('- ' + qLabels[i] + ': ' + (stDiag.answers[i] || '-'));
       }
       lines.push('');
       lines.push('[연락 정보]');
@@ -178,11 +178,11 @@
       submitBtn.disabled = true; submitBtn.textContent = '접수 중...';
 
       var diagnosis = {
-        '주요 고민': diagState.answers[1] || '',
-        '채무 규모': diagState.answers[2] || '',
-        '소득 상태': diagState.answers[3] || '',
-        '법적 절차': diagState.answers[4] || '',
-        '원하는 해결': diagState.answers[5] || '',
+        '주요 고민': stDiag.answers[1] || '',
+        '채무 규모': stDiag.answers[2] || '',
+        '소득 상태': stDiag.answers[3] || '',
+        '법적 절차': stDiag.answers[4] || '',
+        '원하는 해결': stDiag.answers[5] || '',
         '연락 방법': method,
         '연락 가능 시간': time || '가능한 빠르게',
       };
@@ -211,11 +211,11 @@
   }
 
   // Form
-  var form = document.getElementById('alForm');
+  var form = document.getElementById('stForm');
   if (form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      var btn = form.querySelector('.al-form__submit');
+      var btn = form.querySelector('.st-form__submit');
       btn.disabled = true; btn.textContent = '접수 중...';
       fetch('/api/consultation/', {
         method: 'POST',
@@ -226,7 +226,7 @@
         })
       }).then(function(r) {
         if (r.ok) {
-          form.innerHTML = '<div class="al-form__success"><strong>상담 신청이 접수되었습니다.</strong><p>내편이 되어 가장 빠른 시간 내에<br>직접 연락드리겠습니다.</p></div>';
+          form.innerHTML = '<div class="st-form__success"><strong>상담 신청이 접수되었습니다.</strong><p>내편이 되어 가장 빠른 시간 내에<br>직접 연락드리겠습니다.</p></div>';
         } else throw new Error();
       }).catch(function() {
         btn.disabled = false; btn.textContent = '무료 상담 신청하기';
@@ -236,88 +236,49 @@
   }
 })();
 
+// ===== HERO SLIDER =====
+(function() {
+  var slides = document.querySelectorAll('.st-hero__slide');
+  var dots = document.querySelectorAll('.st-hero__dot');
+  var current = 0, timer;
+
+  function go(n) {
+    current = (n + slides.length) % slides.length;
+    slides.forEach(function(s, i) { s.classList.toggle('is-active', i === current); });
+    dots.forEach(function(d, i) { d.classList.toggle('is-active', i === current); });
+  }
+
+  dots.forEach(function(d) {
+    d.addEventListener('click', function() {
+      go(parseInt(d.getAttribute('data-slide'), 10));
+      clearInterval(timer);
+      timer = setInterval(function() { go(current + 1); }, 7000);
+    });
+  });
+
+  if (slides.length > 1) {
+    timer = setInterval(function() { go(current + 1); }, 7000);
+  }
+})();
+
 // ===== CASE STORY MODAL =====
-function openAlCase(el) {
-  var m = document.getElementById('alModal');
+function openStory(el) {
+  var m = document.getElementById('stModal');
   if (!m) return;
-  document.getElementById('alModalCat').textContent = el.getAttribute('data-cat');
-  document.getElementById('alModalPct').textContent = el.getAttribute('data-pct') + '%';
-  document.getElementById('alModalTitle').textContent = el.getAttribute('data-title');
-  document.getElementById('alModalPeriod').textContent = el.getAttribute('data-period');
-  document.getElementById('alModalSituation').textContent = el.getAttribute('data-situation');
-  document.getElementById('alModalStrategy').textContent = el.getAttribute('data-strategy');
-  document.getElementById('alModalResult').textContent = el.getAttribute('data-result');
-  document.getElementById('alModalComment').textContent = '"' + el.getAttribute('data-comment') + '"';
+  document.getElementById('stModalCat').textContent = el.getAttribute('data-story-cat');
+  document.getElementById('stModalPct').textContent = el.getAttribute('data-story-pct') + '%';
+  document.getElementById('stModalTitle').textContent = el.getAttribute('data-story-title');
+  document.getElementById('stModalSituation').textContent = el.getAttribute('data-story-situation');
+  document.getElementById('stModalStrategy').textContent = el.getAttribute('data-story-strategy');
+  document.getElementById('stModalResult').textContent = el.getAttribute('data-story-result');
+  document.getElementById('stModalComment').textContent = '"' + el.getAttribute('data-story-comment') + '"';
   m.hidden = false;
   document.body.style.overflow = 'hidden';
 }
 
-function closeAlCase() {
-  var m = document.getElementById('alModal');
+function closeStory() {
+  var m = document.getElementById('stModal');
   if (m) { m.hidden = true; document.body.style.overflow = ''; }
 }
 
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') { closeAlCase(); closePractice(); }
-});
-
-// ===== PRACTICE MODAL =====
-function openPractice(el) {
-  var m = document.getElementById('alPracticeModal');
-  if (!m) return;
-  document.getElementById('alPmEn').textContent = el.getAttribute('data-p-en');
-  document.getElementById('alPmTitle').textContent = el.getAttribute('data-p-title');
-  document.getElementById('alPmDesc').innerHTML = el.getAttribute('data-p-desc').replace(/\\n/g, '<br>');
-  document.getElementById('alPmDetail').innerHTML = el.getAttribute('data-p-detail').replace(/\\n/g, '<br>');
-
-  var tagsEl = document.getElementById('alPmTags');
-  tagsEl.innerHTML = '';
-  var tags = (el.getAttribute('data-p-tags') || '').split(',');
-  tags.forEach(function(t) {
-    if (!t) return;
-    var span = document.createElement('span');
-    span.textContent = t;
-    span.style.cssText = 'font-size:0.75rem;font-weight:600;padding:0.25rem 0.65rem;background:var(--al-green-soft);color:var(--al-green);border-radius:999px;';
-    tagsEl.appendChild(span);
-  });
-
-  m.hidden = false;
-  document.body.style.overflow = 'hidden';
-}
-
-function closePractice() {
-  var m = document.getElementById('alPracticeModal');
-  if (m) { m.hidden = true; document.body.style.overflow = ''; }
-}
-
-// ===== KAKAO MAP =====
-window.addEventListener('DOMContentLoaded', function() {
-  if (typeof kakao === 'undefined' || !kakao.maps) return;
-
-  kakao.maps.load(function() {
-    var container = document.getElementById('alMap');
-    if (!container) return;
-
-    // 안산시 상록구 광덕1로385 좌표
-    var coords = new kakao.maps.LatLng(37.3089, 126.8665);
-
-    var map = new kakao.maps.Map(container, {
-      center: coords,
-      level: 3
-    });
-
-    var marker = new kakao.maps.Marker({
-      map: map,
-      position: coords
-    });
-
-    var info = new kakao.maps.InfoWindow({
-      content: '<div style="padding:10px 14px;font-size:13px;line-height:1.6;min-width:160px;font-family:Pretendard,sans-serif;">' +
-        '<strong style="font-size:14px;color:#144534;">법률사무소 시민</strong><br>' +
-        '<span style="color:#666;">안산시 상록구 광덕1로385. 202호</span></div>'
-    });
-    info.open(map, marker);
-
-    map.addControl(new kakao.maps.ZoomControl(), kakao.maps.ControlPosition.RIGHT);
-  });
-});
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeStory(); });

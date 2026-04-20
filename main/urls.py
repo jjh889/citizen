@@ -18,6 +18,7 @@ urlpatterns = [
     path('v/corporate/', views.variant_corporate, name='variant_corporate'),
     path('v/ally/', views.variant_ally, name='variant_ally'),
     path('v/prestige/', views.variant_prestige, name='variant_prestige'),
+    path('v/story/', views.variant_story, name='variant_story'),
     # 광고 유입용 랜딩 페이지
     path('lp/diagnose/', views.lp_diagnose, name='lp_diagnose'),
 ]
