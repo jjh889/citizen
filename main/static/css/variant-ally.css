@@ -1616,12 +1616,11 @@ textarea.al-field__input { resize: vertical; min-height: 80px; }
 /* ===== HERO DARK (KJ 스타일) ===== */
 .al-hero--dark {
   background: linear-gradient(135deg, #0A1F15 0%, #0F2B1F 40%, #132E22 100%) !important;
-  padding: 5rem 0 0 !important;
-  min-height: 600px;
+  padding: 2.5rem 0 0 !important;
+  min-height: auto;
   position: relative;
   overflow: hidden;
 }
-@media (min-width: 768px) { .al-hero--dark { min-height: 650px; } }
 .al-hero--dark .al-hero__quote-deco { display: none; }
 
 .al-hero__bg-gradient {
@@ -1636,7 +1635,7 @@ textarea.al-field__input { resize: vertical; min-height: 80px; }
   align-items: flex-end !important;
 }
 .al-hero--dark .al-hero__text {
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
 }
 
 /* 서브 라벨 */
@@ -1711,11 +1710,12 @@ textarea.al-field__input { resize: vertical; min-height: 80px; }
   backdrop-filter: blur(4px);
 }
 
-/* 변호사 사진 (배경에 녹아들게) */
+/* 변호사 사진 + 약력 (사진 위 오버레이) */
 .al-hero__lawyer {
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   position: relative;
 }
 .al-hero__lawyer img {
@@ -1726,9 +1726,46 @@ textarea.al-field__input { resize: vertical; min-height: 80px; }
   object-position: bottom center;
   position: relative;
   z-index: 1;
-  /* 하단 배경에 녹아들게 */
-  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+.al-hero__lawyer-bio {
+  position: absolute;
+  bottom: 25%;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: rgba(10,43,31,0.7);
+  backdrop-filter: blur(8px);
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.al-hero__lawyer-bio strong {
+  font-size: 0.92rem;
+  color: var(--al-yellow);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.2rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.al-hero__lawyer-bio span {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.al-hero__lawyer-bio span::before {
+  content: '';
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--al-yellow);
+  opacity: 0.6;
+  flex-shrink: 0;
 }
 
 @media (max-width: 1023px) {
@@ -1744,6 +1781,7 @@ textarea.al-field__input { resize: vertical; min-height: 80px; }
   .al-hero__actions { justify-content: center; }
   .al-hero__phone-big { text-align: center; }
   .al-hero__lawyer img { max-width: 250px; }
+  .al-hero__lawyer-bio { right: auto; left: 50%; transform: translateX(-50%); top: 0; }
   .al-hero__sub-label { text-align: center; }
   .al-hero__lawyer img { max-width: 240px; margin: 0 auto; }
 }
@@ -1787,4 +1825,23 @@ textarea.al-field__input { resize: vertical; min-height: 80px; }
   font-size: 1rem;
   flex-shrink: 0;
   margin-top: 0.1rem;
+}
+
+/* ===== 자가진단 버튼 체크 애니메이션 ===== */
+.al-cta__check-mark {
+  stroke-dasharray: 12;
+  stroke-dashoffset: 12;
+  animation: al-check-draw 0.5s ease 0.2s forwards, al-check-loop 3s ease 1s infinite;
+}
+@keyframes al-check-draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes al-check-loop {
+  0%, 70% { stroke-dashoffset: 0; }
+  85% { stroke-dashoffset: 12; }
+  100% { stroke-dashoffset: 0; }
+}
+.al-cta--yellow:hover .al-cta__check-mark {
+  animation: none;
+  stroke-dashoffset: 0;
 }

@@ -242,6 +242,8 @@
   if (form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
+      var agreeBox = document.getElementById('alFormAgree');
+      if (agreeBox && !agreeBox.checked) { alert('개인정보 수집·이용에 동의해 주세요.'); return; }
       var btn = form.querySelector('.al-form__submit');
       btn.disabled = true; btn.textContent = '접수 중...';
       var data = {
