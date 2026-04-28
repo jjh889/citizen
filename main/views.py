@@ -8,8 +8,8 @@ from .models import Consultation, Notice, Popup, FAQ
 
 
 def index(request):
-    # 시안 선택 인덱스를 메인으로
-    return render(request, 'variants/index.html')
+    # ally를 메인으로
+    return render(request, 'variants/ally.html', _variant_context())
 
 
 def variant_classic(request):
@@ -117,6 +117,14 @@ def variant_corporate(request):
 
 def variant_ally(request):
     return render(request, 'variants/ally.html', _variant_context())
+
+
+def variant_main2(request):
+    return render(request, 'variants/main2.html', _variant_context())
+
+
+def variant_main(request):
+    return render(request, 'variants/main.html', _variant_context())
 
 
 def variant_prestige(request):

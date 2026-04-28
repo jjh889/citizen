@@ -49,13 +49,11 @@
     btn.addEventListener('click', function() { btn.parentElement.classList.toggle('is-open'); });
   });
 
-
-  // ============ DIAGNOSE QUIZ (새 플로우) ============
+  // ============ DIAGNOSE QUIZ ============
   var diagState = {
-    answers: {},
+    answers: {},  // {1: 'value', 2: 'value', ...}
     currentStep: 1,
-    totalSteps: 4,
-    route: 'personal' // personal or corporate
+    totalQuestions: 5
   };
 
   var intro = document.getElementById('diagIntro');
@@ -64,16 +62,29 @@
   var backBtn = document.getElementById('diagBack');
   var progressBar = document.getElementById('diagProgress');
   var stepCur = document.getElementById('diagStepCur');
-  var stepTotal = document.getElementById('diagStepTotal');
 
   function showStep(n) {
-    document.querySelectorAll('.al-quiz__step').forEach(function(el) { el.classList.remove('is-active'); });
+    document.querySelectorAll('.al-quiz__step').forEach(function(el) {
+      el.classList.remove('is-active');
+    });
     var target = document.querySelector('.al-quiz__step[data-step="' + n + '"]');
-    if (target) { target.hidden = false; target.classList.add('is-active'); }
+    if (target) {
+      target.classList.remove('[hidden]');
+      target.hidden = false;
+      target.classList.add('is-active');
+    }
     diagState.currentStep = n;
-    if (stepCur) stepCur.textContent = Math.min(n, diagState.totalSteps);
-    if (progressBar) progressBar.style.width = Math.min(n / diagState.totalSteps, 1) * 100 + '%';
-    if (backBtn) backBtn.hidden = (n <= 1 || n >= 6);
+    if (stepCur) stepCur.textContent = Math.min(n, diagState.totalQuestions);
+    // progress
+    if (progressBar) {
+      var pct = Math.min(n / diagState.totalQuestions, 1) * 100;
+      progressBar.style.width = pct + '%';
+    }
+    // back button visibility
+    if (backBtn) {
+      backBtn.hidden = (n <= 1 || n >= 7);
+    }
+    // scroll into view
     if (quiz) quiz.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
@@ -84,87 +95,29 @@
       showStep(1);
     });
   }
+
   if (backBtn) {
     backBtn.addEventListener('click', function() {
       if (diagState.currentStep > 1) showStep(diagState.currentStep - 1);
     });
   }
 
-  // Step 1 분기: 개인 vs 법인
-  window.diagRoute = function(route) {
-    diagState.route = route;
-    var personalH = document.getElementById('diagPersonalHeader');
-    var corpH = document.getElementById('diagCorpHeader');
-    if (route === 'corporate') {
-      diagState.answers[1] = '법인회생/법인파산';
-      diagState.totalSteps = 1;
-      if (stepTotal) stepTotal.textContent = '1';
-      if (personalH) personalH.style.display = 'none';
-      if (corpH) corpH.style.display = 'block';
-      showStep(5);
-    } else {
-      diagState.answers[1] = '개인회생/개인파산';
-      diagState.totalSteps = 4;
-      if (stepTotal) stepTotal.textContent = '4';
-      if (personalH) personalH.style.display = 'block';
-      if (corpH) corpH.style.display = 'none';
-      showStep(2);
-    }
-  };
-
-  // Step 2 채무 규모: 선택 클릭 → 다음
-  document.querySelectorAll('.al-opt[data-q="2"]').forEach(function(btn) {
+  // Option click → save answer and advance
+  document.querySelectorAll('.al-opt').forEach(function(btn) {
     btn.addEventListener('click', function() {
-      diagState.answers[2] = btn.getAttribute('data-value');
+      var q = btn.getAttribute('data-q');
+      var v = btn.getAttribute('data-value');
+      diagState.answers[q] = v;
+      // highlight (within same step)
       btn.parentElement.querySelectorAll('.al-opt').forEach(function(b) { b.classList.remove('is-selected'); });
       btn.classList.add('is-selected');
-      setTimeout(function() { showStep(3); }, 200);
+      // advance
+      var next = parseInt(q, 10) + 1;
+      setTimeout(function() { showStep(next); }, 200);
     });
   });
 
-  // Step 2 채무 직접입력 → 다음
-  window.diagDebtNext = function() {
-    var v = document.getElementById('diagDebtInput').value;
-    if (v) diagState.answers[2] = v + '만원 (직접입력)';
-    else if (!diagState.answers[2]) { alert('채무 규모를 선택하거나 입력해 주세요.'); return; }
-    showStep(3);
-  };
-
-  // Step 3 소득: 정기/비정기 선택 시 입력칸 노출
-  window.diagIncomeSelect = function(val) {
-    diagState.answers[3] = val;
-    document.getElementById('diagIncomeWrap').style.display = 'block';
-    // 선택 표시
-    document.querySelectorAll('.al-opt[data-q="3"]').forEach(function(b) { b.classList.remove('is-selected'); });
-    event.currentTarget.classList.add('is-selected');
-  };
-
-  // Step 3 무소득 → 바로 다음 (기존 al-opt click)
-  document.querySelectorAll('.al-opt[data-q="3"][data-value="무소득"]').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      diagState.answers[3] = '무소득';
-      document.getElementById('diagIncomeWrap').style.display = 'none';
-      setTimeout(function() { showStep(4); }, 200);
-    });
-  });
-
-  window.diagIncomeNext = function() {
-    var v = document.getElementById('diagIncomeInput').value;
-    if (v) diagState.answers['월소득'] = v + '만원';
-    showStep(4);
-  };
-
-  // Step 4 법적절차: 기존 al-opt click → 연락처로
-  document.querySelectorAll('.al-opt[data-q="4"]').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      diagState.answers[4] = btn.getAttribute('data-value');
-      btn.parentElement.querySelectorAll('.al-opt').forEach(function(b) { b.classList.remove('is-selected'); });
-      btn.classList.add('is-selected');
-      setTimeout(function() { showStep(5); }, 200);
-    });
-  });
-
-  // Contact method toggle
+  // Contact method toggle (phone vs kakao)
   var methodRadios = document.querySelectorAll('input[name="diagMethod"]');
   var contactInput = document.getElementById('diagContact');
   var contactLabel = document.getElementById('diagContactLabel');
@@ -180,7 +133,7 @@
     });
   });
 
-  // Submit
+  // Submit diagnose
   var submitBtn = document.getElementById('diagSubmit');
   if (submitBtn) {
     submitBtn.addEventListener('click', function() {
@@ -194,11 +147,22 @@
       if (!contact) { alert('연락처를 입력해 주세요.'); return; }
       if (!agree) { alert('개인정보 수집·이용에 동의해 주세요.'); return; }
 
-      var category = diagState.answers[1] || '기타';
-      var qLabels = { 1: '분야', 2: '채무 규모', 3: '소득 상태', '월소득': '월소득', 4: '법적 절차' };
+      // Build category from Q5
+      var catMap = {
+        '개인회생': '개인회생', '개인파산': '개인파산',
+        '법인회생': '법인회생', '민사/형사': '민사',
+        '가사/이혼': '가사/이혼', '전문가상담': '기타'
+      };
+      var category = catMap[diagState.answers[5]] || '기타';
+
+      // Build message
+      var qLabels = {
+        1: '주요 고민', 2: '채무 규모', 3: '소득 상태',
+        4: '법적 절차', 5: '원하는 해결'
+      };
       var lines = ['[1분 자가진단 결과]'];
-      for (var k in qLabels) {
-        if (diagState.answers[k]) lines.push('- ' + qLabels[k] + ': ' + diagState.answers[k]);
+      for (var i = 1; i <= 5; i++) {
+        lines.push('- ' + qLabels[i] + ': ' + (diagState.answers[i] || '-'));
       }
       lines.push('');
       lines.push('[연락 정보]');
@@ -207,28 +171,37 @@
       if (time) lines.push('- 연락 가능 시간: ' + time);
 
       var message = lines.join('\n');
+
+      // Format phone field for CRM (use contact as phone)
       var phoneValue = method === '카카오톡' ? ('카톡: ' + contact) : contact;
 
-      var diagnosis = {};
-      for (var k2 in qLabels) {
-        if (diagState.answers[k2]) diagnosis[qLabels[k2]] = diagState.answers[k2];
-      }
-      diagnosis['연락 방법'] = method;
-      if (time) diagnosis['연락 가능 시간'] = time;
-
       submitBtn.disabled = true; submitBtn.textContent = '접수 중...';
+
+      var diagnosis = {
+        '주요 고민': diagState.answers[1] || '',
+        '채무 규모': diagState.answers[2] || '',
+        '소득 상태': diagState.answers[3] || '',
+        '법적 절차': diagState.answers[4] || '',
+        '원하는 해결': diagState.answers[5] || '',
+        '연락 방법': method,
+        '연락 가능 시간': time || '가능한 빠르게',
+      };
 
       fetch('/api/consultation/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: name, phone: phoneValue,
-          category: category, message: message,
-          source: '자가진단', diagnosis: diagnosis,
+          name: name,
+          phone: phoneValue,
+          category: category,
+          message: message,
+          source: '자가진단',
+          diagnosis: diagnosis,
         })
       }).then(function(r) {
-        if (r.ok) showStep(6);
-        else throw new Error();
+        if (r.ok) {
+          showStep(7);
+        } else throw new Error();
       }).catch(function() {
         submitBtn.disabled = false;
         submitBtn.textContent = '무료 상담 신청 완료하기';
@@ -237,28 +210,27 @@
     });
   }
 
-  // Form (하단 상담 신청)
+  // Form
   var form = document.getElementById('alForm');
   if (form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       var btn = form.querySelector('.al-form__submit');
       btn.disabled = true; btn.textContent = '접수 중...';
-      var data = {
-        name: form.name.value, phone: form.phone.value,
-        category: form.category.value, message: form.message.value
-      };
       fetch('/api/consultation/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        body: JSON.stringify({
+          name: form.name.value, phone: form.phone.value,
+          category: form.category.value, message: form.message.value
+        })
       }).then(function(r) {
         if (r.ok) {
           form.innerHTML = '<div class="al-form__success"><strong>상담 신청이 접수되었습니다.</strong><p>내편이 되어 가장 빠른 시간 내에<br>직접 연락드리겠습니다.</p></div>';
         } else throw new Error();
       }).catch(function() {
-        btn.disabled = false; btn.textContent = '무료 상담 신청하기 →';
-        alert('접수에 실패했습니다.');
+        btn.disabled = false; btn.textContent = '무료 상담 신청하기';
+        alert('접수에 실패했습니다. 전화로 문의해 주세요.');
       });
     });
   }
@@ -297,15 +269,18 @@ function openPractice(el) {
   document.getElementById('alPmTitle').textContent = el.getAttribute('data-p-title');
   document.getElementById('alPmDesc').innerHTML = el.getAttribute('data-p-desc').replace(/\\n/g, '<br>');
   document.getElementById('alPmDetail').innerHTML = el.getAttribute('data-p-detail').replace(/\\n/g, '<br>');
+
   var tagsEl = document.getElementById('alPmTags');
   tagsEl.innerHTML = '';
-  (el.getAttribute('data-p-tags') || '').split(',').forEach(function(t) {
+  var tags = (el.getAttribute('data-p-tags') || '').split(',');
+  tags.forEach(function(t) {
     if (!t) return;
     var span = document.createElement('span');
     span.textContent = t;
     span.style.cssText = 'font-size:0.75rem;font-weight:600;padding:0.25rem 0.65rem;background:var(--al-green-soft);color:var(--al-green);border-radius:999px;';
     tagsEl.appendChild(span);
   });
+
   m.hidden = false;
   document.body.style.overflow = 'hidden';
 }
@@ -318,18 +293,31 @@ function closePractice() {
 // ===== KAKAO MAP =====
 window.addEventListener('DOMContentLoaded', function() {
   if (typeof kakao === 'undefined' || !kakao.maps) return;
+
   kakao.maps.load(function() {
     var container = document.getElementById('alMap');
     if (!container) return;
+
+    // 안산시 상록구 광덕1로385 좌표
     var coords = new kakao.maps.LatLng(37.3089, 126.8665);
-    var map = new kakao.maps.Map(container, { center: coords, level: 3 });
-    var marker = new kakao.maps.Marker({ map: map, position: coords });
+
+    var map = new kakao.maps.Map(container, {
+      center: coords,
+      level: 3
+    });
+
+    var marker = new kakao.maps.Marker({
+      map: map,
+      position: coords
+    });
+
     var info = new kakao.maps.InfoWindow({
       content: '<div style="padding:10px 14px;font-size:13px;line-height:1.6;min-width:160px;font-family:Pretendard,sans-serif;">' +
         '<strong style="font-size:14px;color:#144534;">법률사무소 시민</strong><br>' +
         '<span style="color:#666;">안산시 상록구 광덕1로385. 202호</span></div>'
     });
     info.open(map, marker);
+
     map.addControl(new kakao.maps.ZoomControl(), kakao.maps.ControlPosition.RIGHT);
   });
 });
