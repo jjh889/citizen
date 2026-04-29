@@ -25,7 +25,7 @@
 <header class="lp-header">
   <div class="lp-header__inner">
     <a href="/lp/diagnose/" class="lp-logo">
-      <span class="lp-logo__mark">시</span>
+      <img src="{% static 'img/155.png' %}" alt="법률사무소 시민" style="height:48px;width:auto;object-fit:contain;">
       <span class="lp-logo__text">법률사무소 <em>시민</em></span>
     </a>
     <div class="lp-header__actions">
@@ -33,9 +33,9 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>
         홈페이지
       </a>
-      <a href="tel:031-438-2585" class="lp-btn-phone">
+      <a href="tel:031-438-2586" class="lp-btn-phone">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        031-438-2585
+        031-438-2586
       </a>
       <a href="/v/ally/#consult" class="lp-btn-primary">상담신청</a>
     </div>
@@ -50,10 +50,6 @@
     <div class="lp-intro" id="lpIntro">
       <div class="lp-intro__quote">"</div>
 
-      <div class="lp-intro__badge">
-        <span class="lp-intro__badge-dot"></span>
-        20년 경력 · 7,000건 상담
-      </div>
 
       <h1 class="lp-intro__title">
         혼자 감당하기<br>
@@ -93,53 +89,52 @@
         <span id="lpStepCur">1</span> / <span>5</span>
       </div>
 
-      <!-- Step 1 -->
+      <!-- Step 1: 개인/법인 선택 -->
       <div class="lp-quiz__step is-active" data-step="1">
-        <h3 class="lp-quiz__q">현재 가장 큰 고민은 <em>무엇인가요?</em></h3>
-        <p class="lp-quiz__sub">당신의 상황에 가장 가까운 항목을 선택해 주세요.</p>
+        <h3 class="lp-quiz__q">어떤 분야의 상담이 <em>필요하신가요?</em></h3>
+        <p class="lp-quiz__sub">상황에 맞는 진단을 도와드립니다.</p>
         <div class="lp-opts">
-          <button type="button" class="lp-opt" data-q="1" data-value="채무 독촉 전화">
-            <span class="lp-opt__icon">📞</span>
-            <span class="lp-opt__text"><strong>채무 독촉 전화</strong><span>끊임없이 오는 독촉 연락</span></span>
+          <button type="button" class="lp-opt" data-q="1" data-value="개인회생/개인파산" onclick="lpRoute('personal')">
+            <span class="lp-opt__icon">📊</span>
+            <span class="lp-opt__text"><strong>개인회생 / 개인파산</strong><span>개인 채무 감면 · 면책</span></span>
           </button>
-          <button type="button" class="lp-opt" data-q="1" data-value="법적 조치">
-            <span class="lp-opt__icon">⚖️</span>
-            <span class="lp-opt__text"><strong>채권자의 법적 조치</strong><span>지급명령, 소송 제기</span></span>
-          </button>
-          <button type="button" class="lp-opt" data-q="1" data-value="강제집행">
-            <span class="lp-opt__icon">🔒</span>
-            <span class="lp-opt__text"><strong>강제집행</strong><span>급여 압류, 예금 압류</span></span>
-          </button>
-          <button type="button" class="lp-opt" data-q="1" data-value="기타">
-            <span class="lp-opt__icon">💭</span>
-            <span class="lp-opt__text"><strong>그 외 법률 문제</strong><span>민사·형사·가사 등</span></span>
+          <button type="button" class="lp-opt" data-q="1" data-value="법인회생/법인파산" onclick="lpRoute('corporate')">
+            <span class="lp-opt__icon">🏢</span>
+            <span class="lp-opt__text"><strong>법인회생 / 법인파산</strong><span>법인 재정 정상화 · 청산</span></span>
           </button>
         </div>
       </div>
 
-      <!-- Step 2 -->
+      <!-- Step 2: 채무 규모 (개인) -->
       <div class="lp-quiz__step" data-step="2">
         <h3 class="lp-quiz__q">총 채무 규모는 <em>어느 정도인가요?</em></h3>
-        <p class="lp-quiz__sub">대략적인 금액을 선택해 주세요.</p>
+        <p class="lp-quiz__sub">대략적인 금액을 선택하거나 직접 입력해 주세요.</p>
         <div class="lp-opts">
           <button type="button" class="lp-opt" data-q="2" data-value="3천만원 미만"><span class="lp-opt__text"><strong>3천만원 미만</strong></span></button>
           <button type="button" class="lp-opt" data-q="2" data-value="3천~1억원"><span class="lp-opt__text"><strong>3천만원 ~ 1억원</strong></span></button>
           <button type="button" class="lp-opt" data-q="2" data-value="1억~3억원"><span class="lp-opt__text"><strong>1억원 ~ 3억원</strong></span></button>
           <button type="button" class="lp-opt" data-q="2" data-value="3억원 초과"><span class="lp-opt__text"><strong>3억원 초과</strong></span></button>
-          <button type="button" class="lp-opt" data-q="2" data-value="해당없음"><span class="lp-opt__text"><strong>채무 관련이 아닙니다</strong></span></button>
+        </div>
+        <div style="margin-top:1rem;">
+          <label class="lp-field__label optional">직접 입력 (만원 단위)</label>
+          <div style="display:flex;gap:0.5rem;align-items:center;">
+            <input type="number" class="lp-field__input" id="lpDebtInput" placeholder="예) 5000" style="flex:1;">
+            <span style="font-size:0.9rem;color:var(--lp-text-2);flex-shrink:0;">만원</span>
+          </div>
+          <button type="button" style="width:100%;margin-top:0.75rem;padding:0.85rem;background:var(--lp-green);color:#fff;border:none;border-radius:999px;font-size:0.95rem;font-weight:700;cursor:pointer;" onclick="lpDebtNext()">다음 →</button>
         </div>
       </div>
 
-      <!-- Step 3 -->
+      <!-- Step 3: 소득 (개인) -->
       <div class="lp-quiz__step" data-step="3">
         <h3 class="lp-quiz__q">현재 소득 상태는 <em>어떠신가요?</em></h3>
         <p class="lp-quiz__sub">해결책 선택에 중요한 정보입니다.</p>
         <div class="lp-opts">
-          <button type="button" class="lp-opt" data-q="3" data-value="정기소득">
+          <button type="button" class="lp-opt" data-q="3" data-value="정기소득" onclick="lpIncomeSelect('정기소득',this)">
             <span class="lp-opt__icon">💼</span>
             <span class="lp-opt__text"><strong>정기 소득이 있음</strong><span>직장인 · 월급</span></span>
           </button>
-          <button type="button" class="lp-opt" data-q="3" data-value="비정기소득">
+          <button type="button" class="lp-opt" data-q="3" data-value="비정기소득" onclick="lpIncomeSelect('비정기소득',this)">
             <span class="lp-opt__icon">🏪</span>
             <span class="lp-opt__text"><strong>비정기 소득</strong><span>자영업 · 프리랜서</span></span>
           </button>
@@ -148,55 +143,60 @@
             <span class="lp-opt__text"><strong>현재 소득이 없음</strong><span>실직 · 구직 중</span></span>
           </button>
         </div>
+        <div id="lpIncomeWrap" style="display:none;margin-top:1rem;">
+          <label class="lp-field__label optional">월 평균 소득 (세후, 만원 단위)</label>
+          <div style="display:flex;gap:0.5rem;align-items:center;">
+            <input type="number" class="lp-field__input" id="lpIncomeInput" placeholder="예) 250">
+            <span style="font-size:0.9rem;color:var(--lp-text-2);flex-shrink:0;">만원</span>
+          </div>
+          <button type="button" style="width:100%;margin-top:0.75rem;padding:0.85rem;background:var(--lp-green);color:#fff;border:none;border-radius:999px;font-size:0.95rem;font-weight:700;cursor:pointer;" onclick="lpIncomeNext()">다음 →</button>
+        </div>
       </div>
 
-      <!-- Step 4 -->
+      <!-- Step 4: 법적 절차 (개인) -->
       <div class="lp-quiz__step" data-step="4">
-        <h3 class="lp-quiz__q">법적 절차가 <em>진행 중인가요?</em></h3>
+        <h3 class="lp-quiz__q">현재 법적 절차가 <em>진행 중인가요?</em></h3>
         <p class="lp-quiz__sub">긴급도를 파악하는 데 도움이 됩니다.</p>
         <div class="lp-opts">
           <button type="button" class="lp-opt" data-q="4" data-value="없음"><span class="lp-opt__text"><strong>아직 없음</strong></span></button>
-          <button type="button" class="lp-opt" data-q="4" data-value="독촉장"><span class="lp-opt__text"><strong>독촉장 / 최고장 받음</strong></span></button>
+          <button type="button" class="lp-opt" data-q="4" data-value="독촉장/최고장"><span class="lp-opt__text"><strong>독촉장 / 최고장 받음</strong></span></button>
           <button type="button" class="lp-opt" data-q="4" data-value="가압류/압류"><span class="lp-opt__text"><strong>가압류 / 압류 진행</strong></span></button>
           <button type="button" class="lp-opt" data-q="4" data-value="소송진행중"><span class="lp-opt__text"><strong>소송 진행 중</strong></span></button>
           <button type="button" class="lp-opt" data-q="4" data-value="모름"><span class="lp-opt__text"><strong>잘 모르겠음</strong></span></button>
-        </div>
-      </div>
-
-      <!-- Step 5 -->
-      <div class="lp-quiz__step" data-step="5">
-        <h3 class="lp-quiz__q">원하시는 해결 방향이 <em>있으신가요?</em></h3>
-        <p class="lp-quiz__sub">상담 시 더 정확한 안내가 가능합니다.</p>
-        <div class="lp-opts">
-          <button type="button" class="lp-opt" data-q="5" data-value="개인회생">
-            <span class="lp-opt__icon">📊</span>
-            <span class="lp-opt__text"><strong>개인회생</strong><span>채무 일부 변제 · 나머지 면책</span></span>
-          </button>
-          <button type="button" class="lp-opt" data-q="5" data-value="개인파산">
-            <span class="lp-opt__icon">🆓</span>
-            <span class="lp-opt__text"><strong>개인파산</strong><span>채무 전액 면책</span></span>
-          </button>
-          <button type="button" class="lp-opt" data-q="5" data-value="법인회생">
-            <span class="lp-opt__icon">🏢</span>
-            <span class="lp-opt__text"><strong>법인회생</strong><span>법인 재정 정상화</span></span>
-          </button>
-          <button type="button" class="lp-opt" data-q="5" data-value="민사/형사">
-            <span class="lp-opt__icon">📋</span>
-            <span class="lp-opt__text"><strong>민사 · 형사</strong><span>소송 · 분쟁</span></span>
-          </button>
-          <button type="button" class="lp-opt" data-q="5" data-value="가사/이혼">
-            <span class="lp-opt__icon">👨‍👩‍👧</span>
-            <span class="lp-opt__text"><strong>가사 · 이혼</strong><span>이혼 · 양육권</span></span>
-          </button>
-          <button type="button" class="lp-opt" data-q="5" data-value="전문가상담">
+          <button type="button" class="lp-opt" data-q="4" data-value="상담후진행">
             <span class="lp-opt__icon">💬</span>
-            <span class="lp-opt__text"><strong>전문가 상담 후 결정</strong><span>우선 상담부터</span></span>
+            <span class="lp-opt__text"><strong>상담 후 진행</strong><span>전문가와 상담 후 결정</span></span>
           </button>
         </div>
       </div>
 
-      <!-- Step 6: Contact form -->
-      <div class="lp-quiz__step" data-step="6">
+      <!-- Step 5: 연락처 -->
+      <div class="lp-quiz__step" data-step="5">
+        <!-- 개인용 -->
+        <div id="lpPersonalHeader">
+          <div class="lp-result-head">
+            <div class="lp-result-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              진단 완료
+            </div>
+            <h3 class="lp-quiz__q">연락받으실 정보를 <em>남겨주세요</em></h3>
+            <p class="lp-quiz__sub">내편이 <strong style="color:var(--lp-green);font-weight:800;">1시간 내</strong>에 직접 연락드립니다.</p>
+          </div>
+        </div>
+        <!-- 법인용 -->
+        <div id="lpCorpHeader" style="display:none;">
+          <div style="text-align:center;margin-bottom:2rem;padding-bottom:1.75rem;border-bottom:1px solid var(--lp-line);">
+            <div style="font-size:2.5rem;margin-bottom:1rem;">🏢</div>
+            <h3 class="lp-quiz__q">법인 사건은 <em>전문 진단이 필요합니다</em></h3>
+            <p class="lp-quiz__sub">법인회생·파산은 재무 구조, 채권자 현황 등 종합적인 분석이 필요합니다.</p>
+            <div style="background:var(--lp-green-soft,#E8F0E5);border-radius:16px;padding:1.25rem 1.5rem;margin-top:1.25rem;text-align:left;">
+              <div style="display:flex;align-items:flex-start;gap:0.6rem;margin-bottom:0.5rem;font-size:0.92rem;"><span style="color:var(--lp-green);font-weight:900;">✓</span> 전담 변호사가 <strong>30분 이내</strong> 직접 연락</div>
+              <div style="display:flex;align-items:flex-start;gap:0.6rem;margin-bottom:0.5rem;font-size:0.92rem;"><span style="color:var(--lp-green);font-weight:900;">✓</span> 초기 상담 <strong>완전 무료</strong> · 비밀 보장</div>
+              <div style="display:flex;align-items:flex-start;gap:0.6rem;font-size:0.92rem;"><span style="color:var(--lp-green);font-weight:900;">✓</span> 법인 재무 상황에 맞는 <strong>맞춤 솔루션</strong></div>
+            </div>
+            <p class="lp-quiz__sub" style="margin-top:1rem;">아래 연락처를 남겨주시면 빠르게 연락드리겠습니다.</p>
+          </div>
+        </div>
         <div class="lp-result-head">
           <div class="lp-result-badge">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -260,7 +260,7 @@
       </div>
 
       <!-- Step 7: Success -->
-      <div class="lp-quiz__step" data-step="7">
+      <div class="lp-quiz__step" data-step="6">
         <div class="lp-success">
           <div class="lp-success__icon">
             <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -271,7 +271,7 @@
             <strong>직접 연락</strong>드리겠습니다.<br>
             소중한 문의 감사합니다.
           </p>
-          <a href="tel:031-438-2585" class="lp-success__btn">
+          <a href="tel:031-438-2586" class="lp-success__btn">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
             지금 바로 전화하기
           </a>
@@ -290,11 +290,12 @@
 <footer class="lp-footer">
   <p><strong>법률사무소 시민</strong></p>
   <p>
-    경기 안산시 상록구 이동 715<span class="lp-footer__sep">|</span>
-    <a href="tel:031-438-2585">031-438-2585</a><span class="lp-footer__sep">|</span>
+    안산시 상록구 광덕1로385, 202<span class="lp-footer__sep">|</span>
+    <a href="tel:031-438-2586">031-438-2586</a><span class="lp-footer__sep">|</span>
     평일 09:00-18:00
   </p>
-  <p class="lp-footer__copy">© 2026 LAW OFFICE CITIZEN. ALL RIGHTS RESERVED.</p>
+  <p style="margin-top:0.3rem;">대표자: 고은미 · 사업자등록번호: 134-33-24211</p>
+  <p class="lp-footer__copy">© 2026 법률사무소 시민. ALL RIGHTS RESERVED.</p>
 </footer>
 
 <script src="{% static 'js/lp-diagnose.js' %}"></script>
