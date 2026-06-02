@@ -1,18 +1,8 @@
 #!/bin/sh
 set -e
 
-echo "Running migrations..."
-python manage.py migrate --noinput
-
-echo "Creating superuser..."
-python manage.py shell <<PYEOF
-from django.contrib.auth.models import User
-if not User.objects.filter(username='admin').exists():
-    User.objects.create_superuser('admin', 'admin@citizen.co.kr', 'admin1234')
-    print('Superuser created: admin / admin1234')
-else:
-    print('Superuser already exists')
-PYEOF
+echo "Collecting static files..."
+python manage.py collectstatic --noinput
 
 echo "Starting server on port ${PORT:-8000}..."
 if [ "$DEBUG" = "True" ]; then

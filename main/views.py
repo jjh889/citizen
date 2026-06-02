@@ -7,7 +7,6 @@ from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse, Http404
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
-from .models import Consultation
 
 logger = logging.getLogger(__name__)
 
@@ -61,12 +60,6 @@ def consultation_api(request):
         valid_sources = {'일반', '자가진단', '랜딩페이지'}
         if source not in valid_sources:
             source = '일반'
-
-        Consultation.objects.create(
-            name=name, phone=phone, category=category,
-            message=message, source=source,
-            diagnosis_data=diagnosis if isinstance(diagnosis, dict) else None,
-        )
 
         # 이메일 발송
         diagnosis_text = ''
@@ -180,7 +173,6 @@ def robots_txt(request):
     lines = [
         'User-agent: *',
         'Allow: /',
-        'Disallow: /admin/',
         'Disallow: /api/',
         '',
         f'Sitemap: {request.scheme}://{request.get_host()}/sitemap.xml',
