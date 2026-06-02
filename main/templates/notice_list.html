@@ -32,9 +32,9 @@
       <ul class="sub-page__list">
         {% for notice in notices %}
         <li>
-          <a href="{% url 'notice_detail' notice.pk %}">
+          <a href="{% url 'notice_detail' notice.id %}">
             <span class="sub-page__list-title">{{ notice.title }}</span>
-            <span class="sub-page__list-date">{{ notice.created_at|date:"Y.m.d" }}</span>
+            <span class="sub-page__list-date">{{ notice.created_at }}</span>
           </a>
         </li>
         {% endfor %}

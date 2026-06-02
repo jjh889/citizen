@@ -11,8 +11,8 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "{{ notice.title }}",
-  "datePublished": "{{ notice.created_at|date:'c' }}",
-  "dateModified": "{{ notice.updated_at|date:'c' }}",
+  "datePublished": "{{ notice.created_at }}",
+  "dateModified": "{{ notice.updated_at }}",
   "publisher": { "@type": "Organization", "name": "법률사무소 시민" }
 }
 </script>
@@ -38,7 +38,7 @@
     <div class="container">
       <div class="detail__header">
         <h1 class="detail__title">{{ notice.title }}</h1>
-        <p class="detail__date">{{ notice.created_at|date:"Y년 m월 d일" }}</p>
+        <p class="detail__date">{{ notice.created_at }}</p>
       </div>
       <div class="detail__content">{{ notice.content }}</div>
       <a href="{% url 'notice_list' %}" class="detail__back">&larr; 목록으로</a>

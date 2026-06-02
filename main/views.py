@@ -1,22 +1,46 @@
 import json
-from django.shortcuts import render, get_object_or_404
-from django.http import JsonResponse, HttpResponse
+import logging
+from pathlib import Path
+from django.conf import settings
+from django.core.mail import send_mail
+from django.shortcuts import render
+from django.http import JsonResponse, HttpResponse, Http404
 from django.views.decorators.csrf import csrf_exempt
-from django.views.decorators.http import require_POST, require_GET
-from django.utils import timezone
-from .models import Consultation, Notice, Popup, FAQ
+from django.views.decorators.http import require_POST
+from .models import Consultation
+
+logger = logging.getLogger(__name__)
+
+DATA_DIR = Path(__file__).resolve().parent / 'data'
+
+
+def _load_json(filename):
+    filepath = DATA_DIR / filename
+    if filepath.exists():
+        with open(filepath, encoding='utf-8') as f:
+            return json.load(f)
+    return []
+
+
+def _get_notices(limit=None):
+    notices = _load_json('notices.json')
+    return notices[:limit] if limit else notices
+
+
+def _get_faqs(limit=None):
+    faqs = _load_json('faqs.json')
+    return faqs[:limit] if limit else faqs
 
 
 def index(request):
-    # ally를 메인으로
     return render(request, 'variants/ally.html', _variant_context())
 
 
 def variant_classic(request):
-    # 기존 메인
-    notices = Notice.objects.filter(is_active=True)[:5]
-    faqs = FAQ.objects.filter(is_active=True)[:5]
-    return render(request, 'index.html', {'notices': notices, 'faqs': faqs})
+    return render(request, 'index.html', {
+        'notices': _get_notices(5),
+        'faqs': _get_faqs(5),
+    })
 
 
 @csrf_exempt
@@ -29,7 +53,7 @@ def consultation_api(request):
         category = data.get('category', '').strip()
         message = data.get('message', '').strip()
         source = data.get('source', '일반')
-        diagnosis = data.get('diagnosis')  # dict or None
+        diagnosis = data.get('diagnosis')
 
         if not name or not phone or not category:
             return JsonResponse({'error': '필수 항목을 입력해주세요.'}, status=400)
@@ -43,48 +67,61 @@ def consultation_api(request):
             message=message, source=source,
             diagnosis_data=diagnosis if isinstance(diagnosis, dict) else None,
         )
+
+        # 이메일 발송
+        diagnosis_text = ''
+        if isinstance(diagnosis, dict):
+            diagnosis_text = '\n'.join(f'  - {k}: {v}' for k, v in diagnosis.items() if v)
+            diagnosis_text = f'\n\n[자가진단 응답]\n{diagnosis_text}'
+
+        email_body = (
+            f'새로운 상담 신청이 접수되었습니다.\n\n'
+            f'이름: {name}\n'
+            f'연락처: {phone}\n'
+            f'상담 분야: {category}\n'
+            f'유입 경로: {source}\n'
+            f'상담 내용: {message or "(없음)"}'
+            f'{diagnosis_text}'
+        )
+        try:
+            send_mail(
+                subject=f'[법률사무소 시민] 상담 신청 - {name} ({category})',
+                message=email_body,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[settings.CONSULTATION_EMAIL],
+                fail_silently=True,
+            )
+        except Exception as e:
+            logger.warning('상담 이메일 발송 실패: %s', e)
+
         return JsonResponse({'success': True}, status=201)
     except (json.JSONDecodeError, Exception):
         return JsonResponse({'error': '서버 오류가 발생했습니다.'}, status=500)
 
 
-@require_GET
-def popup_api(request):
-    today = timezone.now().date()
-    popups = Popup.objects.filter(
-        is_active=True, start_date__lte=today, end_date__gte=today
-    ).values('id', 'title', 'content', 'link_url')
-
-    result = []
-    for p in popups:
-        popup = Popup.objects.get(id=p['id'])
-        result.append({
-            'id': p['id'],
-            'title': p['title'],
-            'content': p['content'],
-            'linkUrl': p['link_url'],
-            'imageUrl': popup.image.url if popup.image else None,
-        })
-
-    return JsonResponse(result, safe=False)
-
-
 def notice_list(request):
-    notices = Notice.objects.filter(is_active=True)
+    notices = _get_notices()
     return render(request, 'notice_list.html', {'notices': notices})
 
 
 def notice_detail(request, pk):
-    notice = get_object_or_404(Notice, pk=pk, is_active=True)
+    notices = _get_notices()
+    notice = None
+    for n in notices:
+        if n['id'] == pk:
+            notice = n
+            break
+    if notice is None:
+        raise Http404
     return render(request, 'notice_detail.html', {'notice': notice})
 
 
 def faq_list(request):
-    faqs = FAQ.objects.filter(is_active=True)
-    categories = FAQ.objects.filter(is_active=True).values_list('category', flat=True).distinct()
+    faqs = _get_faqs()
+    categories = list(dict.fromkeys(f['category'] for f in faqs))
     selected = request.GET.get('category', '')
     if selected:
-        faqs = faqs.filter(category=selected)
+        faqs = [f for f in faqs if f['category'] == selected]
     return render(request, 'faq_list.html', {
         'faqs': faqs,
         'categories': categories,
@@ -94,8 +131,8 @@ def faq_list(request):
 
 def _variant_context():
     return {
-        'notices': Notice.objects.filter(is_active=True)[:5],
-        'faqs': FAQ.objects.filter(is_active=True)[:5],
+        'notices': _get_notices(5),
+        'faqs': _get_faqs(5),
     }
 
 
@@ -136,7 +173,6 @@ def variant_story(request):
 
 
 def lp_diagnose(request):
-    # 광고 유입용 자가진단 랜딩 페이지
     return render(request, 'lp/diagnose.html')
 
 

@@ -1,15 +1,9 @@
-databases:
-  - name: citizen-db
-    plan: free
-    databaseName: citizen
-    user: citizen
-
 services:
   - type: web
     name: citizen
     runtime: docker
     plan: free
-    branch: prod
+    branch: nodatabase
     dockerfilePath: ./Dockerfile
     envVars:
       - key: SECRET_KEY
@@ -22,7 +16,3 @@ services:
         sync: false
       - key: CSRF_TRUSTED_ORIGINS
         sync: false
-      - key: DATABASE_URL
-        fromDatabase:
-          name: citizen-db
-          property: connectionString

@@ -336,9 +336,9 @@
             <ul class="board-list">
               {% for notice in notices %}
               <li>
-                <a href="{% url 'notice_detail' notice.pk %}">
+                <a href="{% url 'notice_detail' notice.id %}">
                   <span class="board-list__title">{{ notice.title }}</span>
-                  <span class="board-list__date">{{ notice.created_at|date:"m.d" }}</span>
+                  <span class="board-list__date">{{ notice.created_at }}</span>
                 </a>
               </li>
               {% endfor %}
