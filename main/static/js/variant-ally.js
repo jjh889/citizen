@@ -248,7 +248,8 @@
       btn.disabled = true; btn.textContent = '접수 중...';
       var data = {
         name: form.name.value, phone: form.phone.value,
-        category: form.category.value, message: form.message.value
+        category: form.category.value, message: form.message.value,
+        company: (form.company ? form.company.value : '')
       };
       fetch('/api/consultation/', {
         method: 'POST',

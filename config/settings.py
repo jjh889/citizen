@@ -74,6 +74,20 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER)
 CONSULTATION_EMAIL = os.environ.get('CONSULTATION_EMAIL', 'jjh889@naver.com')
 
+# Cache (파일 기반: DB 없이도 여러 워커 프로세스 간 rate limit 공유 가능)
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': str(BASE_DIR / '.cache'),
+        'TIMEOUT': 3600,
+    }
+}
+
+# 상담 신청 스팸 방지 설정 (환경변수로 조정 가능)
+CONSULT_RATE_LIMIT = int(os.environ.get('CONSULT_RATE_LIMIT', '3'))            # 짧은 창(초) 내 최대 신청 수
+CONSULT_RATE_WINDOW = int(os.environ.get('CONSULT_RATE_WINDOW', '60'))         # 짧은 창 길이(초)
+CONSULT_RATE_LIMIT_HOUR = int(os.environ.get('CONSULT_RATE_LIMIT_HOUR', '8'))  # 1시간 내 최대 신청 수
+
 CSRF_TRUSTED_ORIGINS = [
     origin.strip()
     for origin in os.environ.get('CSRF_TRUSTED_ORIGINS', SITE_URL).split(',')

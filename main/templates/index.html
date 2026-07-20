@@ -400,6 +400,9 @@
           <div class="cta__form-wrapper" id="consult-form">
             <h3 class="cta__form-title">빠른 상담 신청</h3>
             <form class="form" id="consultForm">
+              <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+                <label>회사명<input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+              </div>
               <div class="form__row">
                 <div class="form__group">
                   <label for="name" class="form__label">이름</label>
@@ -544,7 +547,8 @@
         name: form.name.value,
         phone: form.phone.value,
         category: form.category.value,
-        message: form.message.value
+        message: form.message.value,
+        company: (form.company ? form.company.value : '')
       };
 
       fetch('/api/consultation/', {
